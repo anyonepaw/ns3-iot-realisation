@@ -45,7 +45,7 @@ option(NS3_LIBXML2 "Build with LIBXML2 support" OFF)
 set(NS3_LIBXML2 ON)
 
 option(NS3_LIBRT "Build with RT support" OFF)
-set(NS3_LIBRT ON) #not working on Windows
+set(NS3_LIBRT OFF) #not working on Windows
 
 option(NS3_MPI "Build with MPI support" OFF)
 set(NS3_MPI OFF)
@@ -74,7 +74,7 @@ set(NS3_BRITE ON)
 option(NS3_NETANIM "Build netanim support" OFF)
 set(NS3_NETANIM ON)
 
-set(USE_QT 4)# Choose between Qt 4 or 5
+set(USE_QT 5)# Choose between Qt 4 or 5
 
 option(NS3_PTHREAD "Build with pthread support" ON)
 set(NS3_PTHREAD ON)
