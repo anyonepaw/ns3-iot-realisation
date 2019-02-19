@@ -13,6 +13,7 @@ Running
 After building: the executables will be in ns3/build/bin, or one of its subfolders (library examples);
 libraries will be in ns3/build/lib; headers will be in ns3/build/ns3.
 
+In case of issues: https://github.com/Gabrielcarvfer/NS3/issues/4
 
 
 
