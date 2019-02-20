@@ -358,8 +358,10 @@ main(int argc, char *argv[]) {
 
 
     // TODO:
-    //  нужно прописать код к картинкам таким образом, чтобы к ним не было полного пути
-    //  и нет, "/icons/iot.png" -- это не сработало
+    // нужно прописать код к картинкам таким образом, чтобы к ним не было полного пути
+    // ввести переменную окружения
+    // ${ROOT_PATH}/icons/router.png
+
 
     // resourceId1 = anim.AddResource ("/Users/anyonepaw/CLionProjects/BlockchainIoT/icons/iot.png");
     //uint32_t pictureGate = anim.AddResource ("/Users/anyonepaw/CLionProjects/BlockchainIoT/icons/gate.png");
