@@ -9,7 +9,7 @@ cmake_minimum_required( VERSION 3.11 )
 #######################################
 # Project name                        #
 #######################################
-project(NS3 CXX C)
+project(ns3-iot-realization CXX C)
 
 include(buildsupport/macros_and_definitions.cmake)
 
