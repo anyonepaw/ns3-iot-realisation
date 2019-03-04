@@ -21,7 +21,7 @@
 
 #include "ns3/ipv4-address.h"
 #include "ns3/net-device-container.h"
-#include "ipv4-interface-container.h"
+#include "ns3/ipv4-interface-container.h"
 
 namespace ns3 {
 

@@ -15,12 +15,13 @@
 #include "ns3/uinteger.h"
 #include "ns3/double.h"
 #include "ns3/bitcoin-miner.h"
-#include "../../rapidjson/document.h"
-#include "../../rapidjson/writer.h"
-#include "../../rapidjson/stringbuffer.h"
+#include "../3rd-party/rapidjson/include/rapidjson/document.h"
+#include "../3rd-party/rapidjson/include/rapidjson/writer.h"
+#include "../3rd-party/rapidjson/include/rapidjson/stringbuffer.h"
 #include <fstream>
 #include <time.h>
 #include <sys/time.h>
+#include <array>
 
 
 static double GetWallTime();

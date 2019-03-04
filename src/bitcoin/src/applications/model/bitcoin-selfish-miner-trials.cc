@@ -15,9 +15,10 @@
 #include "ns3/uinteger.h"
 #include "ns3/double.h"
 #include "ns3/bitcoin-selfish-miner-trials.h"
-#include "../../rapidjson/document.h"
-#include "../../rapidjson/writer.h"
-#include "../../rapidjson/stringbuffer.h"
+#include "../3rd-party/rapidjson/include/rapidjson/document.h"
+#include "../3rd-party/rapidjson/include/rapidjson/writer.h"
+#include "../3rd-party/rapidjson/include/rapidjson/stringbuffer.h"
+#include <array>
 
 namespace ns3 {
 

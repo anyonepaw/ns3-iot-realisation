@@ -24,6 +24,7 @@
 #include "ns3/applications-module.h"
 #include "ns3/point-to-point-layout-module.h"
 #include "ns3/mpi-interface.h"
+#include "bitcoin-node-helper.h"
 
 #ifdef NS3_MPI
 #include <mpi.h>

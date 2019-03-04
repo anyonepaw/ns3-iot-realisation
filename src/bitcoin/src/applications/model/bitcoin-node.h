@@ -13,9 +13,9 @@
 #include "ns3/address.h"
 #include "bitcoin.h"
 #include "ns3/boolean.h"
-#include "../../rapidjson/document.h"
-#include "../../rapidjson/writer.h"
-#include "../../rapidjson/stringbuffer.h"
+#include "../3rd-party/rapidjson/include/rapidjson/document.h"
+#include "../3rd-party/rapidjson/include/rapidjson/writer.h"
+#include "../3rd-party/rapidjson/include/rapidjson/stringbuffer.h"
 
 namespace ns3 {
 
