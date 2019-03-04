@@ -16,3 +16,4 @@ foreach(scratch_src ${scratches})
     endif()
 endforeach()
 
+include_directories(tangle)

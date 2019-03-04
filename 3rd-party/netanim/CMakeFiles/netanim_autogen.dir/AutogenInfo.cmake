@@ -1,0 +1,35 @@
+# Meta
+set(AM_MULTI_CONFIG "FALSE")
+set(AM_PARALLEL "2")
+set(AM_VERBOSITY "")
+# Directories
+set(AM_CMAKE_SOURCE_DIR "/Users/anyonepaw/CLionProjects/ns3-iot-realisation")
+set(AM_CMAKE_BINARY_DIR "/Users/anyonepaw/CLionProjects/ns3-iot-realisation")
+set(AM_CMAKE_CURRENT_SOURCE_DIR "/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim")
+set(AM_CMAKE_CURRENT_BINARY_DIR "/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim")
+set(AM_CMAKE_INCLUDE_DIRECTORIES_PROJECT_BEFORE "")
+set(AM_BUILD_DIR "/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/netanim_autogen")
+set(AM_INCLUDE_DIR "/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/netanim_autogen/include")
+# Files
+set(AM_SOURCES "/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/animatormode.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/animatorscene.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/animatorview.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/animlink.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/animnode.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/animpacket.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/animpropertybrowser.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/animresource.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/animxmlparser.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/countertablesscene.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/flowmonstatsscene.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/flowmonxmlparser.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/graphpacket.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/interfacestatsscene.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/logqt.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/main.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/mode.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/netanim.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/packetsmode.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/packetsscene.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/packetsview.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/qcustomplot.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/qtpropertybrowser/src/fileedit.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/qtpropertybrowser/src/fileeditfactory.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/qtpropertybrowser/src/filepathmanager.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/qtpropertybrowser/src/qtbuttonpropertybrowser.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/qtpropertybrowser/src/qteditorfactory.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/qtpropertybrowser/src/qtgroupboxpropertybrowser.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/qtpropertybrowser/src/qtpropertybrowser.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/qtpropertybrowser/src/qtpropertybrowserutils.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/qtpropertybrowser/src/qtpropertymanager.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/qtpropertybrowser/src/qttreepropertybrowser.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/qtpropertybrowser/src/qtvariantproperty.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/resizeableitem.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/routingstatsscene.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/routingxmlparser.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/statsmode.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/statsview.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/table.cpp;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/textbubble.cpp")
+set(AM_HEADERS "")
+set(AM_SETTINGS_FILE "/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/CMakeFiles/netanim_autogen.dir/AutogenOldSettings.txt")
+# Qt
+set(AM_QT_VERSION_MAJOR 5)
+set(AM_QT_MOC_EXECUTABLE "/usr/local/opt/qt/bin/moc")
+set(AM_QT_UIC_EXECUTABLE "/usr/local/opt/qt/bin/uic")
+# MOC settings
+set(AM_MOC_SKIP "")
+set(AM_MOC_DEFINITIONS "HAVE_DIRENT_H;HAVE_GETENV;HAVE_INTTYPES_H;HAVE_PTHREAD_H;HAVE_PYEMBED;HAVE_PYEXT;HAVE_PYTHON_H;HAVE_SIGNAL_H;HAVE_STDINT_H;HAVE_STDLIB_H;HAVE_SYS_STAT_H;HAVE_SYS_TYPES_H;INT64X64_USE_DOUBLE;NS3_BUILD_PROFILE_DEBUG;NS3_LOG_ENABLE;PYTHONARCHDIR=\"/usr/local/lib/python2.7/dist-packages\";PYTHONDIR=\"/usr/local/lib/python2.7/dist-packages\";QT_CORE_LIB;QT_GUI_LIB;QT_PRINTSUPPORT_LIB;QT_WIDGETS_LIB")
+set(AM_MOC_INCLUDES "/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/include;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/brite;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/brite/include;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/openflow;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/openflow/include;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/build;/usr/local/include;/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include/libxml2;/usr/local/Cellar/gsl/2.5/include;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/netanim/qtpropertybrowser/src;/usr/local/opt/qt/lib/QtWidgets.framework;/usr/local/opt/qt/lib/QtWidgets.framework/Headers;/usr/local/opt/qt/lib/QtGui.framework;/usr/local/opt/qt/lib/QtGui.framework/Headers;/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework/Headers;/usr/local/opt/qt/lib/QtCore.framework;/usr/local/opt/qt/lib/QtCore.framework/Headers;/usr/local/opt/qt/./mkspecs/macx-clang;/usr/local/opt/qt/lib/QtPrintSupport.framework;/usr/local/opt/qt/lib/QtPrintSupport.framework/Headers")
+set(AM_MOC_OPTIONS "")
+set(AM_MOC_RELAXED_MODE "")
+set(AM_MOC_MACRO_NAMES "Q_OBJECT;Q_GADGET;Q_NAMESPACE")
+set(AM_MOC_DEPEND_FILTERS "")
+set(AM_MOC_PREDEFS_CMD "/Library/Developer/CommandLineTools/usr/bin/c++;-dM;-E;-c;/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.13/Modules/CMakeCXXCompilerABI.cpp")
+# UIC settings
+set(AM_UIC_SKIP "")
+set(AM_UIC_TARGET_OPTIONS "")
+set(AM_UIC_OPTIONS_FILES "")
+set(AM_UIC_OPTIONS_OPTIONS "")
+set(AM_UIC_SEARCH_PATHS "")

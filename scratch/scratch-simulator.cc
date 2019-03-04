@@ -33,6 +33,7 @@
 #include "ns3/regular-wifi-mac.h"
 #include "ns3/bridge-helper.h"
 #include "ns3/wifi-module.h"
+#include "tangle/attach_to_tangle.h"
 
 using namespace ns3;
 
