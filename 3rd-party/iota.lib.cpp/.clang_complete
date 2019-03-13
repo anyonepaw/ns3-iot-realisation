@@ -1,0 +1,8 @@
+-Iinclude/
+-Iexternal/googletest/googletest/include
+-Iexternal/cpr/include
+-Iexternal/Keccak/include
+-Iexternal/json/src
+-Iexternal/json/include
+-Iexternal/json/include/nlohmann
+-Itest/include/

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="cpr"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="clang"/>
+		<Option virtualFolders="CMake Files\;CMake Files\opt\;CMake Files\cpr\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-build/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-build/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-build/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cpr">
+				<Option output="/Users/anyonepaw/CLionProjects/iota.lib.cpp/deps/lib/libcpr.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-build/cpr"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DUSE_SYSTEM_CURL"/>
+					<Add option="-DCMAKE_USE_OPENSSL"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/include"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/deps/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-build/cpr/Makefile&quot;  VERBOSE=1 cpr"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-build/cpr/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-build/cpr/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-build/cpr/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cpr/fast">
+				<Option output="/Users/anyonepaw/CLionProjects/iota.lib.cpp/deps/lib/libcpr.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-build/cpr"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DUSE_SYSTEM_CURL"/>
+					<Add option="-DCMAKE_USE_OPENSSL"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/include"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/deps/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-build/cpr/Makefile&quot;  VERBOSE=1 cpr/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-build/cpr/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-build/cpr/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-build/cpr/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/cpr/auth.cpp">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/cpr/cookies.cpp">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/cpr/cprtypes.cpp">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/cpr/digest.cpp">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/cpr/error.cpp">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/cpr/multipart.cpp">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/cpr/parameters.cpp">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/cpr/payload.cpp">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/cpr/proxies.cpp">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/cpr/session.cpp">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/cpr/ssl_options.cpp">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/cpr/timeout.cpp">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/cpr/util.cpp">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/include/cpr/api.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/include/cpr/auth.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/include/cpr/body.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/include/cpr/cookies.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/include/cpr/cpr.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/include/cpr/cprtypes.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/include/cpr/curlholder.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/include/cpr/defines.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/include/cpr/digest.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/include/cpr/error.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/include/cpr/max_redirects.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/include/cpr/multipart.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/include/cpr/parameters.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/include/cpr/payload.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/include/cpr/proxies.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/include/cpr/response.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/include/cpr/session.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/include/cpr/ssl_options.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/include/cpr/timeout.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/include/cpr/util.h">
+			<Option target="cpr"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/opt/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\opt\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/cpr/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\cpr\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

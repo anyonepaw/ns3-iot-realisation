@@ -1,0 +1,14 @@
+/Users/anyonepaw/CLionProjects/iota.lib.cpp/deps/bin/curl-config
+/Users/anyonepaw/CLionProjects/iota.lib.cpp/deps/lib/pkgconfig/libcurl.pc
+/Users/anyonepaw/CLionProjects/iota.lib.cpp/deps/include/curl/stdcheaders.h
+/Users/anyonepaw/CLionProjects/iota.lib.cpp/deps/include/curl/mprintf.h
+/Users/anyonepaw/CLionProjects/iota.lib.cpp/deps/include/curl/easy.h
+/Users/anyonepaw/CLionProjects/iota.lib.cpp/deps/include/curl/curl.h
+/Users/anyonepaw/CLionProjects/iota.lib.cpp/deps/include/curl/curlver.h
+/Users/anyonepaw/CLionProjects/iota.lib.cpp/deps/include/curl/system.h
+/Users/anyonepaw/CLionProjects/iota.lib.cpp/deps/include/curl/typecheck-gcc.h
+/Users/anyonepaw/CLionProjects/iota.lib.cpp/deps/include/curl/multi.h
+/Users/anyonepaw/CLionProjects/iota.lib.cpp/deps/lib/cmake/curl/curl-config.cmake
+/Users/anyonepaw/CLionProjects/iota.lib.cpp/deps/lib/cmake/curl/curl-config-version.cmake
+/Users/anyonepaw/CLionProjects/iota.lib.cpp/deps/lib/cmake/curl/libcurl-target.cmake
+/Users/anyonepaw/CLionProjects/iota.lib.cpp/deps/lib/cmake/curl/libcurl-target-debug.cmake

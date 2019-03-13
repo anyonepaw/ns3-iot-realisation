@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="iota"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\cmake\;CMake Files\curl_dep-prefix\;CMake Files\curl_dep-prefix\tmp\;CMake Files\cpr_dep-prefix\;CMake Files\cpr_dep-prefix\tmp\;CMake Files\keccak_dep-prefix\;CMake Files\keccak_dep-prefix\tmp\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="keccak_dep">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 keccak_dep"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="curl_dep">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 curl_dep"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="iota">
+				<Option output="/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/lib/libiota.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/include"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/external/json/include"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/external/json/include/nlohmann"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/deps/include"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/external/cpr/include"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/deps/include/libkeccak.a.headers"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 iota"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="iota/fast">
+				<Option output="/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/lib/libiota.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/include"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/external/json/include"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/external/json/include/nlohmann"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/deps/include"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/external/cpr/include"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/deps/include/libkeccak.a.headers"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 iota/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<C

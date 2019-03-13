@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="iota"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\cmake\;CMake Files\curl_dep-prefix\;CMake Files\curl_dep-prefix\tmp\;CMake Files\cpr_dep-prefix\;CMake Files\cpr_dep-prefix\tmp\;CMake Files\keccak_dep-prefix\;CMake Files\keccak_dep-prefix\tmp\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="keccak_dep">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 keccak_dep"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="curl_dep">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 curl_dep"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="iota">
+				<Option output="/Users/anyonepaw/CLionProjects/iota.lib.cpp/lib/libiota.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/include"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/json/include"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/json/include/nlohmann"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/deps/include"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/include"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/deps/include/libkeccak.a.headers"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 iota"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="iota/fast">
+				<Option output="/Users/anyonepaw/CLionProjects/iota.lib.cpp/lib/libiota.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/include"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/json/include"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/json/include/nlohmann"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/deps/include"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/cpr/include"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/deps/include/libkeccak.a.headers"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 iota/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cpr_dep">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 cpr_dep"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/core.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/extended.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/requests/add_neighbors.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/requests/attach_to_tangle.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/requests/base.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/requests/broadcast_transactions.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/requests/check_consistency.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/requests/find_transactions.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/requests/get_balances.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/requests/get_inclusions_states.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/requests/get_neighbors.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/requests/get_node_info.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/requests/get_tips.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/requests/get_transactions_to_approve.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/requests/get_trytes.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/requests/interrupt_attaching_to_tangle.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/requests/remove_neighbors.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/requests/store_transactions.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/requests/were_addresses_spent_from.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/responses/add_neighbors.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/responses/attach_to_tangle.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/responses/base.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/responses/check_consistency.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/responses/find_transactions.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/responses/get_account_data.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/responses/get_balances.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/responses/get_balances_and_format.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/responses/get_bundle.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/responses/get_inclusion_states.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/responses/get_neighbors.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/responses/get_new_addresses.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/responses/get_node_info.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/responses/get_tips.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/responses/get_transactions_to_approve.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/responses/get_transfers.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/responses/get_trytes.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/responses/remove_neighbors.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/responses/replay_bundle.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/responses/send_transfer.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/responses/were_addresses_spent_from.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/api/service.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/crypto/curl.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/crypto/keccak384.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/crypto/kerl.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/crypto/multi_signing.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/crypto/pow.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/crypto/signing.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/models/address.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/models/bundle.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/models/neighbor.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/models/seed.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/models/signature.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/models/tag.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/models/transaction.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/models/transfer.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/types/big_int.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/types/trinary.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/types/utils.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/source/utils/stop_watch.cpp">
+			<Option target="iota"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/cmake/compilation_settings.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/cmake/cpr_settings.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/cmake/curl_settings.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/cmake/keccak_settings.as_dep.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/cmake/keccak_settings.as_source.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/cmake/misc.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/cmake/version.hpp.in">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/tmp/curl_dep-cfgcmd.txt.in">
+			<Option virtualFolder="CMake Files\curl_dep-prefix\tmp\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/cpr_dep-prefix/tmp/cpr_dep-cfgcmd.txt.in">
+			<Option virtualFolder="CMake Files\cpr_dep-prefix\tmp\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/keccak_dep-prefix/tmp/keccak_dep-cfgcmd.txt.in">
+			<Option virtualFolder="CMake Files\keccak_dep-prefix\tmp\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

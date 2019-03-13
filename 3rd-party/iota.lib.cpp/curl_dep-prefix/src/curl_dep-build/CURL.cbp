@@ -1,0 +1,1023 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="CURL"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="clang"/>
+		<Option virtualFolders="CMake Files\;CMake Files\CMake\;CMake Files\docs\;CMake Files\docs\libcurl\;CMake Files\docs\libcurl\opts\;CMake Files\docs\cmdline-opts\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\curl_dep-prefix\;CMake Files\..\..\curl_dep-prefix\src\;CMake Files\..\..\curl_dep-prefix\src\curl_dep-build\;CMake Files\..\..\curl_dep-prefix\src\curl_dep-build\docs\;CMake Files\..\..\curl_dep-prefix\src\curl_dep-build\docs\libcurl\;CMake Files\..\..\curl_dep-prefix\src\curl_dep-build\docs\libcurl\opts\;CMake Files\..\..\curl_dep-prefix\src\curl_dep-build\docs\cmdline-opts\;CMake Files\..\..\curl_dep-prefix\src\curl_dep-build\lib\;CMake Files\lib\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="uninstall">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 uninstall"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="pdf">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/docs/libcurl"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/docs/libcurl/Makefile&quot;  VERBOSE=1 pdf"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/docs/libcurl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/docs/libcurl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/docs/libcurl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="html">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/docs/libcurl"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/docs/libcurl/Makefile&quot;  VERBOSE=1 html"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/docs/libcurl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/docs/libcurl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/docs/libcurl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="opts-pdf">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/docs/libcurl/opts"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/docs/libcurl/opts/Makefile&quot;  VERBOSE=1 opts-pdf"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/docs/libcurl/opts/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/docs/libcurl/opts/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/docs/libcurl/opts/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="opts-html">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/docs/libcurl/opts"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/docs/libcurl/opts/Makefile&quot;  VERBOSE=1 opts-html"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/docs/libcurl/opts/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/docs/libcurl/opts/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/docs/libcurl/opts/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="generate-curl.1">
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/docs/cmdline-opts"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/docs/cmdline-opts/Makefile&quot;  VERBOSE=1 generate-curl.1"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/docs/cmdline-opts/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/docs/cmdline-opts/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/docs/cmdline-opts/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="libcurl">
+				<Option output="/Users/anyonepaw/CLionProjects/iota.lib.cpp/deps/lib/libcurl-d.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/lib"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DBUILDING_LIBCURL"/>
+					<Add option="-DCURL_HIDDEN_SYMBOLS"/>
+					<Add option="-DHAVE_CONFIG_H"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/include/curl"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/include"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/lib/../include"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/.."/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/../include"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/lib/.."/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/lib"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/lib/Makefile&quot;  VERBOSE=1 libcurl"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/lib/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/lib/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/lib/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="libcurl/fast">
+				<Option output="/Users/anyonepaw/CLionProjects/iota.lib.cpp/deps/lib/libcurl-d.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/lib"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add option="-DBUILDING_LIBCURL"/>
+					<Add option="-DCURL_HIDDEN_SYMBOLS"/>
+					<Add option="-DHAVE_CONFIG_H"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/include/curl"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/include"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/lib/../include"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/.."/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/../include"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/lib/.."/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib"/>
+					<Add directory="/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/lib"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/lib/Makefile&quot;  VERBOSE=1 libcurl/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/lib/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/lib/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/lib/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/curl_dep-prefix/src/curl_dep-build/lib/curl_config.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/amigaos.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/amigaos.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/arpa_telnet.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/asyn-ares.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/asyn-thread.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/asyn.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/base64.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/conncache.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/conncache.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/connect.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/connect.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/content_encoding.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/content_encoding.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/cookie.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/cookie.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_addrinfo.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_addrinfo.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_base64.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_ctype.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_ctype.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_des.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_des.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_endian.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_endian.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_fnmatch.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_fnmatch.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_gethostname.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_gethostname.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_gssapi.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_gssapi.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_hmac.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_ldap.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_md4.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_md5.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_memory.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_memrchr.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_memrchr.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_multibyte.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_multibyte.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_ntlm_core.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_ntlm_core.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_ntlm_wb.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_ntlm_wb.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_path.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_path.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_printf.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_range.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_range.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_rtmp.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_rtmp.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_sasl.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_sasl.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_sec.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_setup.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_setup_once.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_sha256.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_sspi.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_sspi.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_threads.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_threads.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curlx.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/dict.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/dict.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/dotdot.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/dotdot.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/easy.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/easyif.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/escape.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/escape.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/file.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/file.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/fileinfo.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/fileinfo.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/formdata.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/formdata.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/ftp.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/ftp.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/ftplistparser.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/ftplistparser.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/getenv.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/getinfo.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/getinfo.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/gopher.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/gopher.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/hash.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/hash.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/hmac.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/hostasyn.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/hostcheck.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/hostcheck.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/hostip.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/hostip.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/hostip4.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/hostip6.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/hostsyn.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/http.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/http.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/http2.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/http2.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/http_chunks.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/http_chunks.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/http_digest.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/http_digest.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/http_negotiate.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/http_negotiate.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/http_ntlm.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/http_ntlm.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/http_proxy.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/http_proxy.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/idn_win32.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/if2ip.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/if2ip.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/imap.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/imap.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/inet_ntop.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/inet_ntop.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/inet_pton.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/inet_pton.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/krb5.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/ldap.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/llist.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/llist.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/md4.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/md5.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/memdebug.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/memdebug.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/mime.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/mime.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/mprintf.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/multi.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/multihandle.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/multiif.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/netrc.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/netrc.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/non-ascii.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/non-ascii.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/nonblock.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/nonblock.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/openldap.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/parsedate.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/parsedate.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/pingpong.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/pingpong.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/pipeline.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/pipeline.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/pop3.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/pop3.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/progress.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/progress.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/rand.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/rand.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/rtsp.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/rtsp.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/security.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/select.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/select.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/sendf.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/sendf.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/setopt.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/setopt.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/setup-vms.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/sha256.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/share.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/share.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/sigpipe.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/slist.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/slist.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/smb.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/smb.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/smtp.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/smtp.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/sockaddr.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/socks.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/socks.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/socks_gssapi.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/socks_sspi.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/speedcheck.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/speedcheck.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/splay.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/splay.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/ssh-libssh.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/ssh.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/ssh.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/strcase.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/strcase.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/strdup.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/strdup.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/strerror.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/strerror.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/strtok.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/strtok.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/strtoofft.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/strtoofft.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/system_win32.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/system_win32.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/telnet.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/telnet.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/tftp.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/tftp.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/timeval.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/timeval.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/transfer.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/transfer.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/url.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/url.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/urldata.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vauth/cleartext.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vauth/cram.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vauth/digest.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vauth/digest.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vauth/digest_sspi.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vauth/krb5_gssapi.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vauth/krb5_sspi.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vauth/ntlm.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vauth/ntlm.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vauth/ntlm_sspi.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vauth/oauth2.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vauth/spnego_gssapi.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vauth/spnego_sspi.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vauth/vauth.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vauth/vauth.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/version.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vtls/axtls.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vtls/axtls.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vtls/cyassl.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vtls/cyassl.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vtls/darwinssl.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vtls/darwinssl.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vtls/gskit.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vtls/gskit.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vtls/gtls.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vtls/gtls.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vtls/mbedtls.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vtls/mbedtls.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vtls/nss.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vtls/nssg.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vtls/openssl.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vtls/openssl.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vtls/polarssl.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vtls/polarssl.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vtls/polarssl_threadlock.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vtls/polarssl_threadlock.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vtls/schannel.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vtls/schannel.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vtls/schannel_verify.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vtls/vtls.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/vtls/vtls.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/warnless.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/warnless.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/wildcard.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/wildcard.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/x509asn1.c">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/x509asn1.h">
+			<Option target="libcurl"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/curl-config.in">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/libcurl.pc.in">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/CMake/CurlSymbolHiding.cmake">
+			<Option virtualFolder="CMake Files\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/CMake/Macros.cmake">
+			<Option virtualFolder="CMake Files\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/CMake/OtherTests.cmake">
+			<Option virtualFolder="CMake Files\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/CMake/Utilities.cmake">
+			<Option virtualFolder="CMake Files\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/CMake/cmake_uninstall.cmake.in">
+			<Option virtualFolder="CMake Files\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/CMake/curl-config.cmake">
+			<Option virtualFolder="CMake Files\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/docs/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\docs\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/docs/libcurl/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\docs\libcurl\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/docs/libcurl/opts/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\docs\libcurl\opts\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/docs/cmdline-opts/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\docs\cmdline-opts\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/../../curl_dep-prefix/src/curl_dep-build/docs/libcurl/Makefile.inc.cmake">
+			<Option virtualFolder="CMake Files\..\..\curl_dep-prefix\src\curl_dep-build\docs\libcurl\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/../../curl_dep-prefix/src/curl_dep-build/docs/libcurl/opts/Makefile.inc.cmake">
+			<Option virtualFolder="CMake Files\..\..\curl_dep-prefix\src\curl_dep-build\docs\libcurl\opts\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/../../curl_dep-prefix/src/curl_dep-build/docs/cmdline-opts/Makefile.inc.cmake">
+			<Option virtualFolder="CMake Files\..\..\curl_dep-prefix\src\curl_dep-build\docs\cmdline-opts\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/../../curl_dep-prefix/src/curl_dep-build/lib/Makefile.inc.cmake">
+			<Option virtualFolder="CMake Files\..\..\curl_dep-prefix\src\curl_dep-build\lib\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\"/>
+		</Unit>
+		<Unit filename="/Users/anyonepaw/CLionProjects/iota.lib.cpp/external/curl/lib/curl_config.h.cmake">
+			<Option virtualFolder="CMake Files\lib\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

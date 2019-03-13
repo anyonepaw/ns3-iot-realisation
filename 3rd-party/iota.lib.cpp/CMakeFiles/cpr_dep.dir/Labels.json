@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/CMakeFiles/cpr_dep"
+		},
+		{
+			"file" : "/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/CMakeFiles/cpr_dep.rule"
+		},
+		{
+			"file" : "/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/CMakeFiles/cpr_dep-complete.rule"
+		},
+		{
+			"file" : "/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-stamp/cpr_dep-install.rule"
+		},
+		{
+			"file" : "/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-stamp/cpr_dep-mkdir.rule"
+		},
+		{
+			"file" : "/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-stamp/cpr_dep-download.rule"
+		},
+		{
+			"file" : "/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-stamp/cpr_dep-update.rule"
+		},
+		{
+			"file" : "/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-stamp/cpr_dep-patch.rule"
+		},
+		{
+			"file" : "/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-stamp/cpr_dep-configure.rule"
+		},
+		{
+			"file" : "/Users/anyonepaw/CLionProjects/ns3-iot-realisation/3rd-party/iota.lib.cpp/cpr_dep-prefix/src/cpr_dep-stamp/cpr_dep-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"cpr_dep"
+		],
+		"name" : "cpr_dep"
+	}
+}
