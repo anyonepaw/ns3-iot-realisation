@@ -374,15 +374,11 @@ main(int argc, char *argv[]) {
     anim.UpdateNodeImage(2, pictureGate);
 
 
-    anim.UpdateNodeSize(0, 9, 9);
-    anim.UpdateNodeSize(1, 9, 9);
-    anim.UpdateNodeSize(2, 9, 9);
-    anim.UpdateNodeSize(4, 9, 9);
-    anim.UpdateNodeSize(5, 9, 9);
-    anim.UpdateNodeSize(6, 9, 9);
-    anim.UpdateNodeSize(7, 9, 9);
-    anim.UpdateNodeSize(3, 9, 9);
-    anim.UpdateNodeSize(8, 9, 9);
+    for (uint32_t i = 0; i <= 8; i++){
+        anim.UpdateNodeSize(i, 9, 9);
+    }
+
+
 
     // anim.UpdateNodeCounter (89, 7, 3.4);
 
