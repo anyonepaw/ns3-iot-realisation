@@ -33,9 +33,12 @@
 #include "ns3/regular-wifi-mac.h"
 #include "ns3/bridge-helper.h"
 #include "ns3/wifi-module.h"
-#include "tangle/attach_to_tangle.h"
+#include <iostream>
+#include <string>
+
 
 using namespace ns3;
+using namespace std;
 
 NS_LOG_COMPONENT_DEFINE ("ScratchSimulator");
 
@@ -44,14 +47,7 @@ main(int argc, char *argv[]) {
     NS_LOG_UNCOND ("Start");
 
 
-    /**
-     * Создадим три узла, представлющих собой локальную сеть ПК
-     * Они будут составлять одну локальную сеть, но также служить
-     * шлюзами в локальные подсети интернет-вещей
-     * И еще один узел, представляющий из себя роутер
-     */
     uint32_t numberOfGates = 3;
-
     NodeContainer gateNodes;
     gateNodes.Create(numberOfGates);
     NodeContainer routerNode;
@@ -60,11 +56,6 @@ main(int argc, char *argv[]) {
 
     NS_LOG_UNCOND ("Router and internet-things created");
 
-
-    /**
-     * С помощью цикла шлюзы по порядку получают свои имена
-     * Имена появятся при визуализации
-     */
     for (uint32_t i = 0; i < numberOfGates; ++i) {
         std::ostringstream oss;
         oss << "Gate" << i;
@@ -147,8 +138,6 @@ main(int argc, char *argv[]) {
     // socket.SetPhysicalAddress (staDevs.Get (1)->GetAddress ());
     // socket.SetProtocol (1);
 
-
-    //TODO: настроить шлюзы
 
 
     /**
@@ -283,9 +272,13 @@ main(int argc, char *argv[]) {
     /** Запускаем рассылку TCP-пакетов */
 
     std::string protocol = "ns3::TcpSocketFactory";
-    //vlan1ApDeviceInterface.GetAddress(0) - на самом деле здесь хранится только
-    //один интерфейс, но NS3 позволяет достать переменную (в данном случае - адрес)
-    //указав "номер"
+
+   /**
+    * vlan1ApDeviceInterface.GetAddress(0) - на самом деле здесь хранится только
+    * один интерфейс, но NS3 позволяет достать переменную (в данном случае - адрес)
+    * указав "номер"
+    */
+
     Address dest = InetSocketAddress(vlan1ApDeviceInterface.GetAddress(0),
                                      1025);
     OnOffHelper onoff = OnOffHelper(protocol, dest);
@@ -347,43 +340,38 @@ main(int argc, char *argv[]) {
 
 
 
-    /** ANIMATION */
 
-    AnimationInterface anim("iot.xml");
+
+
 
     NS_LOG_UNCOND ("Create animation");
 
+    AnimationInterface anim("iot.xml");
 
     //anim.UpdateNodeDescription (vlan1Nodes.Get(0), "IoT3");
-    uint32_t resourceId1;
 
 
-    // TODO:
-    // нужно прописать код к картинкам таким образом, чтобы к ним не было полного пути
-    // ввести переменную окружения
-    // ${ROOT_PATH}/icons/router.png
+    string sourceDir = ICONS_DIR;
 
 
-    // resourceId1 = anim.AddResource ("/Users/anyonepaw/CLionProjects/BlockchainIoT/icons/iot.png");
-    //uint32_t pictureGate = anim.AddResource ("/Users/anyonepaw/CLionProjects/BlockchainIoT/icons/gate.png");
-    //uint32_t pictureRouter = anim.AddResource ("/Users/anyonepaw/CLionProjects/BlockchainIoT/icons/router.png");
+    uint32_t resourceId1 = anim.AddResource(sourceDir + "/iot.png");
+    uint32_t pictureGate = anim.AddResource(sourceDir + "/gate.png");
+    uint32_t pictureRouter = anim.AddResource(sourceDir + "/router.png");
 
 
-    /** Подключение картинок */
+    anim.UpdateNodeImage(4, resourceId1);  // "0" is the Node ID
+    anim.UpdateNodeImage(5, resourceId1);
 
-//  anim.UpdateNodeImage(4, resourceId1);  // "0" is the Node ID
-//  anim.UpdateNodeImage(5, resourceId1);
-//
-//  anim.UpdateNodeImage(6, resourceId1);
-//  anim.UpdateNodeImage(7, resourceId1);
-//
-//  anim.UpdateNodeImage(3, pictureRouter);
-//  anim.UpdateNodeImage(8, resourceId1);
-//
-//
-//  anim.UpdateNodeImage(0, pictureGate);
-//  anim.UpdateNodeImage(1, pictureGate);
-//  anim.UpdateNodeImage(2, pictureGate);
+    anim.UpdateNodeImage(6, resourceId1);
+    anim.UpdateNodeImage(7, resourceId1);
+
+    anim.UpdateNodeImage(3, pictureRouter);
+    anim.UpdateNodeImage(8, resourceId1);
+
+
+    anim.UpdateNodeImage(0, pictureGate);
+    anim.UpdateNodeImage(1, pictureGate);
+    anim.UpdateNodeImage(2, pictureGate);
 
 
     anim.UpdateNodeSize(0, 9, 9);
@@ -398,7 +386,7 @@ main(int argc, char *argv[]) {
 
     // anim.UpdateNodeCounter (89, 7, 3.4);
 
-/*
+/**
  * With the above statement, AnimationInterface records the meta-data
  * of each packet in the xml trace file. Metadata can be used by NetAnim to provide
  * better statistics and filter, along with providing some brief information about
