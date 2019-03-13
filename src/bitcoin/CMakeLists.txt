@@ -35,7 +35,48 @@ set(header_files
 
 
 #link to dependencies
-set(libraries_to_link ${libnetwork})
+set(libraries_to_link
+        ${libantenna}
+        ${libaodv}
+        ${libapplications}
+        ${libbridge}
+        ${libbrite}
+        ${libbuildings}
+        ${libclick}
+        ${libconfig-store}
+        ${libcontrib-haraldott}
+        ${libcore}
+        ${libcsma}
+        ${libcsma-layout}
+        ${libdsdv}
+        ${libdsr}
+        ${libenergy}
+        ${libflow-monitor}
+        ${libinternet-apps}
+        ${libinternet}
+        ${liblr-wpan}
+        ${liblte}
+        ${libmesh}
+        ${libmobility}
+        ${libmpi}
+        ${libnetanim}
+        ${libnetwork}
+        ${libnix-vector-routing}
+        ${libolsr}
+        ${libpoint-to-point}
+        ${libpoint-to-point-layout}
+        ${libpropagation}
+        ${libsixlowpan}
+        ${libspectrum}
+        ${libstats}
+        ${libtopology-read}
+        ${libtraffic-control}
+        ${libuan}
+        ${libvirtual-net-device}
+        ${libwave}
+        ${libwifi}
+        ${libwimax}
+        )
 
 
 add_executable(bitcoin
