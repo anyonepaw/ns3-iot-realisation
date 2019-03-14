@@ -79,8 +79,8 @@ set(libraries_to_link
         )
 
 
-add_executable(bitcoin
-        scratch/bitcoin-test.cc
-        scratch/selfish-miner-test.cc)
+#add_executable(bitcoin
+#        scratch/bitcoin-test.cc
+#        scratch/selfish-miner-test.cc)
 
 build_lib("${name}" "${source_files}" "${header_files}" "${libraries_to_link}" "${test_sources}")
