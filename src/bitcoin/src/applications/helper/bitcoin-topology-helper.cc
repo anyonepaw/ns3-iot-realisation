@@ -47,7 +47,7 @@ BitcoinTopologyHelper::BitcoinTopologyHelper (uint32_t noCpus, uint32_t totalNoN
 	m_minerDownloadSpeed (100), m_minerUploadSpeed (100), m_cryptocurrency (cryptocurrency)
 {
   
-  std::vector<uint32_t>     nodes;    //nodes contain the ids of the nodes
+  std::vector<uint32_t>     nodes;    //nodes contain the id's of the nodes
   double                    tStart = GetWallTime();
   double                    tFinish;
   double regionLatencies[6][6] = { {35.5, 119.49, 254.79, 310.11, 154.36, 207.91},
@@ -700,7 +700,7 @@ BitcoinTopologyHelper::BitcoinTopologyHelper (uint32_t noCpus, uint32_t totalNoN
       break;		
     }
   }
-  
+
 
   std::array<double,7> connectionsDistributionIntervals {1, 5, 10, 15, 20, 30, 125};
   for (int i = 0; i < 7; i++)
@@ -728,6 +728,8 @@ BitcoinTopologyHelper::BitcoinTopologyHelper (uint32_t noCpus, uint32_t totalNoN
   {
     m_minersRegions[i] = minersRegions[i];
   }
+
+
   
   /**
    * Create a vector containing all the nodes ids
@@ -737,20 +739,26 @@ BitcoinTopologyHelper::BitcoinTopologyHelper (uint32_t noCpus, uint32_t totalNoN
     nodes.push_back(i);
   }
 
-/*   //Print the initialized nodes
+
+
+   // Print the initialized nodes
   if (m_systemId == 0)
   {
-    for (std::vector<uint32_t>::iterator j = nodes.begin(); j != nodes.end(); j++)
+    for (auto j = nodes.begin(); j != nodes.end(); j++)
     {
 	  std::cout << *j << " " ;
     }
-  } */
+  }
 
+//TODO: miners chosen randomly
   //Choose the miners randomly. They should be unique (no miner should be chosen twice).
   //So, remove each chose miner from nodes vector
+
+  //nope, I need to choose determined nodes
   for (int i = 0; i < noMiners; i++)
   {
-    uint32_t index = rand() % nodes.size();
+    uint32_t index =  rand() % nodes.size();
+//     uint32_t index =  (uint32_t)i;
     m_miners.push_back(nodes[index]);
 	
 /*     if (m_systemId == 0)
@@ -766,19 +774,20 @@ BitcoinTopologyHelper::BitcoinTopologyHelper (uint32_t noCpus, uint32_t totalNoN
       }
 	} */
   }
+	NS_LOG_UNCOND (m_miners.size());
 
   sort(m_miners.begin(), m_miners.end());
   
-/*   //Print the miners
+   //Print the miners
   if (m_systemId == 0)
   {
     std::cout << "\n\nThe miners are:\n";
-    for (std::vector<uint32_t>::iterator j = m_miners.begin(); j != m_miners.end(); j++)
+    for (auto j = m_miners.begin(); j != m_miners.end(); j++)
     {
 	  std::cout << *j << " " ;
     }
     std::cout << "\n\n";
-  } */
+  }
   
   //Interconnect the miners
   for(auto &miner : m_miners)
@@ -791,7 +800,7 @@ BitcoinTopologyHelper::BitcoinTopologyHelper (uint32_t noCpus, uint32_t totalNoN
   }
   
   
-/*   //Print the miners' connections
+    //Print the miners' connections
   if (m_systemId == 0)
   {
     std::cout << "The miners are interconnected:";
@@ -804,7 +813,7 @@ BitcoinTopologyHelper::BitcoinTopologyHelper (uint32_t noCpus, uint32_t totalNoN
 	  }
     }
     std::cout << "\n" << std::endl;
-  } */
+  }
   
   //Interconnect the nodes
  

@@ -59,6 +59,8 @@ public:
                          enum Cryptocurrency cryptocurrency, int minConnectionsPerNode, int maxConnectionsPerNode, 
                          double latencyParetoShapeDivider, uint32_t systemId);
 
+
+
   ~BitcoinTopologyHelper ();
 
   /**
