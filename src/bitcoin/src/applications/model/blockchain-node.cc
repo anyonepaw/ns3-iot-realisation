@@ -2093,7 +2093,7 @@ namespace ns3 {
 
         for (std::vector<Ipv4Address>::const_iterator i = m_peersAddresses.begin(); i != m_peersAddresses.end(); ++i)
         {
-            if ( *i != newBlock.GetReceivedFromIpv4()) )
+            if ( *i != newBlock.GetReceivedFromIpv4Address ())
             {
                 const uint8_t delimiter[] = "#";
 

@@ -324,8 +324,8 @@ namespace ns3 {
         int m_totalBlocks;                                //total number of blocks including the genesis block
         std::vector<std::vector<Block> >    m_blocks;     //2d vector containing all the blocks of the blockchain. (row->blockHeight, col->sibling blocks)
         std::vector<Block>                 m_orphans;     //vector containing the orphans
-         std::map< int, Block > m_block_map;          //map containing the nodeId to block mapping
-         std::map<int, std::string> m_public_key_map;    //direct map containing mapping of node to public key
+        std::map< int, Block > m_block_map;          //map containing the nodeId to block mapping
+        std::map<int, std::string> m_public_key_map;    //direct map containing mapping of node to public key
 
 
     };
