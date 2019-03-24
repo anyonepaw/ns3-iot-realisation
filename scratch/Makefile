@@ -111,6 +111,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+scratch/CMakeFiles/scratch-simulator.dir/rule:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f CMakeFiles/Makefile2 scratch/CMakeFiles/scratch-simulator.dir/rule
+.PHONY : scratch/CMakeFiles/scratch-simulator.dir/rule
+
+# Convenience name for target.
+scratch-simulator: scratch/CMakeFiles/scratch-simulator.dir/rule
+
+.PHONY : scratch-simulator
+
+# fast build rule for target.
+scratch-simulator/fast:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f scratch/CMakeFiles/scratch-simulator.dir/build.make scratch/CMakeFiles/scratch-simulator.dir/build
+.PHONY : scratch-simulator/fast
+
+# Convenience name for target.
 scratch/CMakeFiles/scratch-simulator-subdir.dir/rule:
 	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f CMakeFiles/Makefile2 scratch/CMakeFiles/scratch-simulator-subdir.dir/rule
 .PHONY : scratch/CMakeFiles/scratch-simulator-subdir.dir/rule
@@ -126,19 +141,46 @@ scratch-simulator-subdir/fast:
 .PHONY : scratch-simulator-subdir/fast
 
 # Convenience name for target.
-scratch/CMakeFiles/scratch-simulator.dir/rule:
-	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f CMakeFiles/Makefile2 scratch/CMakeFiles/scratch-simulator.dir/rule
-.PHONY : scratch/CMakeFiles/scratch-simulator.dir/rule
+scratch/CMakeFiles/first.dir/rule:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f CMakeFiles/Makefile2 scratch/CMakeFiles/first.dir/rule
+.PHONY : scratch/CMakeFiles/first.dir/rule
 
 # Convenience name for target.
-scratch-simulator: scratch/CMakeFiles/scratch-simulator.dir/rule
+first: scratch/CMakeFiles/first.dir/rule
 
-.PHONY : scratch-simulator
+.PHONY : first
 
 # fast build rule for target.
-scratch-simulator/fast:
-	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f scratch/CMakeFiles/scratch-simulator.dir/build.make scratch/CMakeFiles/scratch-simulator.dir/build
-.PHONY : scratch-simulator/fast
+first/fast:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f scratch/CMakeFiles/first.dir/build.make scratch/CMakeFiles/first.dir/build
+.PHONY : first/fast
+
+first.o: first.cc.o
+
+.PHONY : first.o
+
+# target to build an object file
+first.cc.o:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f scratch/CMakeFiles/first.dir/build.make scratch/CMakeFiles/first.dir/first.cc.o
+.PHONY : first.cc.o
+
+first.i: first.cc.i
+
+.PHONY : first.i
+
+# target to preprocess a source file
+first.cc.i:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f scratch/CMakeFiles/first.dir/build.make scratch/CMakeFiles/first.dir/first.cc.i
+.PHONY : first.cc.i
+
+first.s: first.cc.s
+
+.PHONY : first.s
+
+# target to generate assembly for a file
+first.cc.s:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f scratch/CMakeFiles/first.dir/build.make scratch/CMakeFiles/first.dir/first.cc.s
+.PHONY : first.cc.s
 
 scratch-simulator.o: scratch-simulator.cc.o
 
@@ -200,10 +242,14 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... scratch-simulator"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... scratch-simulator-subdir"
-	@echo "... scratch-simulator"
+	@echo "... first"
+	@echo "... first.o"
+	@echo "... first.i"
+	@echo "... first.s"
 	@echo "... scratch-simulator.o"
 	@echo "... scratch-simulator.i"
 	@echo "... scratch-simulator.s"

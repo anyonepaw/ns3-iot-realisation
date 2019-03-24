@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/anyonepaw/CLionProjects/ns3-iot-realisation/scratch/scratch-simulator.cc" "/Users/anyonepaw/CLionProjects/ns3-iot-realisation/scratch/CMakeFiles/scratch-simulator.dir/scratch-simulator.cc.o"
+  "/Users/anyonepaw/CLionProjects/ns3-iot-realisation/scratch/first.cc" "/Users/anyonepaw/CLionProjects/ns3-iot-realisation/scratch/CMakeFiles/first.dir/first.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
@@ -22,7 +22,6 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
   "HAVE_STDLIB_H"
   "HAVE_SYS_STAT_H"
   "HAVE_SYS_TYPES_H"
-  "ICONS_DIR=\"/Users/anyonepaw/CLionProjects/ns3-iot-realisation/icons\""
   "INT64X64_USE_DOUBLE"
   "NS3_BUILD_PROFILE_DEBUG"
   "NS3_LOG_ENABLE"

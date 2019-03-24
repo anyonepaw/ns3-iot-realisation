@@ -3,7 +3,6 @@
 
 scratch/CMakeFiles/scratch-simulator.dir/scratch-simulator.cc.o
  /Users/anyonepaw/CLionProjects/ns3-iot-realisation/scratch/scratch-simulator.cc
- /Users/anyonepaw/CLionProjects/ns3-iot-realisation/scratch/tangle/attach_to_tangle.h
  /usr/local/include/gsl/gsl_cdf.h
  /usr/local/include/gsl/gsl_inline.h
  /usr/local/include/gsl/gsl_integration.h
@@ -18,6 +17,28 @@ scratch/CMakeFiles/scratch-simulator.dir/scratch-simulator.cc.o
  /usr/local/include/gsl/gsl_sf_result.h
  /usr/local/include/gsl/gsl_sys.h
  /usr/local/include/gsl/gsl_types.h
+ 3rd-party/rapidjson/include/rapidjson/allocators.h
+ 3rd-party/rapidjson/include/rapidjson/document.h
+ 3rd-party/rapidjson/include/rapidjson/encodedstream.h
+ 3rd-party/rapidjson/include/rapidjson/encodings.h
+ 3rd-party/rapidjson/include/rapidjson/error/error.h
+ 3rd-party/rapidjson/include/rapidjson/internal/biginteger.h
+ 3rd-party/rapidjson/include/rapidjson/internal/diyfp.h
+ 3rd-party/rapidjson/include/rapidjson/internal/dtoa.h
+ 3rd-party/rapidjson/include/rapidjson/internal/ieee754.h
+ 3rd-party/rapidjson/include/rapidjson/internal/itoa.h
+ 3rd-party/rapidjson/include/rapidjson/internal/meta.h
+ 3rd-party/rapidjson/include/rapidjson/internal/pow10.h
+ 3rd-party/rapidjson/include/rapidjson/internal/stack.h
+ 3rd-party/rapidjson/include/rapidjson/internal/strfunc.h
+ 3rd-party/rapidjson/include/rapidjson/internal/strtod.h
+ 3rd-party/rapidjson/include/rapidjson/internal/swap.h
+ 3rd-party/rapidjson/include/rapidjson/memorystream.h
+ 3rd-party/rapidjson/include/rapidjson/rapidjson.h
+ 3rd-party/rapidjson/include/rapidjson/reader.h
+ 3rd-party/rapidjson/include/rapidjson/stream.h
+ 3rd-party/rapidjson/include/rapidjson/stringbuffer.h
+ 3rd-party/rapidjson/include/rapidjson/writer.h
  build/ns3/aarf-wifi-manager.h
  build/ns3/aarfcd-wifi-manager.h
  build/ns3/abort.h
@@ -51,6 +72,15 @@ scratch/CMakeFiles/scratch-simulator.dir/scratch-simulator.cc.o
  build/ns3/attribute-helper.h
  build/ns3/attribute.h
  build/ns3/basic-data-calculators.h
+ build/ns3/bitcoin-miner-helper.h
+ build/ns3/bitcoin-miner.h
+ build/ns3/bitcoin-node-helper.h
+ build/ns3/bitcoin-node.h
+ build/ns3/bitcoin-selfish-miner-trials.h
+ build/ns3/bitcoin-selfish-miner.h
+ build/ns3/bitcoin-simple-attacker.h
+ build/ns3/bitcoin-topology-helper.h
+ build/ns3/bitcoin.h
  build/ns3/block-ack-agreement.h
  build/ns3/block-ack-cache.h
  build/ns3/block-ack-manager.h
@@ -169,6 +199,7 @@ scratch/CMakeFiles/scratch-simulator.dir/scratch-simulator.cc.o
  build/ns3/internet-trace-helper.h
  build/ns3/ip-l4-protocol.h
  build/ns3/ipv4-address-generator.h
+ build/ns3/ipv4-address-helper-custom.h
  build/ns3/ipv4-address-helper.h
  build/ns3/ipv4-address.h
  build/ns3/ipv4-global-routing-helper.h
@@ -262,6 +293,7 @@ scratch/CMakeFiles/scratch-simulator.dir/scratch-simulator.cc.o
  build/ns3/mobility-model.h
  build/ns3/mobility-module.h
  build/ns3/mpdu-aggregator.h
+ build/ns3/mpi-interface.h
  build/ns3/msdu-aggregator.h
  build/ns3/names.h
  build/ns3/ndisc-cache.h
