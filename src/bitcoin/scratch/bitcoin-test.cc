@@ -25,6 +25,9 @@
 #include "ns3/point-to-point-layout-module.h"
 #include "ns3/mpi-interface.h"
 #include "bitcoin-node-helper.h"
+#include "bitcoin.h"
+#include "bitcoin-topology-helper.h"
+#include "bitcoin-miner-helper.h"
 #define MPI_TEST
 
 #ifdef NS3_MPI
@@ -44,7 +47,7 @@ NS_LOG_COMPONENT_DEFINE ("MyMpiTest");
 int 
 main (int argc, char *argv[])
 {
-#ifdef NS3_MPI
+
   bool nullmsg = false;
   bool testScalability = false;
   bool unsolicited = false;
@@ -211,7 +214,7 @@ main (int argc, char *argv[])
   nodeStatistics *stats = new nodeStatistics[totalNoNodes];
   averageBlockGenIntervalMinutes = averageBlockGenIntervalSeconds/secsPerMin;
 
-  #ifdef MPI_TEST
+
   // Distributed simulation setup; by default use granted time window algorithm.
   if(nullmsg) 
     {
@@ -228,10 +231,7 @@ main (int argc, char *argv[])
   MpiInterface::Enable (&argc, &argv);
   uint32_t systemId = MpiInterface::GetSystemId ();
   uint32_t systemCount = MpiInterface::GetSize ();
-#else
-  uint32_t systemId = 0;
-  uint32_t systemCount = 1;
-#endif
+
 
   //LogComponentEnable("BitcoinNode", LOG_LEVEL_INFO);
   //LogComponentEnable("BitcoinMiner", LOG_LEVEL_INFO);
@@ -396,16 +396,15 @@ main (int argc, char *argv[])
   Simulator::Run ();
   Simulator::Destroy ();
 
-#ifdef MPI_TEST
 
   int            blocklen[38] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
                                  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
                                  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}; 
-  MPI_Aint       disp[38]; 
-  MPI_Datatype   dtypes[38] = {MPI_INT, MPI_DOUBLE, MPI_DOUBLE, MPI_DOUBLE, MPI_INT, MPI_INT, MPI_INT, MPI_INT, MPI_DOUBLE, MPI_DOUBLE, MPI_DOUBLE, MPI_INT,
-                               MPI_LONG, MPI_LONG, MPI_LONG, MPI_LONG, MPI_LONG, MPI_LONG, MPI_LONG, MPI_LONG, MPI_LONG, MPI_LONG, MPI_LONG, MPI_LONG,
-                               MPI_LONG, MPI_LONG, MPI_LONG, MPI_LONG, MPI_LONG, MPI_LONG, MPI_LONG, MPI_LONG, MPI_INT, MPI_INT, MPI_INT, MPI_LONG, MPI_LONG, MPI_INT}; 
-  MPI_Datatype   mpi_nodeStatisticsType;
+//  MPI_Aint       disp[38];
+//  MPI_Datatype   dtypes[38] = {MPI_INT, MPI_DOUBLE, MPI_DOUBLE, MPI_DOUBLE, MPI_INT, MPI_INT, MPI_INT, MPI_INT, MPI_DOUBLE, MPI_DOUBLE, MPI_DOUBLE, MPI_INT,
+//                               MPI_LONG, MPI_LONG, MPI_LONG, MPI_LONG, MPI_LONG, MPI_LONG, MPI_LONG, MPI_LONG, MPI_LONG, MPI_LONG, MPI_LONG, MPI_LONG,
+//                               MPI_LONG, MPI_LONG, MPI_LONG, MPI_LONG, MPI_LONG, MPI_LONG, MPI_LONG, MPI_LONG, MPI_INT, MPI_INT, MPI_INT, MPI_LONG, MPI_LONG, MPI_INT};
+//  MPI_Datatype   mpi_nodeStatisticsType;
 
   disp[0] = offsetof(nodeStatistics, nodeId);
   disp[1] = offsetof(nodeStatistics, meanBlockReceiveTime);
@@ -446,8 +445,8 @@ main (int argc, char *argv[])
   disp[36] = offsetof(nodeStatistics, chunkTimeouts);
   disp[37] = offsetof(nodeStatistics, minedBlocksInMainChain);
 
-  MPI_Type_create_struct (38, blocklen, disp, dtypes, &mpi_nodeStatisticsType);
-  MPI_Type_commit (&mpi_nodeStatisticsType);
+//  MPI_Type_create_struct (38, blocklen, disp, dtypes, &mpi_nodeStatisticsType);
+//  MPI_Type_commit (&mpi_nodeStatisticsType);
 
   if (systemId != 0 && systemCount > 1)
   {
@@ -520,7 +519,7 @@ main (int argc, char *argv[])
 	  count++;
     }
   }	  
-#endif
+
 
   if (systemId == 0)
   {
@@ -547,18 +546,13 @@ main (int argc, char *argv[])
 
   }  
   
-#ifdef MPI_TEST
 
-  // Exit the MPI execution environment
-  MpiInterface::Disable ();
-#endif
+
+
 
   delete[] stats;
   return 0;
-  
-#else
-  NS_FATAL_ERROR ("Can't use distributed simulator without MPI compiled in");
-#endif
+
 }
 
 double get_wall_time()

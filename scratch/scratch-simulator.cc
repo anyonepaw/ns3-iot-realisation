@@ -35,10 +35,14 @@
 #include "ns3/wifi-module.h"
 #include "ns3/bitcoin-topology-helper.h"
 #include "ns3/bitcoin.h"
+#include "ns3/blockchain-node-helper.h"
+#include "ns3/blockchain-validator-helper.h"
+#include "ns3/blockchain.h"
 #include "ns3/bitcoin-node-helper.h"
 #include "ns3/bitcoin-topology-helper.h"
 #include "ns3/bitcoin-miner-helper.h"
 #include "ns3/mpi-interface.h"
+#include "ns3/gateway-node.h"
 #include "time.h"
 #include <iostream>
 #include <string>
@@ -299,18 +303,6 @@ main(int argc, char *argv[]) {
 
 
 
-  //why it is determined by miners number?
-  minersHash = new double[noMiners];
-  minersRegions = new enum BitcoinRegion[noMiners];
-
-
-  //??
-  for (int i = 0; i < noMiners / 16; i++) {
-    for (int j = 0; j < 16; j++) {
-      minersHash[i * 16 + j] = bitcoinMinersHash[j] * 16 / noMiners;
-      minersRegions[i * 16 + j] = bitcoinMinersRegions[j];
-    }
-  }
 
   averageBlockGenIntervalSeconds = averageBlockGenIntervalMinutes * secsPerMin;
   stop = targetNumberOfBlocks * averageBlockGenIntervalMinutes; //seconds
@@ -324,107 +316,18 @@ main(int argc, char *argv[]) {
   LogComponentEnable("OnOffApplication", LOG_LEVEL_WARN);
 
 
-  uint32_t systemId = 0;
-  uint32_t systemCount = 0;
-  uint32_t totalNoNodes = 4;
-  enum Cryptocurrency cryptocurrency = BITCOIN;
-  int minConnectionsPerNode = -1;
-  int maxConnectionsPerNode = -1;
-  double latencyParetoShapeDivider = 5; //?
-
-  nodeStatistics *stats = new nodeStatistics[totalNoNodes];
-
-  BitcoinTopologyHelper bitcoinTopologyHelper (systemCount, totalNoNodes, noMiners, minersRegions,
-                                               cryptocurrency, minConnectionsPerNode,
-                                               maxConnectionsPerNode, latencyParetoShapeDivider, systemId);
-
-  // Install stack on Grid
-  bitcoinTopologyHelper.InstallStack (STACK);
-
-  // Assign Addresses to Grid
-  bitcoinTopologyHelper.AssignIpv4Addresses (Ipv4AddressHelperCustom ("1.0.0.0", "255.255.255.0", false));
-  ipv4InterfaceContainer = bitcoinTopologyHelper.GetIpv4InterfaceContainer();
-  nodesConnections = bitcoinTopologyHelper.GetNodesConnectionsIps();
-  miners = bitcoinTopologyHelper.GetMiners();
-  peersDownloadSpeeds = bitcoinTopologyHelper.GetPeersDownloadSpeeds();
-  peersUploadSpeeds = bitcoinTopologyHelper.GetPeersUploadSpeeds();
-  nodesInternetSpeeds = bitcoinTopologyHelper.GetNodesInternetSpeeds();
-
-  PrintBitcoinRegionStats(bitcoinTopologyHelper.GetBitcoinNodesRegions(), totalNoNodes);
 
 
 
 
-  NS_LOG_UNCOND ("INSTALL BITCOIN NODES");
 
-  BitcoinNodeHelper bitcoinNodeHelper("ns3::TcpSocketFactory", InetSocketAddress(Ipv4Address::GetAny(), bitcoinPort),
-                                      nodesConnections[0], peersDownloadSpeeds[0], peersUploadSpeeds[0],
-                                      nodesInternetSpeeds[0], stats);
-  ApplicationContainer bitcoinNodes;
+  NS_LOG_UNCOND ("INSTALL BLOCKCHAIN NODES");
 
 
-  Ptr<Node> targetNode1 = gateNodes.Get(0);
-  bitcoinNodes.Add(bitcoinNodeHelper.Install(targetNode1));
-  Ptr<Node> targetNode2 = gateNodes.Get(1);
-  bitcoinNodes.Add(bitcoinNodeHelper.Install(targetNode2));
-  Ptr<Node> targetNode3 = gateNodes.Get(2);
-  bitcoinNodes.Add(bitcoinNodeHelper.Install(targetNode3));
-
-  bitcoinNodes.Start(Seconds(start));
-  bitcoinNodes.Stop(Seconds(stop));
 
 
-////    NS_LOG_UNCOND ("CREATE MINERS");
-//    BitcoinMinerHelper bitcoinMinerHelper("ns3::TcpSocketFactory",
-//                                          InetSocketAddress(Ipv4Address::GetAny(), bitcoinPort),
-//                                          nodesConnections[miners[0]], noMiners, peersDownloadSpeeds[0],
-//                                          peersUploadSpeeds[0],
-//                                          nodesInternetSpeeds[0], stats, minersHash[0], averageBlockGenIntervalSeconds);
-//    ApplicationContainer bitcoinMiners;
-////    bitcoinMinerHelper.SetAttribute("FixedBlockIntervalGeneration", DoubleValue(averageBlockGenIntervalSeconds));
-//
-//    NS_LOG_UNCOND ("DONE - CREATE MINERS");
 
-//    for(auto miner: miners) {
-//
-//    bitcoinMinerHelper.SetPeersAddresses (nodesConnections[miner]);
-//    bitcoinMinerHelper.SetPeersDownloadSpeeds (peersDownloadSpeeds[miner]);
-//    bitcoinMinerHelper.SetPeersUploadSpeeds (peersUploadSpeeds[miner]);
-//    bitcoinMinerHelper.SetNodeInternetSpeeds (nodesInternetSpeeds[miner]);
-//    bitcoinMinerHelper.SetNodeStats (&stats[miner]);
-//
-//    }
-//        bitcoinMiners.Add(bitcoinMinerHelper.Install (targetNode1));
-//        bitcoinMiners.Add(bitcoinMinerHelper.Install (targetNode2));
-//        bitcoinMiners.Add(bitcoinMinerHelper.Install (targetNode3));
-//        std::cout << "SystemId " << systemId << ": Miner " << miner << " with hash power = " << minersHash[count]
-//	            << " and systemId = " << targetNode->GetSystemId() << " was installed in node "
-//                << targetNode->GetId () << std::endl;
-
-//    bitcoinMiners.Start(Seconds(start));
-//    bitcoinMiners.Stop(Minutes(stop));
-
-
-  // Set up the actual simulation
   Ipv4GlobalRoutingHelper::PopulateRoutingTables();
-//    tStartSimulation = get_wall_time();
-//    if (systemId == 0)
-//        std::cout << "Setup time = " << tStartSimulation - tStart << "s\n";
-//    Simulator::Stop (Minutes (stop + 0.1));
-//    Simulator::Run ();
-//    Simulator::Destroy ();
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

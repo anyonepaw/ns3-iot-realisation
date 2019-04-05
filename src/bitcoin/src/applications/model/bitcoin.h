@@ -1,6 +1,6 @@
 /**
  * This file contains all the necessary enumerations and structs used throughout the simulation.
- * It also defines 3 very important classed; the Block, Chunk and Blockchain.
+ * It also defines 3 very important classes: the Block, Chunk and Blockchain.
  */
 
 
@@ -161,7 +161,7 @@ enum BitcoinRegion getBitcoinEnum(uint32_t n);
 class Block
 {
 public:
-  Block (int blockHeight, int minerId, int parentBlockMinerId = 0, int blockSizeBytes = 0, 
+  Block (int blockHeight, int minerId, int parentBlockMinerId = 0, int blockSizeBytes = 0,
          double timeCreated = 0, double timeReceived = 0, Ipv4Address receivedFromIpv4 = Ipv4Address("0.0.0.0"));
   Block ();
   Block (const Block &blockSource);  // Copy constructor
@@ -188,12 +188,12 @@ public:
   /**
    * Checks if the block provided as the argument is the parent of this block object
    */
-  bool IsParent (const Block &block) const; 
+  bool IsParent (const Block &block) const;
 
   /**
    * Checks if the block provided as the argument is a child of this block object
    */
-  bool IsChild (const Block &block) const; 
+  bool IsChild (const Block &block) const;
   
   Block& operator= (const Block &blockSource); //Assignment Constructor
   
@@ -258,7 +258,7 @@ public:
    * Should be called after HasBlock() to make sure that the block exists.
    * Returns the orphan blocks too.
    */
-  Block ReturnBlock(int height, int minerId);  
+  Block ReturnBlock(int height, int minerId);
 
   /**
    * Check if the block is an orphan.
@@ -274,12 +274,12 @@ public:
   /**
    * Gets the children of a block that are not orphans.
    */
-  const std::vector<const Block *> GetChildrenPointers (const Block &block);  
+  const std::vector<const Block *> GetChildrenPointers (const Block &block);
   
   /**
    * Gets the children of a newBlock that used to be orphans before receiving the newBlock.
    */
-  const std::vector<const Block *> GetOrphanChildrenPointers (const Block &newBlock);  
+  const std::vector<const Block *> GetOrphanChildrenPointers (const Block &newBlock);
 
   /**
    * Gets the parent of a block

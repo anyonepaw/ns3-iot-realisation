@@ -6,7 +6,7 @@
 #define BLOCKCHAIN_NODE_HELPER_H
 
 #include "ns3/object-factory.h"
-#include "ns3/Ipv4-address.h"
+#include "ns3/ipv4-address.h"
 #include "ns3/node-container.h"
 #include "ns3/application-container.h"
 #include "ns3/uinteger.h"

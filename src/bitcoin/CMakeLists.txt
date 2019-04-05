@@ -10,27 +10,38 @@ set(source_files
         src/applications/helper/bitcoin-miner-helper.cc
         src/applications/helper/bitcoin-node-helper.cc
         src/applications/helper/bitcoin-topology-helper.cc
+        src/internet/helper/ipv4-address-helper-custom.cc
+        src/applications/helper/blockchain-node-helper.сс
         src/applications/model/bitcoin-miner.cc
         src/applications/model/bitcoin-node.cc
         src/applications/model/bitcoin-selfish-miner-trials.cc
         src/applications/model/bitcoin-selfish-miner.cc
         src/applications/model/bitcoin-simple-attacker.cc
         src/applications/model/bitcoin.cc
-        src/internet/helper/ipv4-address-helper-custom.cc
+        src/applications/model/blockchain-node.cc
+        src/applications/model/blockchain-validator.cc
+        src/applications/helper/blockchain-validator-helper.cc
+        src/applications/model/gateway-node.cc
+        src/applications/model/iot-sensor-node.cc
         )
 
 set(header_files
+        src/applications/helper/blockchain-node-helper.h
         src/applications/helper/bitcoin-miner-helper.h
         src/applications/helper/bitcoin-topology-helper.h
-        src/applications/model/bandwidth-distributions.h
+        src/applications/helper/bitcoin-node-helper.h
         src/internet/helper/ipv4-address-helper-custom.h
         src/applications/model/bitcoin.h
+        src/applications/model/bandwidth-distributions.h
         src/applications/model/bitcoin-simple-attacker.h
         src/applications/model/bitcoin-selfish-miner.h
         src/applications/model/bitcoin-selfish-miner-trials.h
         src/applications/model/bitcoin-node.h
         src/applications/model/bitcoin-miner.h
-        src/applications/helper/bitcoin-node-helper.h
+        src/applications/model/blockchain-node.h
+        src/applications/model/blockchain-validator.h
+        src/applications/helper/blockchain-validator-helper.h
+        src/applications/model/gateway-node.h
         )
 
 

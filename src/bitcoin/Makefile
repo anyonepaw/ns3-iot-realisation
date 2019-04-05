@@ -39,10 +39,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/local/Cellar/cmake/3.13.3/bin/cmake
+CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
 
 # The command to remove a file.
-RM = /usr/local/Cellar/cmake/3.13.3/bin/cmake -E remove -f
+RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /Users/anyonepaw/CLionProjects/ns3-iot-realisation
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/local/Cellar/cmake/3.13.3/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/local/Cellar/cmake/3.13.3/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -139,75 +139,6 @@ ns3.29-bitcoin-debug-obj: src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/ru
 ns3.29-bitcoin-debug-obj/fast:
 	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/build.make src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/build
 .PHONY : ns3.29-bitcoin-debug-obj/fast
-
-# Convenience name for target.
-src/bitcoin/CMakeFiles/bitcoin.dir/rule:
-	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f CMakeFiles/Makefile2 src/bitcoin/CMakeFiles/bitcoin.dir/rule
-.PHONY : src/bitcoin/CMakeFiles/bitcoin.dir/rule
-
-# Convenience name for target.
-bitcoin: src/bitcoin/CMakeFiles/bitcoin.dir/rule
-
-.PHONY : bitcoin
-
-# fast build rule for target.
-bitcoin/fast:
-	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f src/bitcoin/CMakeFiles/bitcoin.dir/build.make src/bitcoin/CMakeFiles/bitcoin.dir/build
-.PHONY : bitcoin/fast
-
-scratch/bitcoin-test.o: scratch/bitcoin-test.cc.o
-
-.PHONY : scratch/bitcoin-test.o
-
-# target to build an object file
-scratch/bitcoin-test.cc.o:
-	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f src/bitcoin/CMakeFiles/bitcoin.dir/build.make src/bitcoin/CMakeFiles/bitcoin.dir/scratch/bitcoin-test.cc.o
-.PHONY : scratch/bitcoin-test.cc.o
-
-scratch/bitcoin-test.i: scratch/bitcoin-test.cc.i
-
-.PHONY : scratch/bitcoin-test.i
-
-# target to preprocess a source file
-scratch/bitcoin-test.cc.i:
-	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f src/bitcoin/CMakeFiles/bitcoin.dir/build.make src/bitcoin/CMakeFiles/bitcoin.dir/scratch/bitcoin-test.cc.i
-.PHONY : scratch/bitcoin-test.cc.i
-
-scratch/bitcoin-test.s: scratch/bitcoin-test.cc.s
-
-.PHONY : scratch/bitcoin-test.s
-
-# target to generate assembly for a file
-scratch/bitcoin-test.cc.s:
-	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f src/bitcoin/CMakeFiles/bitcoin.dir/build.make src/bitcoin/CMakeFiles/bitcoin.dir/scratch/bitcoin-test.cc.s
-.PHONY : scratch/bitcoin-test.cc.s
-
-scratch/selfish-miner-test.o: scratch/selfish-miner-test.cc.o
-
-.PHONY : scratch/selfish-miner-test.o
-
-# target to build an object file
-scratch/selfish-miner-test.cc.o:
-	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f src/bitcoin/CMakeFiles/bitcoin.dir/build.make src/bitcoin/CMakeFiles/bitcoin.dir/scratch/selfish-miner-test.cc.o
-.PHONY : scratch/selfish-miner-test.cc.o
-
-scratch/selfish-miner-test.i: scratch/selfish-miner-test.cc.i
-
-.PHONY : scratch/selfish-miner-test.i
-
-# target to preprocess a source file
-scratch/selfish-miner-test.cc.i:
-	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f src/bitcoin/CMakeFiles/bitcoin.dir/build.make src/bitcoin/CMakeFiles/bitcoin.dir/scratch/selfish-miner-test.cc.i
-.PHONY : scratch/selfish-miner-test.cc.i
-
-scratch/selfish-miner-test.s: scratch/selfish-miner-test.cc.s
-
-.PHONY : scratch/selfish-miner-test.s
-
-# target to generate assembly for a file
-scratch/selfish-miner-test.cc.s:
-	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f src/bitcoin/CMakeFiles/bitcoin.dir/build.make src/bitcoin/CMakeFiles/bitcoin.dir/scratch/selfish-miner-test.cc.s
-.PHONY : scratch/selfish-miner-test.cc.s
 
 src/applications/helper/bitcoin-miner-helper.o: src/applications/helper/bitcoin-miner-helper.cc.o
 
@@ -289,6 +220,33 @@ src/applications/helper/bitcoin-topology-helper.s: src/applications/helper/bitco
 src/applications/helper/bitcoin-topology-helper.cc.s:
 	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/build.make src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/src/applications/helper/bitcoin-topology-helper.cc.s
 .PHONY : src/applications/helper/bitcoin-topology-helper.cc.s
+
+src/applications/helper/blockchain-validator-helper.o: src/applications/helper/blockchain-validator-helper.cc.o
+
+.PHONY : src/applications/helper/blockchain-validator-helper.o
+
+# target to build an object file
+src/applications/helper/blockchain-validator-helper.cc.o:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/build.make src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/src/applications/helper/blockchain-validator-helper.cc.o
+.PHONY : src/applications/helper/blockchain-validator-helper.cc.o
+
+src/applications/helper/blockchain-validator-helper.i: src/applications/helper/blockchain-validator-helper.cc.i
+
+.PHONY : src/applications/helper/blockchain-validator-helper.i
+
+# target to preprocess a source file
+src/applications/helper/blockchain-validator-helper.cc.i:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/build.make src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/src/applications/helper/blockchain-validator-helper.cc.i
+.PHONY : src/applications/helper/blockchain-validator-helper.cc.i
+
+src/applications/helper/blockchain-validator-helper.s: src/applications/helper/blockchain-validator-helper.cc.s
+
+.PHONY : src/applications/helper/blockchain-validator-helper.s
+
+# target to generate assembly for a file
+src/applications/helper/blockchain-validator-helper.cc.s:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/build.make src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/src/applications/helper/blockchain-validator-helper.cc.s
+.PHONY : src/applications/helper/blockchain-validator-helper.cc.s
 
 src/applications/model/bitcoin-miner.o: src/applications/model/bitcoin-miner.cc.o
 
@@ -452,6 +410,114 @@ src/applications/model/bitcoin.cc.s:
 	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/build.make src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/src/applications/model/bitcoin.cc.s
 .PHONY : src/applications/model/bitcoin.cc.s
 
+src/applications/model/blockchain-node.o: src/applications/model/blockchain-node.cc.o
+
+.PHONY : src/applications/model/blockchain-node.o
+
+# target to build an object file
+src/applications/model/blockchain-node.cc.o:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/build.make src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/src/applications/model/blockchain-node.cc.o
+.PHONY : src/applications/model/blockchain-node.cc.o
+
+src/applications/model/blockchain-node.i: src/applications/model/blockchain-node.cc.i
+
+.PHONY : src/applications/model/blockchain-node.i
+
+# target to preprocess a source file
+src/applications/model/blockchain-node.cc.i:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/build.make src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/src/applications/model/blockchain-node.cc.i
+.PHONY : src/applications/model/blockchain-node.cc.i
+
+src/applications/model/blockchain-node.s: src/applications/model/blockchain-node.cc.s
+
+.PHONY : src/applications/model/blockchain-node.s
+
+# target to generate assembly for a file
+src/applications/model/blockchain-node.cc.s:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/build.make src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/src/applications/model/blockchain-node.cc.s
+.PHONY : src/applications/model/blockchain-node.cc.s
+
+src/applications/model/blockchain-validator.o: src/applications/model/blockchain-validator.cc.o
+
+.PHONY : src/applications/model/blockchain-validator.o
+
+# target to build an object file
+src/applications/model/blockchain-validator.cc.o:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/build.make src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/src/applications/model/blockchain-validator.cc.o
+.PHONY : src/applications/model/blockchain-validator.cc.o
+
+src/applications/model/blockchain-validator.i: src/applications/model/blockchain-validator.cc.i
+
+.PHONY : src/applications/model/blockchain-validator.i
+
+# target to preprocess a source file
+src/applications/model/blockchain-validator.cc.i:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/build.make src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/src/applications/model/blockchain-validator.cc.i
+.PHONY : src/applications/model/blockchain-validator.cc.i
+
+src/applications/model/blockchain-validator.s: src/applications/model/blockchain-validator.cc.s
+
+.PHONY : src/applications/model/blockchain-validator.s
+
+# target to generate assembly for a file
+src/applications/model/blockchain-validator.cc.s:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/build.make src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/src/applications/model/blockchain-validator.cc.s
+.PHONY : src/applications/model/blockchain-validator.cc.s
+
+src/applications/model/gateway-node.o: src/applications/model/gateway-node.cc.o
+
+.PHONY : src/applications/model/gateway-node.o
+
+# target to build an object file
+src/applications/model/gateway-node.cc.o:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/build.make src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/src/applications/model/gateway-node.cc.o
+.PHONY : src/applications/model/gateway-node.cc.o
+
+src/applications/model/gateway-node.i: src/applications/model/gateway-node.cc.i
+
+.PHONY : src/applications/model/gateway-node.i
+
+# target to preprocess a source file
+src/applications/model/gateway-node.cc.i:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/build.make src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/src/applications/model/gateway-node.cc.i
+.PHONY : src/applications/model/gateway-node.cc.i
+
+src/applications/model/gateway-node.s: src/applications/model/gateway-node.cc.s
+
+.PHONY : src/applications/model/gateway-node.s
+
+# target to generate assembly for a file
+src/applications/model/gateway-node.cc.s:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/build.make src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/src/applications/model/gateway-node.cc.s
+.PHONY : src/applications/model/gateway-node.cc.s
+
+src/applications/model/iot-sensor-node.o: src/applications/model/iot-sensor-node.cc.o
+
+.PHONY : src/applications/model/iot-sensor-node.o
+
+# target to build an object file
+src/applications/model/iot-sensor-node.cc.o:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/build.make src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/src/applications/model/iot-sensor-node.cc.o
+.PHONY : src/applications/model/iot-sensor-node.cc.o
+
+src/applications/model/iot-sensor-node.i: src/applications/model/iot-sensor-node.cc.i
+
+.PHONY : src/applications/model/iot-sensor-node.i
+
+# target to preprocess a source file
+src/applications/model/iot-sensor-node.cc.i:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/build.make src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/src/applications/model/iot-sensor-node.cc.i
+.PHONY : src/applications/model/iot-sensor-node.cc.i
+
+src/applications/model/iot-sensor-node.s: src/applications/model/iot-sensor-node.cc.s
+
+.PHONY : src/applications/model/iot-sensor-node.s
+
+# target to generate assembly for a file
+src/applications/model/iot-sensor-node.cc.s:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/build.make src/bitcoin/CMakeFiles/ns3.29-bitcoin-debug-obj.dir/src/applications/model/iot-sensor-node.cc.s
+.PHONY : src/applications/model/iot-sensor-node.cc.s
+
 src/internet/helper/ipv4-address-helper-custom.o: src/internet/helper/ipv4-address-helper-custom.cc.o
 
 .PHONY : src/internet/helper/ipv4-address-helper-custom.o
@@ -489,13 +555,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... ns3.29-bitcoin-debug"
 	@echo "... ns3.29-bitcoin-debug-obj"
-	@echo "... bitcoin"
-	@echo "... scratch/bitcoin-test.o"
-	@echo "... scratch/bitcoin-test.i"
-	@echo "... scratch/bitcoin-test.s"
-	@echo "... scratch/selfish-miner-test.o"
-	@echo "... scratch/selfish-miner-test.i"
-	@echo "... scratch/selfish-miner-test.s"
 	@echo "... src/applications/helper/bitcoin-miner-helper.o"
 	@echo "... src/applications/helper/bitcoin-miner-helper.i"
 	@echo "... src/applications/helper/bitcoin-miner-helper.s"
@@ -505,6 +564,9 @@ help:
 	@echo "... src/applications/helper/bitcoin-topology-helper.o"
 	@echo "... src/applications/helper/bitcoin-topology-helper.i"
 	@echo "... src/applications/helper/bitcoin-topology-helper.s"
+	@echo "... src/applications/helper/blockchain-validator-helper.o"
+	@echo "... src/applications/helper/blockchain-validator-helper.i"
+	@echo "... src/applications/helper/blockchain-validator-helper.s"
 	@echo "... src/applications/model/bitcoin-miner.o"
 	@echo "... src/applications/model/bitcoin-miner.i"
 	@echo "... src/applications/model/bitcoin-miner.s"
@@ -523,6 +585,18 @@ help:
 	@echo "... src/applications/model/bitcoin.o"
 	@echo "... src/applications/model/bitcoin.i"
 	@echo "... src/applications/model/bitcoin.s"
+	@echo "... src/applications/model/blockchain-node.o"
+	@echo "... src/applications/model/blockchain-node.i"
+	@echo "... src/applications/model/blockchain-node.s"
+	@echo "... src/applications/model/blockchain-validator.o"
+	@echo "... src/applications/model/blockchain-validator.i"
+	@echo "... src/applications/model/blockchain-validator.s"
+	@echo "... src/applications/model/gateway-node.o"
+	@echo "... src/applications/model/gateway-node.i"
+	@echo "... src/applications/model/gateway-node.s"
+	@echo "... src/applications/model/iot-sensor-node.o"
+	@echo "... src/applications/model/iot-sensor-node.i"
+	@echo "... src/applications/model/iot-sensor-node.s"
 	@echo "... src/internet/helper/ipv4-address-helper-custom.o"
 	@echo "... src/internet/helper/ipv4-address-helper-custom.i"
 	@echo "... src/internet/helper/ipv4-address-helper-custom.s"

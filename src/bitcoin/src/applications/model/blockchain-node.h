@@ -11,7 +11,7 @@
 #include "ns3/ptr.h"
 #include "ns3/traced-callback.h"
 #include "ns3/address.h"
-#include "blockchain.h"
+#include "bitcoin.h"
 #include "ns3/boolean.h"
 #include "../3rd-party/rapidjson/include/rapidjson/document.h"
 #include "../3rd-party/rapidjson/include/rapidjson/writer.h"
@@ -179,19 +179,19 @@ namespace ns3 {
          * \brief Sends a message to a peer
          * \param receivedMessage the type of the received message
          * \param responseMessage the type of the response message
-         * \param d the rapidjson document containing the info of the outgoing message
+         * \param document the rapidjson document containing the info of the outgoing message
          * \param outgoingSocket the socket of the peer
          */
-        void SendMessage(enum Messages receivedMessage,  enum Messages responseMessage, rapidjson::Document &d, Ptr<Socket> outgoingSocket);
+        void SendMessage(enum Messages receivedMessage,  enum Messages responseMessage, rapidjson::Document &document, Ptr<Socket> outgoingSocket);
 
         /**
          * \brief Sends a message to a peer
          * \param receivedMessage the type of the received message
          * \param responseMessage the type of the response message
-         * \param d the rapidjson document containing the info of the outgoing message
+         * \param document the rapidjson document containing the info of the outgoing message
          * \param outgoingAddress the Address of the peer
          */
-        void SendMessage(enum Messages receivedMessage,  enum Messages responseMessage, rapidjson::Document &d, Address &outgoingAddress);
+        void SendMessage(enum Messages receivedMessage,  enum Messages responseMessage, rapidjson::Document &document, Address &outgoingAddress);
 
         /**
          * \brief Sends a message to a peer

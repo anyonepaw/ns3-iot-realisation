@@ -164,7 +164,7 @@ set(libs_to_build
         wimax                 #
         test                  # beware of naming colisions between macro CHECK in traced-value-callback-typedef-test-suite.cc and torch/script.h (PyTorch)
 #        tangle-network
-#        bitcoin
+        bitcoin
         )
 
 #Build contribution libraries

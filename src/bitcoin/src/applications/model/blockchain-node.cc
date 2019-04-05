@@ -154,6 +154,8 @@ namespace ns3 {
         m_protocolType = protocolType;
     }
 
+
+    //Избавиться от объекта?
     void
     BlockchainNode::DoDispose (void)
     {
@@ -336,7 +338,7 @@ namespace ns3 {
                 break;
             }
 
-            if (Inet6SocketAddress::IsMatchingType (from))
+            if (InetSocketAddress::IsMatchingType (from))
             {
                 /**
                  * We may receive more than one packets simultaneously on the socket,
@@ -380,8 +382,8 @@ namespace ns3 {
                     NS_LOG_INFO ("At time "  << Simulator::Now ().GetSeconds ()
                                              << "s bitcoin node " << GetNode ()->GetId () << " received "
                                              <<  packet->GetSize () << " bytes from "
-                                             << Inet6SocketAddress::ConvertFrom(from).GetIpv6 ()
-                                             << " port " << Inet6SocketAddress::ConvertFrom (from).GetPort ()
+                                             << InetSocketAddress::ConvertFrom(from).GetIpv4 ()
+                                             << " port " << InetSocketAddress::ConvertFrom (from).GetPort ()
                                              << " with info = " << buffer.GetString());
 
                     switch (d["message"].GetInt())
@@ -939,8 +941,8 @@ namespace ns3 {
 //                 double sendTime = totalBlockMessageSize / m_uploadSpeed;
 // 	            double eventTime;
 //
-// /*                 std::cout << "Node " << GetNode()->GetId() << "-" << Inet6SocketAddress::ConvertFrom(from).GetIpv6 ()
-// 		  		          << " " << m_peersDownloadSpeeds[Inet6SocketAddress::ConvertFrom(from).GetIpv6 ()] << " Mbps , time = "
+// /*                 std::cout << "Node " << GetNode()->GetId() << "-" << InetSocketAddress::ConvertFrom(from).GetIpv6 ()
+// 		  		          << " " << m_peersDownloadSpeeds[InetSocketAddress::ConvertFrom(from).GetIpv6 ()] << " Mbps , time = "
 // 		  		          << Simulator::Now ().GetSeconds() << "s \n"; */
 //
 //                 if (m_sendBlockTimes.size() == 0 || Simulator::Now ().GetSeconds() >  m_sendBlockTimes.back())
@@ -955,7 +957,7 @@ namespace ns3 {
 //                 m_sendBlockTimes.push_back(Simulator::Now ().GetSeconds() + eventTime + sendTime);
 //
 //                 //std::cout << sendTime << " " << eventTime << " " << m_sendBlockTimes.size() << std::endl;
-//                 NS_LOG_INFO("Node " << GetNode()->GetId() << " will start sending the block to " << Inet6SocketAddress::ConvertFrom(from).GetIpv6 ()
+//                 NS_LOG_INFO("Node " << GetNode()->GetId() << " will start sending the block to " << InetSocketAddress::ConvertFrom(from).GetIpv6 ()
 //                             << " at " << Simulator::Now ().GetSeconds() + eventTime << "\n");
 //
 //
@@ -1207,8 +1209,8 @@ namespace ns3 {
 //                 double sendTime = totalChunkMessageSize / m_uploadSpeed;
 //                 double eventTime;
 //
-// /*                 std::cout << "Node " << GetNode()->GetId() << "-" << Inet6SocketAddress::ConvertFrom(from).GetIpv6 ()
-// 		  		          << " " << m_peersDownloadSpeeds[Inet6SocketAddress::ConvertFrom(from).GetIpv6 ()] << " Mbps , time = "
+// /*                 std::cout << "Node " << GetNode()->GetId() << "-" << InetSocketAddress::ConvertFrom(from).GetIpv6 ()
+// 		  		          << " " << m_peersDownloadSpeeds[InetSocketAddress::ConvertFrom(from).GetIpv6 ()] << " Mbps , time = "
 // 		  		          << Simulator::Now ().GetSeconds() << "s \n"; */
 //
 //                 if (m_sendBlockTimes.size() == 0 || Simulator::Now ().GetSeconds() >  m_sendBlockTimes.back())
@@ -1223,7 +1225,7 @@ namespace ns3 {
 //                 m_sendBlockTimes.push_back(Simulator::Now ().GetSeconds() + eventTime + sendTime);
 //
 //                 //std::cout << sendTime << " " << eventTime << " " << m_sendBlockTimes.size() << std::endl;
-//                 NS_LOG_INFO("Node " << GetNode()->GetId() << " will start sending the chunk to " << Inet6SocketAddress::ConvertFrom(from).GetIpv6 ()
+//                 NS_LOG_INFO("Node " << GetNode()->GetId() << " will start sending the chunk to " << InetSocketAddress::ConvertFrom(from).GetIpv6 ()
 //                             << " at " << Simulator::Now ().GetSeconds() + eventTime << "\n");
 //
 //
@@ -1271,9 +1273,9 @@ namespace ns3 {
 //                                       d["blocks"][j]["nodeId"].GetInt(),
 //                                       d["blocks"][j]["nodePublicKey"].GetString(),
 //                                       d["blocks"][j]["signature"].GetString(),
-//                                       Simulator::Now ().GetSeconds (), Inet6SocketAddress::ConvertFrom(from).GetIpv6 ());
+//                                       Simulator::Now ().GetSeconds (), InetSocketAddress::ConvertFrom(from).GetIpv6 ());
 //                 m_onlyHeadersReceived[blockHash] = Block (d["blocks"][j]["height"].GetInt(), d["blocks"][j]["minerId"].GetInt(), d["blocks"][j]["parentBlockMinerId"].GetInt(),
-//                                                           d["blocks"][j]["size"].GetInt(), d["blocks"][j]["timeCreated"].GetDouble(),               d["blocks"][j]["nodeId"].GetInt(),d["blocks"][j]["nodePublicKey"].GetString(),d["blocks"][j]["signature"].GetString(),Simulator::Now ().GetSeconds (), Inet6SocketAddress::ConvertFrom(from).GetIpv6 ());
+//                                                           d["blocks"][j]["size"].GetInt(), d["blocks"][j]["timeCreated"].GetDouble(),               d["blocks"][j]["nodeId"].GetInt(),d["blocks"][j]["nodePublicKey"].GetString(),d["blocks"][j]["signature"].GetString(),Simulator::Now ().GetSeconds (), InetSocketAddress::ConvertFrom(from).GetIpv6 ());
 //                 //PrintOnlyHeadersReceived();
 //
 //                 stringStream.clear();
@@ -1433,12 +1435,12 @@ namespace ns3 {
 //                 stringStream << height << "/" << minerId;
 //                 blockHash = stringStream.str();
 //                 Block newBlockHeaders(d["blocks"][j]["height"].GetInt(), d["blocks"][j]["minerId"].GetInt(), d["blocks"][j]["parentBlockMinerId"].GetInt(),
-//                                                          d["blocks"][j]["size"].GetInt(), d["blocks"][j]["timeCreated"].GetDouble(), d["blocks"][j]["nodeId"].GetInt(),d["blocks"][j]["nodePublicKey"].GetString(), d["blocks"][j]["signature"].GetString(), Simulator::Now ().GetSeconds (), Inet6SocketAddress::ConvertFrom(from).GetIpv6 ());
+//                                                          d["blocks"][j]["size"].GetInt(), d["blocks"][j]["timeCreated"].GetDouble(), d["blocks"][j]["nodeId"].GetInt(),d["blocks"][j]["nodePublicKey"].GetString(), d["blocks"][j]["signature"].GetString(), Simulator::Now ().GetSeconds (), InetSocketAddress::ConvertFrom(from).GetIpv6 ());
 //                 if (!OnlyHeadersReceived(blockHash))
 //                 {
 //                   m_onlyHeadersReceived[blockHash] = Block (d["blocks"][j]["height"].GetInt(), d["blocks"][j]["minerId"].GetInt(), d["blocks"][j]["parentBlockMinerId"].GetInt(),
 //                                                             d["blocks"][j]["size"].GetInt(), d["blocks"][j]["timeCreated"].GetDouble(), d["blocks"][j]["nodeId"].GetInt(), d["blocks"][j]["nodePublicKey"].GetString(), d["blocks"][j]["signature"].GetString(),
-//                                                             Simulator::Now ().GetSeconds (), Inet6SocketAddress::ConvertFrom(from).GetIpv6 ());
+//                                                             Simulator::Now ().GetSeconds (), InetSocketAddress::ConvertFrom(from).GetIpv6 ());
 //                 }
 //                 //PrintOnlyHeadersReceived();
 //
@@ -1765,13 +1767,13 @@ namespace ns3 {
                 m_bufferedData[from] = totalReceivedData;
                 delete[] packetInfo;
             }
-            else if (Inet6SocketAddress::IsMatchingType (from))
+            else if (InetSocketAddress::IsMatchingType (from))
             {
                 NS_LOG_INFO ("At time " << Simulator::Now ().GetSeconds ()
                                         << "s bitcoin node " << GetNode ()->GetId () << " received "
                                         <<  packet->GetSize () << " bytes from "
-                                        << Inet6SocketAddress::ConvertFrom(from).GetIpv6 ()
-                                        << " port " << Inet6SocketAddress::ConvertFrom (from).GetPort ());
+                                        << InetSocketAddress::ConvertFrom(from).GetIpv4 ()
+                                        << " port " << InetSocketAddress::ConvertFrom (from).GetPort ());
             }
             m_rxTrace (packet, from);
         }
@@ -1840,7 +1842,7 @@ namespace ns3 {
             //                   d["blocks"][j]["nodeId"].GetInt(),
             //                   d["blocks"][j]["nodePublicKey"].GetString(),
             //                   d["blocks"][j]["signature"].GetString(),
-            //                   Simulator::Now ().GetSeconds (), Inet6SocketAddress::ConvertFrom(from).GetIpv6 ());
+            //                   Simulator::Now ().GetSeconds (), InetSocketAddress::ConvertFrom(from).GetIpv6 ());
             //
             //   ReceiveBlock (newBlock);
             // }
@@ -1902,7 +1904,7 @@ namespace ns3 {
 
         NS_LOG_INFO ("SendBlock: At time " << Simulator::Now ().GetSeconds ()
                                            << "s bitcoin node " << GetNode ()->GetId () << " sent "
-                                           << packetInfo << " to " << Inet6SocketAddress::ConvertFrom(from).GetIpv6 ());
+                                           << packetInfo << " to " << InetSocketAddress::ConvertFrom(from).GetIpv4 ());
 
         //m_sendBlockTimes.erase(m_sendBlockTimes.begin());
         SendMessage(GET_DATA, BLOCK, packetInfo, from);
@@ -2093,7 +2095,7 @@ namespace ns3 {
 
         for (std::vector<Ipv4Address>::const_iterator i = m_peersAddresses.begin(); i != m_peersAddresses.end(); ++i)
         {
-            if ( *i != newBlock.GetReceivedFromIpv4Address ())
+            if ( *i != newBlock.GetReceivedFromIpv4 ())
             {
                 const uint8_t delimiter[] = "#";
 
@@ -2118,80 +2120,80 @@ namespace ns3 {
     {
         NS_LOG_FUNCTION (this);
 
-        rapidjson::Document d;
+        rapidjson::Document doc;
         rapidjson::Value value;
         rapidjson::Value array(rapidjson::kArrayType);
         rapidjson::Value blockInfo(rapidjson::kObjectType);
         std::ostringstream stringStream;
         std::string blockHash = stringStream.str();
-        d.SetObject();
+        doc.SetObject();
 
         value.SetString("block");
-        d.AddMember("type", value, d.GetAllocator());
+        doc.AddMember("type", value, doc.GetAllocator());
 
         if (m_protocolType == STANDARD_PROTOCOL)
         {
             value = EXT_INV;
-            d.AddMember("message", value, d.GetAllocator());
+            doc.AddMember("message", value, doc.GetAllocator());
 
             stringStream << newBlock.GetBlockHeight () << "/" << newBlock.GetMinerId ();
             blockHash = stringStream.str();
-            value.SetString(blockHash.c_str(), blockHash.size(), d.GetAllocator());
-            blockInfo.AddMember("hash", value, d.GetAllocator ());
+            value.SetString(blockHash.c_str(), blockHash.size(), doc.GetAllocator());
+            blockInfo.AddMember("hash", value, doc.GetAllocator ());
 
             value = newBlock.GetBlockSizeBytes ();
-            blockInfo.AddMember("size", value, d.GetAllocator ());
+            blockInfo.AddMember("size", value, doc.GetAllocator ());
 
             value = true;
-            blockInfo.AddMember("fullBlock", value, d.GetAllocator ());
+            blockInfo.AddMember("fullBlock", value, doc.GetAllocator ());
 
-            array.PushBack(blockInfo, d.GetAllocator());
-            d.AddMember("inv", array, d.GetAllocator());
+            array.PushBack(blockInfo, doc.GetAllocator());
+            doc.AddMember("inv", array, doc.GetAllocator());
         }
         else if (m_protocolType == SENDHEADERS)
         {
             rapidjson::Value blockInfo(rapidjson::kObjectType);
 
             value = newBlock.GetBlockHeight ();
-            blockInfo.AddMember("height", value, d.GetAllocator ());
+            blockInfo.AddMember("height", value, doc.GetAllocator ());
 
             value = newBlock.GetMinerId ();
-            blockInfo.AddMember("minerId", value, d.GetAllocator ());
+            blockInfo.AddMember("minerId", value, doc.GetAllocator ());
 
             value = newBlock.GetParentBlockMinerId ();
-            blockInfo.AddMember("parentBlockMinerId", value, d.GetAllocator ());
+            blockInfo.AddMember("parentBlockMinerId", value, doc.GetAllocator ());
 
             value = newBlock.GetBlockSizeBytes ();
-            blockInfo.AddMember("size", value, d.GetAllocator ());
+            blockInfo.AddMember("size", value, doc.GetAllocator ());
 
             value = newBlock.GetTimeCreated ();
-            blockInfo.AddMember("timeCreated", value, d.GetAllocator ());
+            blockInfo.AddMember("timeCreated", value, doc.GetAllocator ());
 
             value = newBlock.GetTimeReceived ();
-            blockInfo.AddMember("timeReceived", value, d.GetAllocator ());
+            blockInfo.AddMember("timeReceived", value, doc.GetAllocator ());
 
             if (!m_blockTorrent)
             {
                 value = HEADERS;
-                d.AddMember("message", value, d.GetAllocator());
+                doc.AddMember("message", value, doc.GetAllocator());
             }
             else
             {
                 value = EXT_HEADERS;
-                d.AddMember("message", value, d.GetAllocator());
+                doc.AddMember("message", value, doc.GetAllocator());
 
                 value = true;
-                blockInfo.AddMember("fullBlock", value, d.GetAllocator ());
+                blockInfo.AddMember("fullBlock", value, doc.GetAllocator ());
             }
 
-            array.PushBack(blockInfo, d.GetAllocator());
-            d.AddMember("blocks", array, d.GetAllocator());
+            array.PushBack(blockInfo, doc.GetAllocator());
+            doc.AddMember("blocks", array, doc.GetAllocator());
         }
 
         // Stringify the DOM
         rapidjson::StringBuffer packetInfo;
         rapidjson::Writer<rapidjson::StringBuffer> writer(packetInfo);
-        d.Accept(writer);
+        doc.Accept(writer);
 
         for (std::vector<Ipv4Address>::const_iterator i = m_peersAddresses.begin(); i != m_peersAddresses.end(); ++i)
         {
@@ -2202,22 +2204,22 @@ namespace ns3 {
 
             if (m_protocolType == STANDARD_PROTOCOL)
             {
-                m_nodeStats->extInvSentBytes += m_bitcoinMessageHeader + m_countBytes + d["inv"].Size()*m_inventorySizeBytes;
-                for (int j=0; j<d["inv"].Size(); j++)
+                m_nodeStats->extInvSentBytes += m_bitcoinMessageHeader + m_countBytes + doc["inv"].Size()*m_inventorySizeBytes;
+                for (int j=0; j<doc["inv"].Size(); j++)
                 {
                     m_nodeStats->extInvSentBytes += 5; //1Byte(fullBlock) + 4Bytes(numberOfChunks)
-                    if (!d["inv"][j]["fullBlock"].GetBool())
-                        m_nodeStats->extInvSentBytes += d["inv"][j]["availableChunks"].Size();
+                    if (!doc["inv"][j]["fullBlock"].GetBool())
+                        m_nodeStats->extInvSentBytes += doc["inv"][j]["availableChunks"].Size();
                 }
             }
             else if (m_protocolType == SENDHEADERS)
             {
-                m_nodeStats->extHeadersSentBytes += m_bitcoinMessageHeader + m_countBytes + d["blocks"].Size()*m_headersSizeBytes;
-                for (int j=0; j<d["blocks"].Size(); j++)
+                m_nodeStats->extHeadersSentBytes += m_bitcoinMessageHeader + m_countBytes + doc["blocks"].Size()*m_headersSizeBytes;
+                for (int j=0; j<doc["blocks"].Size(); j++)
                 {
                     m_nodeStats->extHeadersSentBytes += 1;//fullBlock
-                    if (!d["blocks"][j]["fullBlock"].GetBool())
-                        m_nodeStats->extHeadersSentBytes += d["blocks"][j]["availableChunks"].Size()*1;
+                    if (!doc["blocks"][j]["fullBlock"].GetBool())
+                        m_nodeStats->extHeadersSentBytes += doc["blocks"][j]["availableChunks"].Size()*1;
                 }
             }
 
@@ -2230,7 +2232,7 @@ namespace ns3 {
 
 
     void
-    BlockchainNode::SendMessage(enum Messages receivedMessage,  enum Messages responseMessage, rapidjson::Document &d, Ptr<Socket> outgoingSocket)
+    BlockchainNode::SendMessage(enum Messages receivedMessage,  enum Messages responseMessage, rapidjson::Document &document, Ptr<Socket> outgoingSocket)
     {
         NS_LOG_FUNCTION (this);
 
@@ -2239,8 +2241,8 @@ namespace ns3 {
         rapidjson::StringBuffer buffer;
         rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
 
-        d["message"].SetInt(responseMessage);
-        d.Accept(writer);
+        document["message"].SetInt(responseMessage);
+        document.Accept(writer);
         NS_LOG_INFO ("Node " << GetNode ()->GetId () << " got a "
                              << getMessageName(receivedMessage) << " message"
                              << " and sent a " << getMessageName(responseMessage)
@@ -2249,21 +2251,21 @@ namespace ns3 {
         outgoingSocket->Send (reinterpret_cast<const uint8_t*>(buffer.GetString()), buffer.GetSize(), 0);
         outgoingSocket->Send (delimiter, 1, 0);
 
-        switch (d["message"].GetInt())
+        switch (document["message"].GetInt())
         {
             case INV:
             {
-                m_nodeStats->invSentBytes += m_bitcoinMessageHeader + m_countBytes + d["inv"].Size()*m_inventorySizeBytes;
+                m_nodeStats->invSentBytes += m_bitcoinMessageHeader + m_countBytes + document["inv"].Size()*m_inventorySizeBytes;
                 break;
             }
             case EXT_INV:
             {
-                m_nodeStats->extInvSentBytes += m_bitcoinMessageHeader + m_countBytes + d["inv"].Size()*m_inventorySizeBytes;
-                for (int j=0; j<d["inv"].Size(); j++)
+                m_nodeStats->extInvSentBytes += m_bitcoinMessageHeader + m_countBytes + document["inv"].Size()*m_inventorySizeBytes;
+                for (int j=0; j<document["inv"].Size(); j++)
                 {
                     m_nodeStats->extInvSentBytes += 5; //1Byte(fullBlock) + 4Bytes(numberOfChunks)
-                    if (!d["inv"][j]["fullBlock"].GetBool())
-                        m_nodeStats->extInvSentBytes += d["inv"][j]["availableChunks"].Size();
+                    if (!document["inv"][j]["fullBlock"].GetBool())
+                        m_nodeStats->extInvSentBytes += document["inv"][j]["availableChunks"].Size();
                 }
                 break;
             }
@@ -2279,40 +2281,40 @@ namespace ns3 {
             }
             case HEADERS:
             {
-                m_nodeStats->headersSentBytes += m_bitcoinMessageHeader + m_countBytes + d["blocks"].Size()*m_headersSizeBytes;
+                m_nodeStats->headersSentBytes += m_bitcoinMessageHeader + m_countBytes + document["blocks"].Size()*m_headersSizeBytes;
                 break;
             }
             case EXT_HEADERS:
             {
-                m_nodeStats->extHeadersSentBytes += m_bitcoinMessageHeader + m_countBytes + d["blocks"].Size()*m_headersSizeBytes;
-                for (int j=0; j<d["blocks"].Size(); j++)
+                m_nodeStats->extHeadersSentBytes += m_bitcoinMessageHeader + m_countBytes + document["blocks"].Size()*m_headersSizeBytes;
+                for (int j=0; j<document["blocks"].Size(); j++)
                 {
                     m_nodeStats->extHeadersSentBytes += 1;//fullBlock
-                    if (!d["blocks"][j]["fullBlock"].GetBool())
-                        m_nodeStats->extHeadersSentBytes += d["blocks"][j]["availableChunks"].Size()*1;
+                    if (!document["blocks"][j]["fullBlock"].GetBool())
+                        m_nodeStats->extHeadersSentBytes += document["blocks"][j]["availableChunks"].Size()*1;
                 }
                 break;
             }
             case BLOCK:
             {
-                for(int k = 0; k < d["blocks"].Size(); k++)
-                    m_nodeStats->blockSentBytes += d["blocks"][k]["size"].GetInt();
+                for(int k = 0; k < document["blocks"].Size(); k++)
+                    m_nodeStats->blockSentBytes += document["blocks"][k]["size"].GetInt();
                 m_nodeStats->blockSentBytes += m_bitcoinMessageHeader;
                 break;
             }
             case GET_DATA:
             {
-                m_nodeStats->getDataSentBytes += m_bitcoinMessageHeader + m_countBytes + d["blocks"].Size()*m_inventorySizeBytes;
+                m_nodeStats->getDataSentBytes += m_bitcoinMessageHeader + m_countBytes + document["blocks"].Size()*m_inventorySizeBytes;
                 break;
             }
             case EXT_GET_DATA:
             {
-                m_nodeStats->extGetDataSentBytes += m_bitcoinMessageHeader + m_countBytes + d["chunks"].Size()*m_inventorySizeBytes;
-                for (int j=0; j<d["chunks"].Size(); j++)
+                m_nodeStats->extGetDataSentBytes += m_bitcoinMessageHeader + m_countBytes + document["chunks"].Size()*m_inventorySizeBytes;
+                for (int j=0; j<document["chunks"].Size(); j++)
                 {
                     m_nodeStats->extGetDataSentBytes += 6; //1Byte(fullBlock) + 4Bytes(numberOfChunks) + 1Byte(requested chunk)
-                    if (!d["chunks"][j]["fullBlock"].GetBool())
-                        m_nodeStats->extGetDataSentBytes += d["chunks"][j]["availableChunks"].Size();
+                    if (!document["chunks"][j]["fullBlock"].GetBool())
+                        m_nodeStats->extGetDataSentBytes += document["chunks"][j]["availableChunks"].Size();
                 }
                 break;
             }
@@ -2320,7 +2322,7 @@ namespace ns3 {
     }
 
     void
-    BlockchainNode::SendMessage(enum Messages receivedMessage,  enum Messages responseMessage, rapidjson::Document &d, Address &outgoingAddress)
+    BlockchainNode::SendMessage(enum Messages receivedMessage,  enum Messages responseMessage, rapidjson::Document &document, Address &outgoingAddress)
     {
         NS_LOG_FUNCTION (this);
 
@@ -2329,8 +2331,8 @@ namespace ns3 {
         rapidjson::StringBuffer buffer;
         rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
 
-        d["message"].SetInt(responseMessage);
-        d.Accept(writer);
+        document["message"].SetInt(responseMessage);
+        document.Accept(writer);
         NS_LOG_INFO ("Node " << GetNode ()->GetId () << " got a "
                              << getMessageName(receivedMessage) << " message"
                              << " and sent a " << getMessageName(responseMessage)
@@ -2348,21 +2350,21 @@ namespace ns3 {
         m_peersSockets[outgoingIpv4Address]->Send (reinterpret_cast<const uint8_t*>(buffer.GetString()), buffer.GetSize(), 0);
         m_peersSockets[outgoingIpv4Address]->Send (delimiter, 1, 0);
 
-        switch (d["message"].GetInt())
+        switch (document["message"].GetInt())
         {
             case INV:
             {
-                m_nodeStats->invSentBytes += m_bitcoinMessageHeader + m_countBytes + d["inv"].Size()*m_inventorySizeBytes;
+                m_nodeStats->invSentBytes += m_bitcoinMessageHeader + m_countBytes + document["inv"].Size()*m_inventorySizeBytes;
                 break;
             }
             case EXT_INV:
             {
-                m_nodeStats->extInvSentBytes += m_bitcoinMessageHeader + m_countBytes + d["inv"].Size()*m_inventorySizeBytes;
-                for (int j=0; j<d["inv"].Size(); j++)
+                m_nodeStats->extInvSentBytes += m_bitcoinMessageHeader + m_countBytes + document["inv"].Size()*m_inventorySizeBytes;
+                for (int j=0; j<document["inv"].Size(); j++)
                 {
                     m_nodeStats->extInvSentBytes += 5; //1Byte(fullBlock) + 4Bytes(numberOfChunks)
-                    if (!d["inv"][j]["fullBlock"].GetBool())
-                        m_nodeStats->extInvSentBytes += d["inv"][j]["availableChunks"].Size();
+                    if (!document["inv"][j]["fullBlock"].GetBool())
+                        m_nodeStats->extInvSentBytes += document["inv"][j]["availableChunks"].Size();
                 }
                 break;
             }
@@ -2378,40 +2380,40 @@ namespace ns3 {
             }
             case HEADERS:
             {
-                m_nodeStats->headersSentBytes += m_bitcoinMessageHeader + m_countBytes + d["blocks"].Size()*m_headersSizeBytes;
+                m_nodeStats->headersSentBytes += m_bitcoinMessageHeader + m_countBytes + document["blocks"].Size()*m_headersSizeBytes;
                 break;
             }
             case EXT_HEADERS:
             {
-                m_nodeStats->extHeadersSentBytes += m_bitcoinMessageHeader + m_countBytes + d["blocks"].Size()*m_headersSizeBytes;
-                for (int j=0; j<d["blocks"].Size(); j++)
+                m_nodeStats->extHeadersSentBytes += m_bitcoinMessageHeader + m_countBytes + document["blocks"].Size()*m_headersSizeBytes;
+                for (int j=0; j<document["blocks"].Size(); j++)
                 {
                     m_nodeStats->extHeadersSentBytes += 1;//fullBlock
-                    if (!d["blocks"][j]["fullBlock"].GetBool())
-                        m_nodeStats->extHeadersSentBytes += d["blocks"][j]["availableChunks"].Size()*1;
+                    if (!document["blocks"][j]["fullBlock"].GetBool())
+                        m_nodeStats->extHeadersSentBytes += document["blocks"][j]["availableChunks"].Size()*1;
                 }
                 break;
             }
             case BLOCK:
             {
-                for(int k = 0; k < d["blocks"].Size(); k++)
-                    m_nodeStats->blockSentBytes += d["blocks"][k]["size"].GetInt();
+                for(int k = 0; k < document["blocks"].Size(); k++)
+                    m_nodeStats->blockSentBytes += document["blocks"][k]["size"].GetInt();
                 m_nodeStats->blockSentBytes += m_bitcoinMessageHeader;
                 break;
             }
             case GET_DATA:
             {
-                m_nodeStats->getDataSentBytes += m_bitcoinMessageHeader + m_countBytes + d["blocks"].Size()*m_inventorySizeBytes;
+                m_nodeStats->getDataSentBytes += m_bitcoinMessageHeader + m_countBytes + document["blocks"].Size()*m_inventorySizeBytes;
                 break;
             }
             case EXT_GET_DATA:
             {
-                m_nodeStats->extGetDataSentBytes += m_bitcoinMessageHeader + m_countBytes + d["chunks"].Size()*m_inventorySizeBytes;
-                for (int j=0; j<d["chunks"].Size(); j++)
+                m_nodeStats->extGetDataSentBytes += m_bitcoinMessageHeader + m_countBytes + document["chunks"].Size()*m_inventorySizeBytes;
+                for (int j=0; j<document["chunks"].Size(); j++)
                 {
                     m_nodeStats->extGetDataSentBytes += 6; //1Byte(fullBlock) + 4Bytes(numberOfChunks) + 1Byte(requested chunk)
-                    if (!d["chunks"][j]["fullBlock"].GetBool())
-                        m_nodeStats->extGetDataSentBytes += d["chunks"][j]["availableChunks"].Size();
+                    if (!document["chunks"][j]["fullBlock"].GetBool())
+                        m_nodeStats->extGetDataSentBytes += document["chunks"][j]["availableChunks"].Size();
                 }
                 break;
             }
@@ -2536,7 +2538,7 @@ namespace ns3 {
 
             for (block_it = elem.second.begin();  block_it < elem.second.end(); block_it++)
             {
-                std::cout << " " << Inet6SocketAddress::ConvertFrom(*block_it).GetIpv6 ();
+                std::cout << " " << InetSocketAddress::ConvertFrom(*block_it).GetIpv ();
             }
             std::cout << "\n";
         }
@@ -2640,10 +2642,7 @@ namespace ns3 {
     {
         NS_LOG_FUNCTION (this);
 
-        if ( m_receivedNotValidated.find(blockHash) != m_receivedNotValidated.end() )
-            return true;
-        else
-            return false;
+        return m_receivedNotValidated.find(blockHash) != m_receivedNotValidated.end();
     }
 
 
@@ -2669,10 +2668,7 @@ namespace ns3 {
     {
         NS_LOG_FUNCTION (this);
 
-        if (m_onlyHeadersReceived.find(blockHash) != m_onlyHeadersReceived.end())
-            return true;
-        else
-            return false;
+        return m_onlyHeadersReceived.find(blockHash) != m_onlyHeadersReceived.end();
     }
 
 
