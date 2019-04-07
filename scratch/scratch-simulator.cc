@@ -1,14 +1,14 @@
 /* -*- Mode:C++; c-file-style:"gnu"; indent-tabs-mode:nil; -*- */
 /*
+ *  MAIN CLASS
+ *  MTUCI RULES
  *
- *  Main class
- *
- *  Documentation lays here:
- *  https://www.nsnam.org/docs/models/html/
- *
+ * <-------- FOR ALL BUILD FILES LOOK HERE (IN BUILD/BIN)
  *  NetAnim: target for .xml is here /build/bin/iot.xml
  *
  *
+ *  Documentation lays here:
+ *  https://www.nsnam.org/docs/models/html/
  *
  *
  *
@@ -42,108 +42,35 @@ using namespace std;
 
 NS_LOG_COMPONENT_DEFINE ("ScratchSimulator");
 
+
+void AddMobility(double val1, double val2, NodeContainer container);
+
 int
 main(int argc, char *argv[]) {
     NS_LOG_UNCOND ("Start");
 
 
+    /** WI-FI */
+
+    WifiHelper WIFI;
+    InternetStackHelper STACK;
+    Ipv4AddressHelper ADDRESS_IPV4;
+    WIFI.SetStandard(WIFI_PHY_STANDARD_80211a);
+
+    /** NODES */
+
+    /** GATES */
     uint32_t numberOfGates = 3;
     NodeContainer gateNodes;
     gateNodes.Create(numberOfGates);
+
+
+    /** ROUTER */
     NodeContainer routerNode;
     routerNode.Create(1);
 
 
-    NS_LOG_UNCOND ("Router and internet-things created");
-
-    for (uint32_t i = 0; i < numberOfGates; ++i) {
-        std::ostringstream oss;
-        oss << "Gate" << i;
-        Names::Add(oss.str(), gateNodes.Get(i));
-    }
-    Names::Add("Router", routerNode.Get(0));
-
-
-
-    /** Расставим шлюзы треугольником */
-    MobilityHelper mobility;
-    mobility.SetPositionAllocator("ns3::GridPositionAllocator", "MinX",
-                                  DoubleValue(20.0), "MinY", DoubleValue(0.0));
-    mobility.SetMobilityModel("ns3::ConstantPositionMobilityModel");
-    mobility.Install(gateNodes.Get(0));
-
-    MobilityHelper mobility2;
-    mobility2.SetPositionAllocator("ns3::GridPositionAllocator", "MinX",
-                                   DoubleValue(5.0), "MinY", DoubleValue(20.0));
-    mobility2.SetMobilityModel("ns3::ConstantPositionMobilityModel");
-    mobility2.Install(gateNodes.Get(1));
-
-    MobilityHelper mobility3;
-    mobility3.SetPositionAllocator("ns3::GridPositionAllocator", "MinX",
-                                   DoubleValue(35.0), "MinY", DoubleValue(20.0));
-    mobility3.SetMobilityModel("ns3::ConstantPositionMobilityModel");
-    mobility3.Install(gateNodes.Get(2));
-
-
-
-    /** Поставим роутер выше */
-    MobilityHelper mobility4;
-    mobility4.SetPositionAllocator("ns3::GridPositionAllocator", "MinX",
-                                   DoubleValue(60.0), "MinY", DoubleValue(0.0));
-    mobility4.SetMobilityModel("ns3::ConstantPositionMobilityModel");
-    mobility4.Install(routerNode);
-
-
-
-    /** Теперь настроим общий для всех Wi-Fi */
-    WifiHelper wifi;
-    wifi.SetStandard(WIFI_PHY_STANDARD_80211a);
-    YansWifiPhyHelper wifiPhy = YansWifiPhyHelper::Default();
-    YansWifiPhyHelper gatesPhy = YansWifiPhyHelper::Default();
-    YansWifiChannelHelper wifiChannel = YansWifiChannelHelper::Default();
-    wifiPhy.SetChannel(wifiChannel.Create());
-    gatesPhy.SetChannel(wifiChannel.Create());
-
-
-    /** Создадим локальную сеть шлюзов */
-    WifiMacHelper gatesMac;
-    Ssid gatesSsid = Ssid("Gates");
-    gatesMac.SetType("ns3::StaWifiMac", "Ssid", SsidValue(gatesSsid),
-                     "ActiveProbing", BooleanValue(false));
-    NetDeviceContainer gateDevices = wifi.Install(gatesPhy, gatesMac,
-                                                  gateNodes);
-    gatesMac.SetType("ns3::ApWifiMac", "Ssid", SsidValue(gatesSsid));
-    NetDeviceContainer routerApDevice = wifi.Install(gatesPhy, gatesMac,
-                                                     routerNode);
-
-    //for (uint32_t i = 0; i < numberOfGates; i++) {
-    //	gateWiFiDevices.push_back(gateDevices.Get(i));
-    //}
-
-
-    /** Раздадим адреса */
-    InternetStackHelper stack;
-    stack.Install(gateNodes);
-    stack.Install(routerNode);
-
-    Ipv4AddressHelper addressIpv4;
-    addressIpv4.SetBase("192.168.1.0", "255.255.255.0");
-    addressIpv4.Assign(gateDevices);
-    Ipv4InterfaceContainer routerApDeviceInterface;
-    routerApDeviceInterface = addressIpv4.Assign(routerApDevice);
-
-
-    // PacketSocketAddress socket;
-    // socket.SetSingleDevice (staDevs.Get (0)->GetIfIndex ());
-    // socket.SetPhysicalAddress (staDevs.Get (1)->GetAddress ());
-    // socket.SetProtocol (1);
-
-
-
-    /**
-     * Создадим узлы-интернет-вещи (узлы локальной подсети)
-     * для каждого шлюза
-     */
+    /** IOT */
     NodeContainer vlan1Nodes;
     vlan1Nodes.Create(2);
     NodeContainer gate1;
@@ -159,6 +86,74 @@ main(int argc, char *argv[]) {
     NodeContainer gate3;
     gate3.Add(gateNodes.Get(2));
 
+
+    NS_LOG_UNCOND ("Router and internet-things created");
+    /** Give names*/
+    for (uint32_t i = 0; i < numberOfGates; ++i) {
+        std::ostringstream oss;
+        oss << "Gate" << i;
+        Names::Add(oss.str(), gateNodes.Get(i));
+    }
+    Names::Add("Router", routerNode.Get(0));
+
+
+
+    /** MOBILITY */
+
+    /** GATES */
+    AddMobility(20.0, 0.0, gateNodes.Get(0));
+    AddMobility(5.0, 20.0, gateNodes.Get(1));
+    AddMobility(35.0, 20.0, gateNodes.Get(2));
+
+    /** ROUTER */
+    AddMobility(60.0, 0.0, routerNode);
+
+    /** VLANS: IOT*/
+    AddMobility(0.0, -10.0, vlan1Nodes.Get(0));
+    AddMobility(0.0, -20.0, vlan1Nodes.Get(1));
+    AddMobility(-10.0, 25.0, vlan2Nodes.Get(0));
+    AddMobility(0.0, 30.0, vlan2Nodes.Get(1));
+    AddMobility(60.0, 30.0, vlan3Nodes.Get(0));
+
+
+
+
+    /** Wi-Fi */
+    YansWifiPhyHelper wifiPhy = YansWifiPhyHelper::Default();
+    YansWifiPhyHelper gatesPhy = YansWifiPhyHelper::Default();
+    YansWifiChannelHelper wifiChannel = YansWifiChannelHelper::Default();
+    wifiPhy.SetChannel(wifiChannel.Create());
+    gatesPhy.SetChannel(wifiChannel.Create());
+
+
+    /** GATES */
+    WifiMacHelper gatesMac;
+    Ssid gatesSsid = Ssid("Gates");
+    gatesMac.SetType("ns3::StaWifiMac", "Ssid", SsidValue(gatesSsid),
+                     "ActiveProbing", BooleanValue(false));
+    NetDeviceContainer gateDevices = WIFI.Install(gatesPhy, gatesMac, gateNodes);
+    gatesMac.SetType("ns3::ApWifiMac", "Ssid", SsidValue(gatesSsid));
+    NetDeviceContainer routerApDevice = WIFI.Install(gatesPhy, gatesMac,
+                                                     routerNode);
+
+
+
+    /** GIVE ADDRESSES */
+
+    STACK.Install(gateNodes);
+    STACK.Install(routerNode);
+
+    ADDRESS_IPV4.SetBase("192.168.1.0", "255.255.255.0");
+    ADDRESS_IPV4.Assign(gateDevices);
+    Ipv4InterfaceContainer routerApDeviceInterface;
+    routerApDeviceInterface = ADDRESS_IPV4.Assign(routerApDevice);
+
+
+
+    // PacketSocketAddress socket;
+    // socket.SetSingleDevice (staDevs.Get (0)->GetIfIndex ());
+    // socket.SetPhysicalAddress (staDevs.Get (1)->GetAddress ());
+    // socket.SetProtocol (1);
 
 
     /**
@@ -183,95 +178,55 @@ main(int argc, char *argv[]) {
     Ssid ssid = Ssid("vlan1-ssid");
     vlan1Mac.SetType("ns3::StaWifiMac", "Ssid", SsidValue(ssid),
                      "ActiveProbing", BooleanValue(false));
-    NetDeviceContainer vlan1Devices = wifi.Install(phy1, vlan1Mac, vlan1Nodes);
+    NetDeviceContainer vlan1Devices = WIFI.Install(phy1, vlan1Mac, vlan1Nodes);
     vlan1Mac.SetType("ns3::ApWifiMac", "Ssid", SsidValue(ssid));
-    NetDeviceContainer vlan1ApDevice = wifi.Install(phy1, vlan1Mac, gate1);
+    NetDeviceContainer vlan1ApDevice = WIFI.Install(phy1, vlan1Mac, gate1);
 
     WifiMacHelper vlan2Mac;
     Ssid ssid2 = Ssid("vlan2-ssid");
     vlan2Mac.SetType("ns3::StaWifiMac", "Ssid", SsidValue(ssid2),
                      "ActiveProbing", BooleanValue(false));
-    NetDeviceContainer vlan2Devices = wifi.Install(phy2, vlan2Mac, vlan2Nodes);
+    NetDeviceContainer vlan2Devices = WIFI.Install(phy2, vlan2Mac, vlan2Nodes);
     vlan2Mac.SetType("ns3::ApWifiMac", "Ssid", SsidValue(ssid2));
-    NetDeviceContainer vlan2ApDevice = wifi.Install(phy2, vlan2Mac, gate2);
+    NetDeviceContainer vlan2ApDevice = WIFI.Install(phy2, vlan2Mac, gate2);
 
     WifiMacHelper vlan3Mac;
     Ssid ssid3 = Ssid("vlan3-ssid");
     vlan3Mac.SetType("ns3::StaWifiMac", "Ssid", SsidValue(ssid3),
                      "ActiveProbing", BooleanValue(false));
-    NetDeviceContainer vlan3Devices = wifi.Install(phy3, vlan3Mac, vlan3Nodes);
+    NetDeviceContainer vlan3Devices = WIFI.Install(phy3, vlan3Mac, vlan3Nodes);
     vlan3Mac.SetType("ns3::ApWifiMac", "Ssid", SsidValue(ssid3));
-    NetDeviceContainer vlan3ApDevice = wifi.Install(phy3, vlan3Mac, gate3);
+    NetDeviceContainer vlan3ApDevice = WIFI.Install(phy3, vlan3Mac, gate3);
 
-
-    /** Mobility Helper for vlans*/
-    MobilityHelper vlan1Node0;
-    vlan1Node0.SetPositionAllocator("ns3::GridPositionAllocator", "MinX",
-                                    DoubleValue(0.0), "MinY", DoubleValue(-10.0));
-    vlan1Node0.SetMobilityModel("ns3::ConstantPositionMobilityModel");
-    vlan1Node0.Install(vlan1Nodes.Get(0));
-
-    MobilityHelper vlan1Node1;
-    vlan1Node1.SetPositionAllocator("ns3::GridPositionAllocator", "MinX",
-                                    DoubleValue(0.0), "MinY", DoubleValue(-20.0));
-    vlan1Node1.SetMobilityModel("ns3::ConstantPositionMobilityModel");
-    vlan1Node1.Install(vlan1Nodes.Get(1));
-
-    MobilityHelper vlan2Node0;
-    vlan2Node0.SetPositionAllocator("ns3::GridPositionAllocator", "MinX",
-                                    DoubleValue(-10.0), "MinY", DoubleValue(25.0));
-    vlan2Node0.SetMobilityModel("ns3::ConstantPositionMobilityModel");
-    vlan2Node0.Install(vlan2Nodes.Get(0));
-
-    MobilityHelper vlan2Node1;
-    vlan2Node1.SetPositionAllocator("ns3::GridPositionAllocator", "MinX",
-                                    DoubleValue(0.0), "MinY", DoubleValue(30.0));
-    vlan2Node1.SetMobilityModel("ns3::ConstantPositionMobilityModel");
-    vlan2Node1.Install(vlan2Nodes.Get(1));
-
-    MobilityHelper vlan3Node0;
-    vlan3Node0.SetPositionAllocator("ns3::GridPositionAllocator", "MinX",
-                                    DoubleValue(60.0), "MinY", DoubleValue(30.0));
-    vlan3Node0.SetMobilityModel("ns3::ConstantPositionMobilityModel");
-    vlan3Node0.Install(vlan3Nodes.Get(0));
-
-
-    // BridgeHelper bridge;
-    // bridge.Install (gateNodes.Get(0), vlan1ApDevice);
 
 
     /** Install stack */
-    stack.Install(vlan1Nodes);
-    stack.Install(vlan2Nodes);
-    stack.Install(vlan3Nodes);
+    STACK.Install(vlan1Nodes);
+    STACK.Install(vlan2Nodes);
+    STACK.Install(vlan3Nodes);
 
-    addressIpv4.SetBase("10.0.0.0", "255.255.255.0");
-    addressIpv4.Assign(vlan1Devices);
+    ADDRESS_IPV4.SetBase("10.0.0.0", "255.255.255.0");
+    ADDRESS_IPV4.Assign(vlan1Devices);
     Ipv4InterfaceContainer vlan1ApDeviceInterface;
-    vlan1ApDeviceInterface = addressIpv4.Assign(vlan1ApDevice);
+    vlan1ApDeviceInterface = ADDRESS_IPV4.Assign(vlan1ApDevice);
 
-    addressIpv4.SetBase("10.1.1.0", "255.255.255.0");
-    addressIpv4.Assign(vlan2Devices);
+
+    ADDRESS_IPV4.SetBase("10.1.1.0", "255.255.255.0");
+    ADDRESS_IPV4.Assign(vlan2Devices);
     Ipv4InterfaceContainer vlan2ApDeviceInterface;
-    vlan2ApDeviceInterface = addressIpv4.Assign(vlan2ApDevice);
+    vlan2ApDeviceInterface = ADDRESS_IPV4.Assign(vlan2ApDevice);
 
-    addressIpv4.SetBase("10.2.2.0", "255.255.255.0");
-    addressIpv4.Assign(vlan3Devices);
+
+    ADDRESS_IPV4.SetBase("10.2.2.0", "255.255.255.0");
+    ADDRESS_IPV4.Assign(vlan3Devices);
     Ipv4InterfaceContainer vlan3ApDeviceInterface;
-    vlan3ApDeviceInterface = addressIpv4.Assign(vlan3ApDevice);
-
-    //tapBridge.SetAttribute("DeviceName", StringValue("tap-right"));
-    //tapBridge.Install(vlan1Nodes.Get(0), vlan1Devices.Get(0));
+    vlan3ApDeviceInterface = ADDRESS_IPV4.Assign(vlan3ApDevice);
 
 
 
-    //TODO:
-    // у нас фиговая рассылка пакетов
-
+    /** TCP APPLICATION*/
 
     /** Запускаем рассылку TCP-пакетов */
-
-    std::string protocol = "ns3::TcpSocketFactory";
 
     /**
      * vlan1ApDeviceInterface.GetAddress(0) - на самом деле здесь хранится только
@@ -279,16 +234,13 @@ main(int argc, char *argv[]) {
      * указав "номер"
      */
 
-    Address dest = InetSocketAddress(vlan1ApDeviceInterface.GetAddress(0),
-                                     1025);
+    std::string protocol = "ns3::TcpSocketFactory";
+    Address dest = InetSocketAddress(vlan1ApDeviceInterface.GetAddress(0), 1025);
     OnOffHelper onoff = OnOffHelper(protocol, dest);
-    onoff.SetAttribute("OnTime",
-                       StringValue("ns3::ConstantRandomVariable[Constant=1]"));
-    onoff.SetAttribute("OffTime",
-                       StringValue("ns3::ConstantRandomVariable[Constant=0]"));
+    onoff.SetAttribute("OnTime", StringValue("ns3::ConstantRandomVariable[Constant=1]"));
+    onoff.SetAttribute("OffTime", StringValue("ns3::ConstantRandomVariable[Constant=0]"));
     //Config::SetDefault("ns3::OnOffApplication::PacketSize", UintegerValue(137));
-    Config::SetDefault("ns3::OnOffApplication::DataRate",
-                       StringValue("100kb/s"));
+    Config::SetDefault("ns3::OnOffApplication::DataRate", StringValue("100kb/s"));
 
     /**VLAN-1*/
     ApplicationContainer app = onoff.Install(vlan1Nodes.Get(0));
@@ -314,71 +266,63 @@ main(int argc, char *argv[]) {
     app.Stop(Seconds(30.0));
 
 
+
     /** ROUTER AND GATES APPLICATION */
-    dest = InetSocketAddress(routerApDeviceInterface.GetAddress(0), 1025);
+//    dest = InetSocketAddress(routerApDeviceInterface.GetAddress(0), 1025);
     ApplicationContainer gateApp = onoff.Install(gateNodes.Get(0));
     gateApp.Start(Seconds(1.1));
     gateApp.Stop(Seconds(30.0));
-    //gateApp = onoff.Install(gateNodes.Get(1));
-    //gateApp.Start(Seconds(1.1));
-    //gateApp.Stop(Seconds(30.0));
-    //gateApp = onoff.Install(gateNodes.Get(2));
-    //gateApp.Start(Seconds(1.1));
-    //gateApp.Stop(Seconds(30.0));
+    gateApp = onoff.Install(gateNodes.Get(1));
+    gateApp.Start(Seconds(1.1));
+    gateApp.Stop(Seconds(30.0));
+    gateApp = onoff.Install(gateNodes.Get(2));
+    gateApp.Start(Seconds(1.1));
+    gateApp.Stop(Seconds(30.0));
 
     // Create a packet sink to receive these packets
-    //PacketSinkHelper sink("ns3::TcpSocketFactory",
-    //		Address(InetSocketAddress(Ipv4Address::GetAny(), 1025)));
-    //ApplicationContainer apps = sink.Install(gateNodes.Get(0));
-    //apps.Start(Seconds(1.1));
-    //apps.Stop(Seconds(10.0));
+    PacketSinkHelper sink("ns3::TcpSocketFactory",
+                          Address(InetSocketAddress(Ipv4Address::GetAny(), 1025)));
+    ApplicationContainer apps = sink.Install(gateNodes.Get(0));
+    apps.Start(Seconds(1.1));
+    apps.Stop(Seconds(10.0));
 
     // Create router nodes, initialize routing database and set up the routing
     // tables in the nodes
     Ipv4GlobalRoutingHelper::PopulateRoutingTables();
 
 
+//    PcapHelperForDevice pcapHelperForDevice;
+//    pcapHelperForDevice.EnablePcap("gate0", gateDevices.Get(0), true);
 
 
 
-
-
+    /** ANIMATION */
 
     NS_LOG_UNCOND ("Create animation");
-
     AnimationInterface anim("iot.xml");
 
     //anim.UpdateNodeDescription (vlan1Nodes.Get(0), "IoT3");
 
-
     string sourceDir = ICONS_DIR;
-
 
     uint32_t resourceId1 = anim.AddResource(sourceDir + "/iot.png");
     uint32_t pictureGate = anim.AddResource(sourceDir + "/gate.png");
     uint32_t pictureRouter = anim.AddResource(sourceDir + "/router.png");
 
-
     anim.UpdateNodeImage(4, resourceId1);  // "0" is the Node ID
     anim.UpdateNodeImage(5, resourceId1);
-
     anim.UpdateNodeImage(6, resourceId1);
     anim.UpdateNodeImage(7, resourceId1);
-
     anim.UpdateNodeImage(3, pictureRouter);
     anim.UpdateNodeImage(8, resourceId1);
-
-
     anim.UpdateNodeImage(0, pictureGate);
     anim.UpdateNodeImage(1, pictureGate);
     anim.UpdateNodeImage(2, pictureGate);
 
 
-    for (uint32_t i = 0; i <= 8; i++){
+    for (uint32_t i = 0; i <= 8; i++) {
         anim.UpdateNodeSize(i, 9, 9);
     }
-
-
 
     // anim.UpdateNodeCounter (89, 7, 3.4);
 
@@ -394,8 +338,21 @@ main(int argc, char *argv[]) {
     // Simulator::Schedule (Seconds (0.1), modify);
 
 
-
     Simulator::Stop(Seconds(30.0));
     Simulator::Run();
+    NS_LOG_UNCOND ("У МЕНЯ ВСЕ.");
     Simulator::Destroy();
+
 }
+
+void AddMobility(double val1, double val2, NodeContainer container) {
+    MobilityHelper mobility;
+    mobility.SetPositionAllocator("ns3::GridPositionAllocator", "MinX",
+                                  DoubleValue(val1), "MinY", DoubleValue(val2));
+    mobility.SetMobilityModel("ns3::ConstantPositionMobilityModel");
+    mobility.Install(container);
+}
+
+
+
+
