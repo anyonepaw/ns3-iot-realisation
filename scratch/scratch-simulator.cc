@@ -33,6 +33,8 @@
 #include "ns3/regular-wifi-mac.h"
 #include "ns3/bridge-helper.h"
 #include "ns3/wifi-module.h"
+#include "ns3/ipv4-nat.h"
+#include "ns3/ipv4-nat-helper.h"
 #include <iostream>
 #include <string>
 
@@ -198,6 +200,24 @@ main(int argc, char *argv[]) {
     vlan3Mac.SetType("ns3::ApWifiMac", "Ssid", SsidValue(ssid3));
     NetDeviceContainer vlan3ApDevice = WIFI.Install(phy3, vlan3Mac, gate3);
 
+
+//        private address    NAT      public address
+// n0 <--------------------> n1 <-----------------------> n2
+// 192.168.1.1      192.168.1.2 203.82.48.1          203.82.48.2
+//
+    Ipv4NatHelper natHelper;
+    Ptr<Ipv4Nat> nat = natHelper.Install (gateNodes.Get(0));
+
+    nat->SetInside (1);
+    nat->SetOutside (2);
+
+    //Adding the address to be translated to and port pools.
+
+    nat->AddAddressPool (Ipv4Address ("192.168.1.5"), Ipv4Mask ("255.255.255.255"));
+    nat->AddPortPool (49153, 49163);
+    // Add a rule here to map outbound connections from n0, port 49153, UDP
+    Ipv4DynamicNatRule rule (Ipv4Address ("192.168.1.0"), Ipv4Mask ("255.255.255.0"));
+    nat->AddDynamicRule (rule);
 
 
     /** Install stack */

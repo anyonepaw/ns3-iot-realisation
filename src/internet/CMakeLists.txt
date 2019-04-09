@@ -2,6 +2,8 @@
 set(name internet)
 
 set(source_files
+        model/ipv4-nat.cc
+        helper/ipv4-nat-helper.cc
         model/ip-l4-protocol.cc
         model/udp-header.cc
         model/tcp-header.cc
@@ -133,6 +135,8 @@ set(private_header_files
         )
 
 set(header_files
+        helper/ipv4-nat-helper.h
+        model/ipv4-nat.h
         ${private_header_files}
         model/udp-header.h
         model/tcp-header.h
