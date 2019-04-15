@@ -17,7 +17,7 @@
 #include "ns3/ipv6-static-routing-helper.h"
 #include "ns3/ipv6-routing-table-entry.h"
 #include "ns3/sixlowpan-module.h"
-#include "ns3/blockchain.h"
+#include "ns3/bitcoin.h"
 #include "../3rd-party/rapidjson/include/rapidjson/document.h"
 #include "../3rd-party/rapidjson/include/rapidjson/writer.h"
 #include "../3rd-party/rapidjson/include/rapidjson/stringbuffer.h"
@@ -61,7 +61,7 @@ namespace ns3 {
         /**
          * \return a vector containing the addresses of peers
          */
-        std::vector<Ipv6Address> GetPeersAddresses(void) const;
+        std::vector<Ipv4Address> GetPeersAddresses(void) const;
 
         /**
          * \return the node's public key
@@ -94,25 +94,25 @@ namespace ns3 {
          * \brief Set the addresses of peers
          * \param peers the reference of a vector containing the Ipv6 addresses of peers
          */
-        void SetPeersAddresses(const std::vector<Ipv6Address> &peers);
+        void SetPeersAddresses(const std::vector<Ipv4Address> &peers);
 
         /**
          * \brief adds a peer to the set of peers
          * \param newPeer address of the peer to be added
          **/
-        void AddPeer(Ipv6Address newPeer);
+        void AddPeer(Ipv4Address newPeer);
 
         /**
          * \brief set the download speeds of peers
          * \param peersDownloadSpeeds the reference of a map containing the Ipv6 addresses of peers and their corresponding download speed
          */
-        void SetPeersDownloadSpeeds(const std::map<Ipv6Address, double> &peersDownloadSpeeds);
+        void SetPeersDownloadSpeeds(const std::map<Ipv4Address, double> &peersDownloadSpeeds);
 
         /**
          * \brief Set the upload speeds of peers
          * \param peersUploadSpeeds the reference of a map containing the Ipv6 addresses of peers and their corresponding upload speed
          */
-        void SetPeersUploadSpeeds(const std::map<Ipv6Address, double> &peersUploadSpeeds);
+        void SetPeersUploadSpeeds(const std::map<Ipv4Address, double> &peersUploadSpeeds);
 
         /**
          * \brief Set the internet speeds of the node
@@ -167,10 +167,10 @@ namespace ns3 {
          * \param receivedMessage the type of the received message
          * \param responseMessage the type of the response message
          * \param packet a string containing the info of the outgoing message
-         * \param outgoingIpv6Address the Ipv6Address of the peer
+         * \param outgoingIpv4Address the Ipv4Address of the peer
          */
         void SendMessage(enum Messages receivedMessage, enum Messages responseMessage, std::string packet,
-                         Ipv6Address &outgoingIpv6Address);
+                         Ipv4Address &outgoingIpv4Address);
 
         /**
          * \brief Sends a message to a peer
@@ -227,7 +227,7 @@ namespace ns3 {
 //         * \param sign signature of the message
 //         * \param sender address of the message sender
 //         **/
-//        bool checkSign(std::string message, std::string sign, Ipv6Address sender);
+//        bool checkSign(std::string message, std::string sign, Ipv4Address sender);
 //
 //        /**
 //         * \brief decrypt a encrypted message
@@ -248,7 +248,7 @@ namespace ns3 {
 //         * \param receiver receiver's ip address
 //         * \param type of encryption - aes or rsa
 //         **/
-//        std::string encrypt(std::string message, Ipv6Address receiver, int type);
+//        std::string encrypt(std::string message, Ipv4Address receiver, int type);
 //
 //        /**
 //         * \brief encrypt a message to be sent
@@ -267,7 +267,7 @@ namespace ns3 {
         TypeId m_tid;                                 //!< Protocol TypeId
         int m_numberOfPeers;                          //!< Number of node's peers
         int m_gatewayNodeId;             //!< Node Id for the gateway
-        Ipv6Address m_gatewayAddress;  //!< Ipv6 address of the gateway
+        Ipv4Address m_gatewayAddress;  //!< Ipv6 address of the gateway
         double m_downloadSpeed;                       //!< The download speed of the node in Bytes/s
         double m_uploadSpeed;                         //!< The upload speed of the node in Bytes/s
 //        CryptoPP::RSA::PrivateKey m_privateKey;                                //!< Private key for the sensor node
@@ -277,16 +277,16 @@ namespace ns3 {
 //        CryptoPP::RSA::PublicKey m_publicKey;                                //!< Public key for the sensor node
 //        CryptoPP::RSA::PublicKey m_gatewayPublicKey;                            //!<	public key for the gateway
 //
-        std::vector<Ipv6Address> m_peersAddresses;           //!< The addresses of peers
-        std::map<Ipv6Address, double> m_peersDownloadSpeeds;      //!< The peersDownloadSpeeds of channels
-        std::map<Ipv6Address, double> m_peersUploadSpeeds;        //!< The peersUploadSpeeds of channels
-//        std::map<Ipv6Address, double> m_peersSessionKeys;        //!< The session keys established with different peers
-        std::map<Ipv6Address, Ptr<Socket> > m_peersSockets;            //!< The sockets of peers
+        std::vector<Ipv4Address> m_peersAddresses;           //!< The addresses of peers
+        std::map<Ipv4Address, double> m_peersDownloadSpeeds;      //!< The peersDownloadSpeeds of channels
+        std::map<Ipv4Address, double> m_peersUploadSpeeds;        //!< The peersUploadSpeeds of channels
+//        std::map<Ipv4Address, double> m_peersSessionKeys;        //!< The session keys established with different peers
+        std::map<Ipv4Address, Ptr<Socket> > m_peersSockets;            //!< The sockets of peers
 //        std::map<Address, std::string> m_bufferedData;             //!< map holding the buffered data from previous handleRead events
-//        std::map<Ipv6Address, CryptoPP::RSA::PublicKey> m_publicKeys; //!< map holding the publicKeys for the peers
-//        std::map<Ipv6Address, byte[16]> m_cacheSessionKeys; //!< map holding the cached session keys for peers
-//        std::map<Ipv6Address, byte[16]> m_cacheSessionIVs; //!< map holding the cached session IVs for peers
-        std::map<Ipv6Address, std::vector<std::string> > m_messages; //!< map holding all the messages from different peers
+//        std::map<Ipv4Address, CryptoPP::RSA::PublicKey> m_publicKeys; //!< map holding the publicKeys for the peers
+//        std::map<Ipv4Address, byte[16]> m_cacheSessionKeys; //!< map holding the cached session keys for peers
+//        std::map<Ipv4Address, byte[16]> m_cacheSessionIVs; //!< map holding the cached session IVs for peers
+        std::map<Ipv4Address, std::vector<std::string> > m_messages; //!< map holding all the messages from different peers
         nodeStatistics *m_nodeStats;                //!< struct holding the node stats
         enum ProtocolType m_protocolType;                                               //!< protocol type
 

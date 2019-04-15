@@ -18,7 +18,7 @@ namespace ns3 {
  * Based on packet-sink-helper
  */
 
-    class BlockchainValidatorHelper : public BlockchainNodeHelper
+    class BlockchainValidatorHelper //: public BlockchainNodeHelper
     {
     public:
         /**

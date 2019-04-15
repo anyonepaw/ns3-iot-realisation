@@ -1,3 +1,5 @@
+#include <utility>
+
 
 /**
  * This file contains the definitions of the functions declared in blockchain-validator-helper.h
@@ -18,12 +20,14 @@ namespace ns3 {
 
     BlockchainValidatorHelper::BlockchainValidatorHelper (std::string protocol, Address address, std::vector<Ipv4Address> peers, int noMiners,
                                                           std::map<Ipv4Address, double> &peersDownloadSpeeds, std::map<Ipv4Address, double> &peersUploadSpeeds,
-                                                          nodeInternetSpeeds &internetSpeeds, double hashRate) :
-            BlockchainNodeHelper (),  m_minerType (NORMAL_MINER), m_blockBroadcastType (STANDARD),
-            m_secureBlocks (6), m_blockGenBinSize (-1), m_blockGenParameter (-1)
-    {
+                                                          nodeInternetSpeeds &internetSpeeds, double hashRate) {
+//            BlockchainNodeHelper (),  m_minerType (NORMAL_MINER), m_blockBroadcastType (STANDARD),
+//            m_secureBlocks (6), m_blockGenBinSize (-1), m_blockGenParameter (-1)
+//    {
         m_factory.SetTypeId ("ns3::BlockchainValidator");
-        commonConstructor(protocol, address, peers, peersDownloadSpeeds, peersUploadSpeeds, internetSpeeds);
+//        BlockchainNodeHelper blockchainNodeHelper(std::move(protocol), address, peers, peersDownloadSpeeds, peersUploadSpeeds, internetSpeeds);
+//        commonConstructor(protocol, address, peers, peersDownloadSpeeds, peersUploadSpeeds, internetSpeeds);
+
 
         m_noMiners = noMiners;
         m_hashRate = hashRate;

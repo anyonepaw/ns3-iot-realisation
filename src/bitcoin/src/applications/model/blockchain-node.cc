@@ -2538,7 +2538,7 @@ namespace ns3 {
 
             for (block_it = elem.second.begin();  block_it < elem.second.end(); block_it++)
             {
-                std::cout << " " << InetSocketAddress::ConvertFrom(*block_it).GetIpv ();
+                std::cout << " " << InetSocketAddress::ConvertFrom(*block_it).GetIpv4 ();
             }
             std::cout << "\n";
         }

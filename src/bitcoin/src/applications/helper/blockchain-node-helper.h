@@ -10,7 +10,7 @@
 #include "ns3/node-container.h"
 #include "ns3/application-container.h"
 #include "ns3/uinteger.h"
-#include "ns3/blockchain.h"
+#include "ns3/bitcoin.h"
 
 namespace ns3 {
 
@@ -35,7 +35,7 @@ namespace ns3 {
          * \param internetSpeeds a reference to a struct containing the internet speeds of the node
          * \param stats a pointer to struct holding the node statistics
          */
-        BlockchainNodeHelper (std::string protocol, Address address, std::vector<Ipv4Address> &peers,
+        BlockchainNodeHelper (std::string protocol, const Address& address, std::vector<Ipv4Address> &peers,
                               std::map<Ipv4Address, double> &peersDownloadSpeeds, std::map<Ipv4Address, double> &peersUploadSpeeds,
                               nodeInternetSpeeds &internetSpeeds);
 
@@ -44,22 +44,7 @@ namespace ns3 {
          */
         BlockchainNodeHelper (void);
 
-        /**
-         * Common Constructor called both from the base class and the subclasses
-         * \param protocol the name of the protocol to use to receive traffic
-         *        This string identifies the socket factory type used to create
-         *        sockets for the applications.  A typical value would be
-         *        ns3::TcpSocketFactory.
-         * \param address the address of the blockchain node
-         * \param peers a reference to a vector containing the Ipv4 addresses of peers of the blockchain node
-         * \param peersDownloadSpeeds a map containing the download speeds of the peers of the node
-         * \param peersUploadSpeeds a map containing the upload speeds of the peers of the node
-         * \param internetSpeeds a reference to a struct containing the internet speeds of the node
-         * \param stats a pointer to struct holding the node statistics
-         */
-        void commonConstructor(std::string protocol, Address address, std::vector<Ipv4Address> &peers,
-                               std::map<Ipv4Address, double> &peersDownloadSpeeds, std::map<Ipv4Address, double> &peersUploadSpeeds,
-                               nodeInternetSpeeds &internetSpeeds);
+
 
         /**
          * Helper function used to set the underlying application attributes.
@@ -122,7 +107,7 @@ namespace ns3 {
         std::vector<Ipv4Address>		                      m_peersAddresses;       //!< The addresses of peers
         std::map<Ipv4Address, double>                       m_peersDownloadSpeeds;  //!< The download speeds of the peers
         std::map<Ipv4Address, double>                       m_peersUploadSpeeds;    //!< The upload speeds of the peers
-        nodeInternetSpeeds                                  m_internetSpeeds;       //!< The internet speeds of the node
+        nodeInternetSpeeds                                  m_internetSpeeds{};       //!< The internet speeds of the node
         enum ProtocolType									  m_protocolType;         //!< The protocol that the nodes use to advertise new blocks (DEFAULT: STANDARD)
 
     };
