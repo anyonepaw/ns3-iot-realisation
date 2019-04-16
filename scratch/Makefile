@@ -111,6 +111,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+scratch/CMakeFiles/test.dir/rule:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f CMakeFiles/Makefile2 scratch/CMakeFiles/test.dir/rule
+.PHONY : scratch/CMakeFiles/test.dir/rule
+
+# Convenience name for target.
+test: scratch/CMakeFiles/test.dir/rule
+
+.PHONY : test
+
+# fast build rule for target.
+test/fast:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f scratch/CMakeFiles/test.dir/build.make scratch/CMakeFiles/test.dir/build
+.PHONY : test/fast
+
+# Convenience name for target.
 scratch/CMakeFiles/scratch-simulator.dir/rule:
 	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f CMakeFiles/Makefile2 scratch/CMakeFiles/scratch-simulator.dir/rule
 .PHONY : scratch/CMakeFiles/scratch-simulator.dir/rule
@@ -124,6 +139,21 @@ scratch-simulator: scratch/CMakeFiles/scratch-simulator.dir/rule
 scratch-simulator/fast:
 	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f scratch/CMakeFiles/scratch-simulator.dir/build.make scratch/CMakeFiles/scratch-simulator.dir/build
 .PHONY : scratch-simulator/fast
+
+# Convenience name for target.
+scratch/CMakeFiles/jsontest.dir/rule:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f CMakeFiles/Makefile2 scratch/CMakeFiles/jsontest.dir/rule
+.PHONY : scratch/CMakeFiles/jsontest.dir/rule
+
+# Convenience name for target.
+jsontest: scratch/CMakeFiles/jsontest.dir/rule
+
+.PHONY : jsontest
+
+# fast build rule for target.
+jsontest/fast:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f scratch/CMakeFiles/jsontest.dir/build.make scratch/CMakeFiles/jsontest.dir/build
+.PHONY : jsontest/fast
 
 # Convenience name for target.
 scratch/CMakeFiles/scratch-simulator-subdir.dir/rule:
@@ -182,6 +212,33 @@ first.cc.s:
 	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f scratch/CMakeFiles/first.dir/build.make scratch/CMakeFiles/first.dir/first.cc.s
 .PHONY : first.cc.s
 
+jsontest.o: jsontest.cc.o
+
+.PHONY : jsontest.o
+
+# target to build an object file
+jsontest.cc.o:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f scratch/CMakeFiles/jsontest.dir/build.make scratch/CMakeFiles/jsontest.dir/jsontest.cc.o
+.PHONY : jsontest.cc.o
+
+jsontest.i: jsontest.cc.i
+
+.PHONY : jsontest.i
+
+# target to preprocess a source file
+jsontest.cc.i:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f scratch/CMakeFiles/jsontest.dir/build.make scratch/CMakeFiles/jsontest.dir/jsontest.cc.i
+.PHONY : jsontest.cc.i
+
+jsontest.s: jsontest.cc.s
+
+.PHONY : jsontest.s
+
+# target to generate assembly for a file
+jsontest.cc.s:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f scratch/CMakeFiles/jsontest.dir/build.make scratch/CMakeFiles/jsontest.dir/jsontest.cc.s
+.PHONY : jsontest.cc.s
+
 scratch-simulator.o: scratch-simulator.cc.o
 
 .PHONY : scratch-simulator.o
@@ -236,26 +293,61 @@ subdir/scratch-simulator-subdir.cc.s:
 	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f scratch/CMakeFiles/scratch-simulator-subdir.dir/build.make scratch/CMakeFiles/scratch-simulator-subdir.dir/subdir/scratch-simulator-subdir.cc.s
 .PHONY : subdir/scratch-simulator-subdir.cc.s
 
+test.o: test.cc.o
+
+.PHONY : test.o
+
+# target to build an object file
+test.cc.o:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f scratch/CMakeFiles/test.dir/build.make scratch/CMakeFiles/test.dir/test.cc.o
+.PHONY : test.cc.o
+
+test.i: test.cc.i
+
+.PHONY : test.i
+
+# target to preprocess a source file
+test.cc.i:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f scratch/CMakeFiles/test.dir/build.make scratch/CMakeFiles/test.dir/test.cc.i
+.PHONY : test.cc.i
+
+test.s: test.cc.s
+
+.PHONY : test.s
+
+# target to generate assembly for a file
+test.cc.s:
+	cd /Users/anyonepaw/CLionProjects/ns3-iot-realisation && $(MAKE) -f scratch/CMakeFiles/test.dir/build.make scratch/CMakeFiles/test.dir/test.cc.s
+.PHONY : test.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... scratch-simulator"
 	@echo "... rebuild_cache"
-	@echo "... edit_cache"
+	@echo "... test"
+	@echo "... scratch-simulator"
+	@echo "... jsontest"
 	@echo "... scratch-simulator-subdir"
+	@echo "... edit_cache"
 	@echo "... first"
 	@echo "... first.o"
 	@echo "... first.i"
 	@echo "... first.s"
+	@echo "... jsontest.o"
+	@echo "... jsontest.i"
+	@echo "... jsontest.s"
 	@echo "... scratch-simulator.o"
 	@echo "... scratch-simulator.i"
 	@echo "... scratch-simulator.s"
 	@echo "... subdir/scratch-simulator-subdir.o"
 	@echo "... subdir/scratch-simulator-subdir.i"
 	@echo "... subdir/scratch-simulator-subdir.s"
+	@echo "... test.o"
+	@echo "... test.i"
+	@echo "... test.s"
 .PHONY : help
 
 
