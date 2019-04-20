@@ -1,0 +1,14 @@
+//
+// Created by anyonepaw on 2019-04-20.
+//
+
+#ifndef NS3_IOT_REALIZATION_MQTTBROCKERAPPLICATION_H
+#define NS3_IOT_REALIZATION_MQTT_BROCKER_APPLICATION_H
+
+
+class mqttbrockerapplication {
+
+};
+
+
+#endif //NS3_IOT_REALIZATION_MQTTBROCKERAPPLICATION_H

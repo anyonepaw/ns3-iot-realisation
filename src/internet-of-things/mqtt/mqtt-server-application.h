@@ -1,0 +1,14 @@
+//
+// Created by anyonepaw on 2019-04-20.
+//
+
+#ifndef NS3_IOT_REALIZATION_MQTTSERVERAPPLICATION_H
+#define NS3_IOT_REALIZATION_MQTT_SERVER_APPLICATION_H
+
+
+class mqttserverapplication {
+
+};
+
+
+#endif //NS3_IOT_REALIZATION_MQTTSERVERAPPLICATION_H
