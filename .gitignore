@@ -58,3 +58,7 @@ cmake-build-relwithdebinfo/
 cmake-cache/
 
 cmake-build-release/
+
+*.cmake
+
+scratch/CMakeFiles/

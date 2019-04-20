@@ -24,6 +24,9 @@ set(source_files
         helper/udp-client-server-helper.cc
         helper/udp-echo-helper.cc
         helper/three-gpp-http-helper.cc
+        model/tcp-echo-client.cc
+        model/tcp-echo-server.cc
+        helper/tcp-echo-helper.cc
         )
 
 set(header_files
@@ -48,6 +51,9 @@ set(header_files
         helper/udp-client-server-helper.h
         helper/udp-echo-helper.h
         helper/three-gpp-http-helper.h
+        model/tcp-echo-client.h
+        model/tcp-echo-server.h
+        helper/tcp-echo-helper.h
         )
 
 #link to dependencies

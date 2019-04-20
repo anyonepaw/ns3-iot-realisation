@@ -7,8 +7,6 @@
  *  NetAnim: target for .xml is here /build/bin/iot.xml
  *
  *
- *  Documentation lays here:
- *  https://www.nsnam.org/docs/models/html/
  *
  *
  *
@@ -36,7 +34,7 @@
 #include "ns3/ipv4-nat.h"
 #include "ns3/ipv4-nat-helper.h"
 #include <iostream>
-#include <string>
+
 
 
 using namespace ns3;
@@ -358,8 +356,9 @@ main(int argc, char *argv[]) {
     // Simulator::Schedule (Seconds (0.1), modify);
 
 
-    Simulator::Stop(Seconds(30.0));
+
     Simulator::Run();
+    Simulator::Stop(Seconds(30.0));
     NS_LOG_UNCOND ("У МЕНЯ ВСЕ.");
     Simulator::Destroy();
 
