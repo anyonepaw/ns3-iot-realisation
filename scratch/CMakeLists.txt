@@ -16,3 +16,5 @@ foreach(scratch_src ${scratches})
     endif()
 endforeach()
 
+#https://ru.stackoverflow.com/questions/488953/Получение-пути-текущего-проекта-c
+target_compile_definitions(${scratch_name} PRIVATE ICONS_DIR=\"${CMAKE_CURRENT_SOURCE_DIR}/icons\")

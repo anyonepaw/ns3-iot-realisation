@@ -163,8 +163,7 @@ set(libs_to_build
         wifi                  #
         wimax                 #
         test                  # beware of naming colisions between macro CHECK in traced-value-callback-typedef-test-suite.cc and torch/script.h (PyTorch)
-#        tangle-network
-#        bitcoin
+        internet-of-things
         )
 
 #Build contribution libraries
@@ -196,8 +195,6 @@ add_subdirectory(scratch)
 #Build test utils
 add_subdirectory(utils)
 
-#https://ru.stackoverflow.com/questions/488953/Получение-пути-текущего-проекта-c
-target_compile_definitions(multiple-iot PRIVATE ICONS_DIR=\"${CMAKE_CURRENT_SOURCE_DIR}/icons\")
 
 
 
