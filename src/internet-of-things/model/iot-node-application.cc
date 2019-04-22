@@ -34,11 +34,11 @@ namespace ns3 {
                               AddressValue(),
                               MakeAddressAccessor(&IotNode::m_local),
                               MakeAddressChecker())
-                .AddAttribute("Protocol",
-                              "The type id of the protocol to use for the rx socket.",
-                              TypeIdValue(UdpSocketFactory::GetTypeId()),
-                              MakeTypeIdAccessor(&IotNode::m_tid),
-                              MakeTypeIdChecker())
+//                .AddAttribute("Protocol",
+//                              "The type id of the protocol to use for the rx socket.",
+//                              TypeIdValue(UdpSocketFactory::GetTypeId()),
+//                              MakeTypeIdAccessor(&IotNode::m_tid),
+//                              MakeTypeIdChecker())
                 .AddTraceSource("Rx",
                                 "A packet has been received",
                                 MakeTraceSourceAccessor(&IotNode::m_rxTrace),

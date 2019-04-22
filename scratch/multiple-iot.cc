@@ -1,3 +1,5 @@
+#include <utility>
+
 /* -*- Mode:C++; c-file-style:"gnu"; indent-tabs-mode:nil; -*- */
 /*
  *  MAIN CLASS
@@ -369,7 +371,7 @@ void AddMobility(double val1, double val2, NodeContainer container) {
     mobility.SetPositionAllocator("ns3::GridPositionAllocator", "MinX",
                                   DoubleValue(val1), "MinY", DoubleValue(val2));
     mobility.SetMobilityModel("ns3::ConstantPositionMobilityModel");
-    mobility.Install(container);
+    mobility.Install(std::move(container));
 }
 
 
