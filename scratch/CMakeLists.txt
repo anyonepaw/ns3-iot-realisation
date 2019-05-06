@@ -15,3 +15,9 @@ foreach(scratch_src ${scratches})
     target_link_libraries(${scratch_name} "${ns3-libs}" ${ns3-contrib-libs})
     endif()
 endforeach()
+
+
+#он находит ее на деле, но как ее вызвать то в программном коде?
+find_library(mqtt libpaho-mqtt3as.1.3.0.dylib)
+target_link_libraries(one-iot ${mqtt})
+

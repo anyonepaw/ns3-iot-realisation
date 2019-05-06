@@ -60,5 +60,6 @@ cmake-cache/
 cmake-build-release/
 
 *.cmake
+*.make
 
 scratch/CMakeFiles/

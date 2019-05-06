@@ -124,6 +124,7 @@ set(libs_to_build
         applications          #
         bridge                #
         ${build_brite}
+        ${build_mqtt}
         buildings             #
         click                 #
         config-store          #
@@ -163,7 +164,7 @@ set(libs_to_build
         wifi                  #
         wimax                 #
         test                  # beware of naming colisions between macro CHECK in traced-value-callback-typedef-test-suite.cc and torch/script.h (PyTorch)
-        internet-of-things
+#        internet-of-things
         )
 
 #Build contribution libraries
@@ -200,4 +201,13 @@ target_compile_definitions(multiple-iot PRIVATE ICONS_DIR=\"${CMAKE_CURRENT_SOUR
 
 
 
+#INCLUDE_DIRECTORIES( /lib)
+#LINK_DIRECTORIES( /lib )
+#
+#file(GLOB LIBRARIES "/lib/*.dylib")
+#message("LIBRARIES = ${LIBRARIES}")
+#
+#TARGET_LINK_LIBRARIES(one-iot  ${LIBRARIES})
 
+#find_library(mqtt libpaho-mqtt3as.1.3.0.dylib)
+#target_link_libraries(one-iot ${mqtt})
