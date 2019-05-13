@@ -36,11 +36,25 @@ namespace ns3 {
         static TypeId tid = TypeId("ns3::IotNode")
                 .SetParent<Application>()
                 .SetGroupName("Applications")
-                .AddConstructor<IotNode>();
+                .AddConstructor<IotNode>()
+                .AddAttribute("Local",
+                      "The Address on which to Bind the rx socket.",
+                      AddressValue(),
+                      MakeAddressAccessor(&IotNode::m_local),
+                      MakeAddressChecker())
+                .AddAttribute("Protocol",
+                              "The type id of the protocol to use for the rx socket.",
+                              TypeIdValue(UdpSocketFactory::GetTypeId()),
+                              MakeTypeIdAccessor(&IotNode::m_tid),
+                              MakeTypeIdChecker())
+                .AddTraceSource("Rx",
+                                "A packet has been received",
+                                MakeTraceSourceAccessor(&IotNode::m_rxTrace),
+                                "ns3::Packet::AddressTracedCallback");
         return tid;
     }
 
-    IotNode::IotNode(void) {
+    IotNode::IotNode(void): m_commPort(5555), m_secondsPerMin(60) {
 
         NS_LOG_FUNCTION (this);
 
@@ -81,6 +95,7 @@ namespace ns3 {
         NS_LOG_FUNCTION (this);
         m_peersDownloadSpeeds = peersDownloadSpeeds;
     }
+
 
     void
     IotNode::SetPeersUploadSpeeds(const std::map<Ipv4Address, double> &peersUploadSpeeds) {

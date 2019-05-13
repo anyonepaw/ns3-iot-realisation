@@ -52,6 +52,7 @@ namespace ns3 {
         void SetPeersUploadSpeeds(const std::map<Ipv4Address, double> &peersUploadSpeeds);
 
 
+
         //------------
 
         void GetNodeId();
@@ -99,10 +100,12 @@ namespace ns3 {
         int m_gatewayNodeId;             //!< Node Id for the gateway
         Ipv4Address m_gatewayAddress;  //!< Ipv6 address of the gateway
 
-
         std::vector<Ipv4Address> m_peersAddresses;           //!< The addresses of peers
         std::map<Ipv4Address, double> m_peersDownloadSpeeds;      //!< The peersDownloadSpeeds of channels
         std::map<Ipv4Address, double> m_peersUploadSpeeds;        //!< The peersUploadSpeeds of channels
+
+        const int m_commPort;               //!< 5555
+        const int m_secondsPerMin;             //!< 60
 
         std::map<Ipv4Address, Ptr<Socket> > m_peersSockets;            //!< The sockets of peers
 
