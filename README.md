@@ -5,7 +5,7 @@
  - Project is on Cmake (min VERSION 3.11)
  - Requires QT5 (for netanim only)
  
-Suitable for Mac and Linux (not tried in Windows)
+Suitable for Mac and Linux (not tried on Windows)
 
 
 ### Code in folders:
@@ -18,3 +18,7 @@ Blockchain: blockchain branch -> src/blockchain
     cmake .
 
 ### Inspired from:
+https://github.com/sapgan/NS3-IoT-Simulator
+
+### C++ Project from:
+https://github.com/Gabrielcarvfer/NS3
