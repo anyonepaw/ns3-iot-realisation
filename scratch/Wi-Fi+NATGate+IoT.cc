@@ -71,15 +71,15 @@ main (int argc, char *argv[])
     //именуем узлы
 
     Names::Add("Client", vlan1Nodes.Get(0));
-    Names::Add("Gate", gate1.Get(1));
+    Names::Add("Gate", gate1.Get(0));
     Names::Add("Server/Router", routerNode.Get(0));
 
     /** MOBILITY */ //задаем координаты узлам
 
     /** NODES*/
-    AddMobility(20.0, 0.0, routerNode.Get(0));
-    AddMobility(20.0, 10.0, gate1.Get(1));
-    AddMobility(25.0, 15.0, vlan1Nodes.Get(1));
+    AddMobility(20.0, 0.0, gate1.Get(0));
+    AddMobility(20.0, 10.0, routerNode.Get(0));
+    AddMobility(25.0, 15.0, vlan1Nodes.Get(0));
 
     /** Point-to-Point*/
     PointToPointHelper p2p;
@@ -157,7 +157,7 @@ main (int argc, char *argv[])
 
 
     TcpEchoServerHelper tcpServer(9);
-    ApplicationContainer server = tcpServer.Install (routerNode.Get (0));
+    ApplicationContainer server = tcpServer.Install (gate1.Get (0));
     server.Start (Seconds (1.0));
     server.Stop (Seconds (10.0));
 
@@ -170,7 +170,7 @@ main (int argc, char *argv[])
 
     /* ANIMATION */
     NS_LOG_UNCOND ("Create animation");
-    AnimationInterface anim("one-iot.xml");
+    AnimationInterface anim("Wi-Fi+NATGATE+IoT.xml");
 
     string sourceDir = ICONS_DIR;
 
