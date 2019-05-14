@@ -1,20 +1,7 @@
 #include <utility>
-
-//
-// Created by IlyaWhitee on 18.04.19.
-//
-
-
-
 #include <string>
 #include <iostream>
 #include <fstream>
-
-
-extern "C"  {
-#include <MQTTClient.h>
-}
-
 #include "ns3/netanim-module.h"
 #include "ns3/mobility-module.h"
 #include "ns3/core-module.h"
@@ -23,19 +10,10 @@ extern "C"  {
 #include "ns3/point-to-point-module.h"
 #include "ns3/applications-module.h"
 #include "ns3/csma-module.h"
-
-#include "stdio.h"
-#include "stdlib.h"
-#include "string.h"
-
-
-
-#define ADDRESS     "tcp://localhost:1883"
-#define CLIENTID    "ExampleClientPub"
-#define TOPIC       "MQTT Examples"
-#define PAYLOAD     "Hello World!"
-#define QOS         1
-#define TIMEOUT     10000L
+#include "ns3/bridge-helper.h"
+#include "ns3/point-to-point-layout-module.h"
+#include "ns3/random-variable-stream.h"
+#include "limits.h"
 
 
 using namespace ns3;
@@ -48,35 +26,17 @@ void AddMobility(double val1, double val2, NodeContainer container);
 int
 main (int argc, char *argv[])
 {
+    // Set up some default values for the simulation.
+    Config::SetDefault ("ns3::OnOffApplication::PacketSize", UintegerValue (137));
+    // ??? try and stick 15kb/s into the data rate
+    Config::SetDefault ("ns3::OnOffApplication::DataRate", StringValue ("14kb/s"));
+    // Default number of nodes in the star.  Overridable by command line argument.
 
-    MQTTClient client;
-    MQTTClient_connectOptions conn_opts = MQTTClient_connectOptions_initializer;
-    MQTTClient_message pubmsg = MQTTClient_message_initializer;
-    MQTTClient_deliveryToken token;
-    int rc;
+    RngSeedManager::SetSeed(3);
+    RngSeedManager::SetRun(7);
 
-    MQTTClient_create(&client, ADDRESS, CLIENTID,
-                      MQTTCLIENT_PERSISTENCE_NONE, NULL);
-    conn_opts.keepAliveInterval = 20;
-    conn_opts.cleansession = 1;
-
-    if ((rc = MQTTClient_connect(client, &conn_opts)) != MQTTCLIENT_SUCCESS)
-    {
-        printf("Failed to connect, return code %d\n", rc);
-        exit(-1);
-    }
-//    pubmsg.payload = PAYLOAD;
-//    pubmsg.payloadlen = strlen(PAYLOAD);
-    pubmsg.qos = QOS;
-    pubmsg.retained = 0;
-    MQTTClient_publishMessage(client, TOPIC, &pubmsg, &token);
-    printf("Waiting for up to %d seconds for publication of %s\n"
-           "on topic %s for client with ClientID: %s\n",
-           (int)(TIMEOUT/1000), PAYLOAD, TOPIC, CLIENTID);
-    rc = MQTTClient_waitForCompletion(client, token, TIMEOUT);
-    printf("Message with delivery token %d delivered\n", token);
-    MQTTClient_disconnect(client, 10000);
-    MQTTClient_destroy(&client);
+    Ptr<UniformRandomVariable> uv = CreateObject<UniformRandomVariable> ();
+    uint32_t nSpokes = 7;
 
     //добавляем логирование для клиента и сервера
 
@@ -104,7 +64,7 @@ main (int argc, char *argv[])
 
     /** MOBILITY */ //задаем координаты узлам
 
-    /** NODES */
+    /** NODES*/
     AddMobility(20.0, 0.0, firstNodeContainer.Get(0));
     AddMobility(20.0, 10.0, firstNodeContainer.Get(1));
     AddMobility(25.0, 15.0, secondNodeContainer.Get(1));
@@ -119,6 +79,11 @@ main (int argc, char *argv[])
     p2p2.SetDeviceAttribute ("DataRate", StringValue ("5Mbps"));
     p2p2.SetChannelAttribute ("Delay", StringValue ("2ms"));
 
+    PointToPointHelper pointToPoint;
+    pointToPoint.SetDeviceAttribute ("DataRate", StringValue ("5Mbps"));
+    pointToPoint.SetChannelAttribute ("Delay", StringValue ("2ms"));
+    PointToPointStarHelper star (firstNodeContainer.Get(1), nSpokes, pointToPoint);
+
     //подстраиваем топологии к узлам
 
     NetDeviceContainer devices = p2p1.Install (firstNodeContainer);
@@ -129,6 +94,7 @@ main (int argc, char *argv[])
     InternetStackHelper internet;
     internet.Install (firstNodeContainer);
     internet.Install (secondNodeContainer.Get (1));
+    star.InstallStack (internet);
 
     // устанавливаем базовый IP адресс и маску для первых и вторых пар узлов
 
@@ -138,17 +104,61 @@ main (int argc, char *argv[])
     Ipv4AddressHelper address2;
     address2.SetBase ("203.82.48.0", "255.255.255.0");
 
+    star.AssignIpv4Addresses (Ipv4AddressHelper ("10.1.1.0", "255.255.255.0"));
+
+
+
     // присваеваем IP адресс нашим устройствам
 
     Ipv4InterfaceContainer firstInterfaces = address1.Assign (devices);
     Ipv4InterfaceContainer secondInterfaces = address2.Assign (devices2);
 
+    NS_LOG_INFO ("Create applications.");
+    // Create a packet sink on the star "hub" to receive packets.
+    uint16_t port = 50000;
+    Address hubLocalAddress (InetSocketAddress (Ipv4Address::GetAny (), port));
+    PacketSinkHelper packetSinkHelper ("ns3::TcpSocketFactory", hubLocalAddress);
+    ApplicationContainer hubApp = packetSinkHelper.Install (star.GetHub ());
+    hubApp.Start (Seconds (1.0));
+    hubApp.Stop (Seconds (100.0));
 
-//NAT
-//        private address    NAT      public address
-// n0 <--------------------> n1 <-----------------------> n2
-// 192.168.1.1   192.168.1.2    203.82.48.1  203.82.48.2
-//
+    // Create OnOff applications to send TCP to the hub, one on each spoke node.
+    OnOffHelper onOffHelper ("ns3::TcpSocketFactory", Address ());
+    onOffHelper.SetAttribute ("OnTime", StringValue
+            ("ns3::ConstantRandomVariable[Constant=1]"));
+    onOffHelper.SetAttribute ("OffTime", StringValue
+            ("ns3::ConstantRandomVariable[Constant=0]"));
+
+    //ddos
+    BulkSendHelper bulkHelper ("ns3::TcpSocketFactory", Address ());
+    bulkHelper.SetAttribute ("MaxBytes", UintegerValue (0));
+
+    ApplicationContainer spokeOnOffApps;
+    ApplicationContainer spokeBulkApps;
+
+    for (uint32_t i = 0; i < star.SpokeCount (); ++i)
+    {
+        AddressValue remoteAddress (InetSocketAddress (star.GetHubIpv4Address (i),
+                                                       port));
+        onOffHelper.SetAttribute ("Remote", remoteAddress);
+        bulkHelper.SetAttribute ("Remote", remoteAddress);
+
+        spokeOnOffApps.Add (onOffHelper.Install (star.GetSpokeNode (i)));
+        spokeBulkApps.Add (bulkHelper.Install (star.GetSpokeNode (i)));
+    }
+
+    spokeOnOffApps.Start (Seconds (1.0));
+    spokeOnOffApps.Stop (Seconds (10.0));
+
+    spokeBulkApps.Start (Seconds (34));
+    spokeBulkApps.Stop (Seconds (69));
+
+
+    //NAT
+    //        private address    NAT      public address
+    // n0 <--------------------> n1 <-----------------------> n2
+    // 192.168.1.1   192.168.1.2    203.82.48.1  203.82.48.2
+    //
 
     Ipv4NatHelper natHelper;
     //нулевой элемент в secondNodeContainer узхлах это НАТ узел
@@ -197,18 +207,20 @@ main (int argc, char *argv[])
     p2p2.EnablePcapAll ("ipv4-nat", false);
     p2p1.EnablePcapAll ("ipv4-nat", false);
 
+    pointToPoint.EnablePcapAll ("attack");
     p2p1.EnablePcapAll("p2p1");
     p2p2.EnablePcapAll("p2p2");
 
 
     /* ANIMATION */
-    AnimationInterface anim("one-iot.xml");
+    AnimationInterface anim("Alyona.xml");
 
 
     /* Simulation */
     Ipv4GlobalRoutingHelper::PopulateRoutingTables ();
 
     Simulator::Run ();
+    Simulator::Stop(Seconds(10.0));
     Simulator::Destroy ();
     return 0;
 

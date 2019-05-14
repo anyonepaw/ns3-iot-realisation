@@ -36,9 +36,9 @@ namespace ns3 {
 
     NS_LOG_COMPONENT_DEFINE ("PointToPointStarHelper");
 
-    PointToPointStarHelper::PointToPointStarHelper(NodeContainer hub, uint32_t numSpokes,
+    PointToPointStarHelper::PointToPointStarHelper(const Ptr<Node> &hub, uint32_t numSpokes,
                                                    PointToPointHelper p2pHelper) {
-        m_hub = std::move(hub);
+        m_hub.Add(hub);
         m_spokes.Create(numSpokes);
 
         for (uint32_t i = 0; i < m_spokes.GetN(); ++i) {
@@ -89,7 +89,7 @@ namespace ns3 {
 
     void
     PointToPointStarHelper::InstallStack(InternetStackHelper stack) {
-        stack.Install(m_hub);
+//        stack.Install(m_hub);
         stack.Install(m_spokes);
     }
 
@@ -112,10 +112,10 @@ namespace ns3 {
             v6network = Ipv6AddressGenerator::GetNetwork(prefix);
             addressHelper.SetBase(v6network, prefix);
 
-            Ipv6InterfaceContainer ic = addressHelper.Assign(m_hubDevices.Get(i));
-            m_hubInterfaces6.Add(ic);
-            ic = addressHelper.Assign(m_spokeDevices.Get(i));
-            m_spokeInterfaces6.Add(ic);
+//            Ipv6InterfaceContainer ic = addressHelper.Assign(m_hubDevices.Get(i));
+//            m_hubInterfaces6.Add(ic);
+//            ic = addressHelper.Assign(m_spokeDevices.Get(i));
+//            m_spokeInterfaces6.Add(ic);
 
             Ipv6AddressGenerator::NextNetwork(prefix);
         }

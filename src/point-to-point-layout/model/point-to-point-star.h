@@ -55,7 +55,7 @@ public:
    * \param p2pHelper the link helper for p2p links, 
    *        used to link nodes together
    */
-  PointToPointStarHelper (NodeContainer hub, uint32_t numSpokes,
+  PointToPointStarHelper (const Ptr <Node>& hub, uint32_t numSpokes,
                           PointToPointHelper p2pHelper);
 
   ~PointToPointStarHelper ();
