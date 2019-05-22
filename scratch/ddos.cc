@@ -123,7 +123,7 @@ main (int argc, char *argv[])
     hubApp.Stop (Seconds (100.0));
 
     // Create OnOff applications to send TCP to the hub, one on each spoke node.
-    OnOffHelper onOffHelper ("ns3::TcpSocketFactory", Address ());
+    OnOffHelper onOffHelper ("ns3::UdpSocketFactory", Address ());
     onOffHelper.SetAttribute ("OnTime", StringValue
             ("ns3::ConstantRandomVariable[Constant=1]"));
     onOffHelper.SetAttribute ("OffTime", StringValue
@@ -204,12 +204,12 @@ main (int argc, char *argv[])
 
 
     /* PCAP */
-    p2p2.EnablePcapAll ("ipv4-nat", false);
-    p2p1.EnablePcapAll ("ipv4-nat", false);
-
-    pointToPoint.EnablePcapAll ("attack");
-    p2p1.EnablePcapAll("p2p1");
-    p2p2.EnablePcapAll("p2p2");
+//    p2p2.EnablePcapAll ("ipv4-nat", false);
+//    p2p1.EnablePcapAll ("ipv4-nat", false);
+//
+//    pointToPoint.EnablePcapAll ("attack");
+//    p2p1.EnablePcapAll("p2p1");
+//    p2p2.EnablePcapAll("p2p2");
 
 
     /* ANIMATION */

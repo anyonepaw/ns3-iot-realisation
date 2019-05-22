@@ -63,3 +63,5 @@ cmake-build-release/
 *.make
 
 scratch/CMakeFiles/
+
+portfile.cmake
