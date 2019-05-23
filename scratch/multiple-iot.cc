@@ -45,7 +45,7 @@ using namespace std;
 NS_LOG_COMPONENT_DEFINE ("ScratchSimulator");
 
 
-void AddMobility(double val1, double val2, NodeContainer container);
+void AddMobility(double x_position, double y_position, NodeContainer container);
 
 int
 main(int argc, char *argv[]) {

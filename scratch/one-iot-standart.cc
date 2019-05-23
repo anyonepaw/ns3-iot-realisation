@@ -1,4 +1,11 @@
 #include <utility>
+
+//
+// Created by IlyaWhitee on 18.04.19.
+//
+
+
+
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -11,32 +18,17 @@
 #include "ns3/applications-module.h"
 #include "ns3/csma-module.h"
 #include "ns3/bridge-helper.h"
-#include "ns3/point-to-point-layout-module.h"
-#include "ns3/random-variable-stream.h"
-#include "limits.h"
-
 
 using namespace ns3;
 using namespace std;
 
 NS_LOG_COMPONENT_DEFINE ("Trying_toBuild_NAT");
 
-void AddMobility(double x_position, double y_position, NodeContainer container);
+void AddMobility(double val1, double val2, NodeContainer container);
 
 int
 main (int argc, char *argv[])
 {
-    // Set up some default values for the simulation.
-    Config::SetDefault ("ns3::OnOffApplication::PacketSize", UintegerValue (137));
-    // ??? try and stick 15kb/s into the data rate
-    Config::SetDefault ("ns3::OnOffApplication::DataRate", StringValue ("14kb/s"));
-    // Default number of nodes in the star.  Overridable by command line argument.
-
-    RngSeedManager::SetSeed(3);
-    RngSeedManager::SetRun(7);
-
-    Ptr<UniformRandomVariable> uv = CreateObject<UniformRandomVariable> ();
-    uint32_t nSpokes = 7;
 
     //добавляем логирование для клиента и сервера
 
@@ -79,11 +71,6 @@ main (int argc, char *argv[])
     p2p2.SetDeviceAttribute ("DataRate", StringValue ("5Mbps"));
     p2p2.SetChannelAttribute ("Delay", StringValue ("2ms"));
 
-    PointToPointHelper pointToPoint;
-    pointToPoint.SetDeviceAttribute ("DataRate", StringValue ("5Mbps"));
-    pointToPoint.SetChannelAttribute ("Delay", StringValue ("2ms"));
-    PointToPointStarHelper star (firstNodeContainer.Get(1), nSpokes, pointToPoint);
-
     //подстраиваем топологии к узлам
 
     NetDeviceContainer devices = p2p1.Install (firstNodeContainer);
@@ -94,7 +81,6 @@ main (int argc, char *argv[])
     InternetStackHelper internet;
     internet.Install (firstNodeContainer);
     internet.Install (secondNodeContainer.Get (1));
-    star.InstallStack (internet);
 
     // устанавливаем базовый IP адресс и маску для первых и вторых пар узлов
 
@@ -104,61 +90,17 @@ main (int argc, char *argv[])
     Ipv4AddressHelper address2;
     address2.SetBase ("203.82.48.0", "255.255.255.0");
 
-    star.AssignIpv4Addresses (Ipv4AddressHelper ("10.1.1.0", "255.255.255.0"));
-
-
-
     // присваеваем IP адресс нашим устройствам
 
     Ipv4InterfaceContainer firstInterfaces = address1.Assign (devices);
     Ipv4InterfaceContainer secondInterfaces = address2.Assign (devices2);
 
-    NS_LOG_INFO ("Create applications.");
-    // Create a packet sink on the star "hub" to receive packets.
-    uint16_t port = 50000;
-    Address hubLocalAddress (InetSocketAddress (Ipv4Address::GetAny (), port));
-    PacketSinkHelper packetSinkHelper ("ns3::TcpSocketFactory", hubLocalAddress);
-    ApplicationContainer hubApp = packetSinkHelper.Install (star.GetHub ());
-    hubApp.Start (Seconds (1.0));
-    hubApp.Stop (Seconds (100.0));
 
-    // Create OnOff applications to send TCP to the hub, one on each spoke node.
-    OnOffHelper onOffHelper ("ns3::UdpSocketFactory", Address ());
-    onOffHelper.SetAttribute ("OnTime", StringValue
-            ("ns3::ConstantRandomVariable[Constant=1]"));
-    onOffHelper.SetAttribute ("OffTime", StringValue
-            ("ns3::ConstantRandomVariable[Constant=0]"));
-
-    //ddos
-    BulkSendHelper bulkHelper ("ns3::TcpSocketFactory", Address ());
-    bulkHelper.SetAttribute ("MaxBytes", UintegerValue (0));
-
-    ApplicationContainer spokeOnOffApps;
-    ApplicationContainer spokeBulkApps;
-
-    for (uint32_t i = 0; i < star.SpokeCount (); ++i)
-    {
-        AddressValue remoteAddress (InetSocketAddress (star.GetHubIpv4Address (i),
-                                                       port));
-        onOffHelper.SetAttribute ("Remote", remoteAddress);
-        bulkHelper.SetAttribute ("Remote", remoteAddress);
-
-        spokeOnOffApps.Add (onOffHelper.Install (star.GetSpokeNode (i)));
-        spokeBulkApps.Add (bulkHelper.Install (star.GetSpokeNode (i)));
-    }
-
-    spokeOnOffApps.Start (Seconds (1.0));
-    spokeOnOffApps.Stop (Seconds (10.0));
-
-    spokeBulkApps.Start (Seconds (34));
-    spokeBulkApps.Stop (Seconds (69));
-
-
-    //NAT
-    //        private address    NAT      public address
-    // n0 <--------------------> n1 <-----------------------> n2
-    // 192.168.1.1   192.168.1.2    203.82.48.1  203.82.48.2
-    //
+//NAT
+//        private address    NAT      public address
+// n0 <--------------------> n1 <-----------------------> n2
+// 192.168.1.1   192.168.1.2    203.82.48.1  203.82.48.2
+//
 
     Ipv4NatHelper natHelper;
     //нулевой элемент в secondNodeContainer узхлах это НАТ узел
@@ -204,23 +146,21 @@ main (int argc, char *argv[])
 
 
     /* PCAP */
-//    p2p2.EnablePcapAll ("ipv4-nat", false);
-//    p2p1.EnablePcapAll ("ipv4-nat", false);
-//
-//    pointToPoint.EnablePcapAll ("attack");
-//    p2p1.EnablePcapAll("p2p1");
-//    p2p2.EnablePcapAll("p2p2");
+    p2p2.EnablePcapAll ("ipv4-nat", false);
+    p2p1.EnablePcapAll ("ipv4-nat", false);
+
+    p2p1.EnablePcapAll("p2p1");
+    p2p2.EnablePcapAll("p2p2");
 
 
     /* ANIMATION */
-    AnimationInterface anim("Alyona.xml");
+    AnimationInterface anim("one-iot.xml");
 
 
     /* Simulation */
     Ipv4GlobalRoutingHelper::PopulateRoutingTables ();
 
     Simulator::Run ();
-    Simulator::Stop(Seconds(10.0));
     Simulator::Destroy ();
     return 0;
 
