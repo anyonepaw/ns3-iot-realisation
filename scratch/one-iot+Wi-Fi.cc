@@ -14,6 +14,8 @@
 #include "ns3/config-store-module.h"
 #include "ns3/wifi-module.h"
 #include "ns3/nqos-wifi-mac-helper.h"
+#include "ns3/ipv4-global-routing-helper.h"
+
 
 #include <iostream>
 #include <fstream>
@@ -56,6 +58,7 @@ int main(int argc, char *argv[]) {
                        StringValue(phyMode));
 
     /**********************define nodes***************/
+
     NodeContainer wifinodes;
     wifinodes.Create(2);//create two wifi nodes..one is an AP and other is a STA
 
@@ -63,6 +66,8 @@ int main(int argc, char *argv[]) {
 
     p2pnodes.Add(wifinodes.Get(0));//attach the AP to p2p nodes
     p2pnodes.Create(1);//create p2p client
+
+
 
     //именуем узлы
 
@@ -170,25 +175,45 @@ int main(int argc, char *argv[]) {
 
     /*******************TCP**************************/
 
+    UdpEchoServerHelper echoServer (9);
+
+    ApplicationContainer serverApps = echoServer.Install (p2pnodes.Get (1));
+    serverApps.Start (Seconds (1.0));
+    serverApps.Stop (Seconds (10.0));
+
+    UdpEchoClientHelper echoClient (interfaces1.GetAddress (1), 9);
+    echoClient.SetAttribute ("MaxPackets", UintegerValue (1));
+    echoClient.SetAttribute ("Interval", TimeValue (Seconds (1.0)));
+    echoClient.SetAttribute ("PacketSize", UintegerValue (1024));
+
+    ApplicationContainer clientApps = echoClient.Install (p2pnodes.Get (1));
+    clientApps.Start (Seconds (2.0));
+    clientApps.Stop (Seconds (10.0));
+
+    ApplicationContainer clientApps1 = echoClient.Install (wifinodes.Get (1));
+    clientApps1.Start (Seconds (2.0));
+    clientApps1.Stop (Seconds (10.0));
+
+
     // Протокол TCP: клиент-серверное сообщение
-    NS_LOG_UNCOND ("TCP trace:");
+  //  NS_LOG_UNCOND ("TCP trace:");
 
-    TcpEchoClientHelper tcpClient(interfaces1.GetAddress (1), 9);
-    tcpClient.SetAttribute ("MaxPackets", UintegerValue (1));
-    tcpClient.SetAttribute ("Interval", TimeValue (Seconds (1.)));
-    tcpClient.SetAttribute ("PacketSize", UintegerValue (512));
+  //  TcpEchoClientHelper tcpClient(interfaces1.GetAddress (1), 9);
+   // tcpClient.SetAttribute ("MaxPackets", UintegerValue (1));
+    //tcpClient.SetAttribute ("Interval", TimeValue (Seconds (1.)));
+   // tcpClient.SetAttribute ("PacketSize", UintegerValue (512));
 
-    ApplicationContainer client1;
-    PacketSinkHelper sink("ns3::TcpSocketFactory", InetSocketAddress(Ipv4Address::GetAny(), port));
-    client1.Add(sink.Install(p2pnodes.Get(1)));
-    client1.Start(Seconds (2.0));
-    client1.Stop (Seconds (10.0));
+   // ApplicationContainer client1;
+    //PacketSinkHelper sink("ns3::TcpSocketFactory", InetSocketAddress(Ipv4Address::GetAny(), port));
+   // client1.Add(sink.Install(p2pnodes.Get(1)));
+   // client1.Start(Seconds (2.0));
+   // client1.Stop (Seconds (10.0));
 
-    TcpEchoServerHelper tcpServer(9);
+   // TcpEchoServerHelper tcpServer(9);
 
-    ApplicationContainer server = tcpServer.Install (p2pnodes.Get (0));
-     server.Start (Seconds (1.0));
-     server.Stop (Seconds (10.0));
+    //ApplicationContainer server = tcpServer.Install (p2pnodes.Get (0));
+    // server.Start (Seconds (1.0));
+   //  server.Stop (Seconds (10.0));
 
 
 
@@ -219,7 +244,14 @@ int main(int argc, char *argv[]) {
 
 
     /* Simulation */
-    Ipv4GlobalRoutingHelper::PopulateRoutingTables ();
+
+
+    Ipv4GlobalRoutingHelper::PopulateRoutingTables();
+
+
+   // Ipv4GlobalRoutingHelper router;
+   // router.Create (wifinodes.Get(0));
+
 
 
     Simulator::Stop(stoptime);
