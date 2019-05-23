@@ -245,10 +245,10 @@ int main(int argc, char *argv[]) {
 
 }
 
-void AddMobility(double val1, double val2, NodeContainer container) {
+void AddMobility(double x_position, double y_position, NodeContainer container) {
     MobilityHelper mobility;
     mobility.SetPositionAllocator("ns3::GridPositionAllocator", "MinX",
-                                  DoubleValue(val1), "MinY", DoubleValue(val2));
+                                  DoubleValue(x_position), "MinY", DoubleValue(y_position));
     mobility.SetMobilityModel("ns3::ConstantPositionMobilityModel");
     mobility.Install(std::move(container));
 }

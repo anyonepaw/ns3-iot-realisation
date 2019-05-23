@@ -19,7 +19,7 @@
 using namespace ns3;
 using namespace std;
 
-NS_LOG_COMPONENT_DEFINE ("Trying_toBuild_NAT");
+NS_LOG_COMPONENT_DEFINE ("DDoS attack on standard architecture");
 
 void AddMobility(double x_position, double y_position, NodeContainer container);
 
@@ -213,7 +213,7 @@ main (int argc, char *argv[])
 
 
     /* ANIMATION */
-    AnimationInterface anim("Alyona.xml");
+    AnimationInterface anim("ddos.xml");
 
 
     /* Simulation */
@@ -226,10 +226,10 @@ main (int argc, char *argv[])
 
 }
 
-void AddMobility(double val1, double val2, NodeContainer container) {
+void AddMobility(double x_position, double y_position, NodeContainer container) {
     MobilityHelper mobility;
     mobility.SetPositionAllocator("ns3::GridPositionAllocator", "MinX",
-                                  DoubleValue(val1), "MinY", DoubleValue(val2));
+                                  DoubleValue(x_position), "MinY", DoubleValue(y_position));
     mobility.SetMobilityModel("ns3::ConstantPositionMobilityModel");
     mobility.Install(std::move(container));
 }
