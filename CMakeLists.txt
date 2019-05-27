@@ -198,7 +198,7 @@ add_subdirectory(utils)
 
 #https://ru.stackoverflow.com/questions/488953/Получение-пути-текущего-проекта-c
 target_compile_definitions(multiple-iot PRIVATE ICONS_DIR=\"${CMAKE_CURRENT_SOURCE_DIR}/icons\")
-target_compile_definitions(one-iot-standard PRIVATE ICONS_DIR=\"${CMAKE_CURRENT_SOURCE_DIR}/icons\")
+target_compile_definitions(one-iot PRIVATE ICONS_DIR=\"${CMAKE_CURRENT_SOURCE_DIR}/icons\")
 target_compile_definitions(ddos PRIVATE ICONS_DIR=\"${CMAKE_CURRENT_SOURCE_DIR}/icons\")
 target_compile_definitions(one-iot-with-wifi  PRIVATE ICONS_DIR=\"${CMAKE_CURRENT_SOURCE_DIR}/icons\")
 target_compile_definitions(one-iot-with-mqtt  PRIVATE ICONS_DIR=\"${CMAKE_CURRENT_SOURCE_DIR}/icons\")
@@ -214,3 +214,8 @@ target_compile_definitions(one-iot-with-mqtt  PRIVATE ICONS_DIR=\"${CMAKE_CURREN
 
 #find_library(mqtt libpaho-mqtt3as.1.3.0.dylib)
 #target_link_libraries(one-iot ${mqtt})
+
+cmake_policy(SET CMP0079 NEW)
+
+#target_include_directories(one-iot-with-mqtt PRIVATE "/Users/anyonepaw/CLionProjects/Eclipse-Paho-MQTT-C-1.3.0-Darwin/include")
+#target_link_libraries(one-iot-with-mqtt "/Users/anyonepaw/CLionProjects/Eclipse-Paho-MQTT-C-1.3.0-Darwin/lib/libpaho-mqtt3c.dylib")

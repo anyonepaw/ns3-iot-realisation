@@ -10,9 +10,10 @@ foreach(scratch_src ${scratches})
 
     string(FIND "${DONT_BUILD}" "${scratch_name}" res)
 
+
     if(res LESS 0)
         add_executable(${scratch_name} "${scratch_src}")
-    target_link_libraries(${scratch_name} "${ns3-libs}" ${ns3-contrib-libs})
+       target_link_libraries(${scratch_name} "${ns3-libs}" ${ns3-contrib-libs})
     endif()
 endforeach()
 
@@ -20,9 +21,4 @@ endforeach()
 target_compile_definitions(${scratch_name} PRIVATE ICONS_DIR=\"${PROJECT_SOURCE_DIR}/icons\")
 
 
-
-
-#он находит ее на деле, но как ее вызвать то в программном коде?
-#find_library(mqtt libpaho-mqtt3as.1.3.0.dylib)
-#target_link_libraries(one-iot ${mqtt})
 

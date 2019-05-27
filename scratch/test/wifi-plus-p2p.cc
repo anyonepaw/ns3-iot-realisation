@@ -32,14 +32,13 @@ Time stoptime = Seconds(5.0);
 
 NS_LOG_COMPONENT_DEFINE ("Router-Gate-IoT");
 
-void AddMobility(double x_position, double y_position, NodeContainer container);
+void addMobility(double x_position, double y_position, NodeContainer container);
 
 int main(int argc, char *argv[]) {
 
     LogComponentEnable ("TcpEchoServerApplication", LOG_LEVEL_INFO);
     LogComponentEnable ("TcpEchoClientApplication", LOG_LEVEL_INFO);
-
-
+    
     uint32_t port = 5000;
     double rss = 0;
     std::string phyMode("ErpOfdmRate54Mbps");//wifi channel
@@ -60,30 +59,23 @@ int main(int argc, char *argv[]) {
     NodeContainer wifinodes;
     wifinodes.Create(2);//create two wifi nodes..one is an AP and other is a STA
 
-    Ptr<Node> router = wifinodes.Get(0);
-    Ptr<Node> gateWifi = wifinodes.Get(1);
-
-
     NodeContainer p2pnodes;
 
-    p2pnodes.Add(gateWifi);//attach the AP to p2p nodes
+    p2pnodes.Add(wifinodes.Get(1));//attach the AP to p2p nodes
     p2pnodes.Create(1);//create p2p client
-
-    Ptr<Node> gateP2P = p2pnodes.Get(0);
-    Ptr<Node> IoT = p2pnodes.Get(1);
 
     //именуем узлы
 
-    Names::Add("Client", IoT);
-    Names::Add("Gate", gateWifi);
-    Names::Add("Router", router);
+    Names::Add("Client", p2pnodes.Get(1));
+    Names::Add("Gate", wifinodes.Get(1));
+    Names::Add("Router", wifinodes.Get(0));
 
     /** MOBILITY */ //задаем координаты узлам
 
     /** NODES*/
-    AddMobility(0.0, 0.0, router);
-    AddMobility(49.5, 7.5, gateWifi);
-    AddMobility(99.0, 15.0, IoT);
+    addMobility(0.0, 0.0, wifinodes.Get(0));
+    addMobility(49.5, 7.5, wifinodes.Get(1));
+    addMobility(99.0, 15.0, p2pnodes.Get(1));
 
     /*****************************Wi-Fi*********************/
     WifiHelper wifi;
@@ -112,12 +104,13 @@ int main(int argc, char *argv[]) {
                     "Ssid", SsidValue(ssid),
                     "ActiveProbing", BooleanValue(false));
 
-    devices.Add(wifi.Install(wifiPhy, wifiMac, gateWifi)); //install STA mode on all the wireless nodes
+    devices.Add(wifi.Install(wifiPhy, wifiMac, wifinodes.Get(1))); //install STA mode on all the wireless nodes
 
     wifiMac.SetType("ns3::ApWifiMac",
                     "Ssid", SsidValue(ssid));
-    
-    devices.Add(wifi.Install(wifiPhy, wifiMac, router)); //install AP mode
+
+    NetDeviceContainer devicesap = wifi.Install(wifiPhy, wifiMac, wifinodes.Get(0));
+    devices.Add(devicesap.Get(0)); //install AP mode
 
     /*****Gate---P2P--->IoT****************************/
 
@@ -130,22 +123,18 @@ int main(int argc, char *argv[]) {
     devices1 = pointToPoint.Install(p2pnodes);
 
 
-    /************************************************/
+    /************ STACK ************************************/
     InternetStackHelper stack;
     stack.Install(wifinodes);
-    stack.Install(IoT);
+    stack.Install(p2pnodes.Get(1));
 
     Ipv4AddressHelper address;
 
-    address.SetBase("170.228.1.0", "255.255.255.0");
+    address.SetBase("10.1.1.0", "255.255.255.0");
     Ipv4InterfaceContainer interfaces = address.Assign(devices); //wifi devices addresses
-    Ipv4Address routerAddress = interfaces.GetAddress (0);
-    Ipv4Address gateWifiAddress = interfaces.GetAddress (1);
 
     address.SetBase("10.1.2.0", "255.255.255.0");
     Ipv4InterfaceContainer interfaces1 = address.Assign(devices1);//p2p devices addresses
-    Ipv4Address gateP2PAddress = interfaces1.GetAddress (0);
-    Ipv4Address IoTAddress = interfaces1.GetAddress (1);
 
     /*********************NAT************************/
 
@@ -157,7 +146,7 @@ int main(int argc, char *argv[]) {
 
     Ipv4NatHelper natHelper;
     //нулевой элемент в secondNodeContainer узхлах это НАТ узел
-    Ptr<Ipv4Nat> nat = natHelper.Install (gateP2P);
+    Ptr<Ipv4Nat> nat = natHelper.Install (wifinodes.Get (1));
     // Configure which of its Ipv4Interfaces are inside and outside interfaces
     // The zeroth Ipv4Interface is reserved for the loopback interface
     // Hence, the interface facing n0 is numbered "1" and the interface
@@ -184,25 +173,21 @@ int main(int argc, char *argv[]) {
     // Протокол TCP: клиент-серверное сообщение
     NS_LOG_UNCOND ("TCP trace:");
 
-//    TcpEchoClientHelper tcpClient1(gateWifiAddress, 9);
-//    tcpClient1.SetAttribute ("MaxPackets", UintegerValue (1));
-//    tcpClient1.SetAttribute ("Interval", TimeValue (Seconds (1.)));
-//    tcpClient1.SetAttribute ("PacketSize", UintegerValue (512));
-//
-//    TcpEchoServerHelper tcpServer1(9);
-//    ApplicationContainer server1 = tcpServer1.Install (router);
-//    server1.Start (Seconds (1.0));
-//    server1.Stop (Seconds (5.0));
-
-
-    TcpEchoClientHelper tcpClient(IoTAddress, 83);
+    TcpEchoClientHelper tcpClient(interfaces1.GetAddress (1), 9);
     tcpClient.SetAttribute ("MaxPackets", UintegerValue (1));
     tcpClient.SetAttribute ("Interval", TimeValue (Seconds (1.)));
     tcpClient.SetAttribute ("PacketSize", UintegerValue (512));
 
-    TcpEchoServerHelper tcpServer(1563);
-    ApplicationContainer server = tcpServer.Install (gateP2P);
-    server.Start (Seconds (5.0));
+    ApplicationContainer client1;
+    PacketSinkHelper sink("ns3::TcpSocketFactory", InetSocketAddress(Ipv4Address::GetAny(), port));
+    client1.Add(sink.Install(p2pnodes.Get(1)));
+    client1.Start(Seconds (2.0));
+    client1.Stop (Seconds (10.0));
+
+    TcpEchoServerHelper tcpServer(9);
+
+    ApplicationContainer server = tcpServer.Install (p2pnodes.Get (0));
+    server.Start (Seconds (1.0));
     server.Stop (Seconds (10.0));
 
 
@@ -245,7 +230,7 @@ int main(int argc, char *argv[]) {
 
 }
 
-void AddMobility(double x_position, double y_position, NodeContainer container) {
+void addMobility(double x_position, double y_position, NodeContainer container) {
     MobilityHelper mobility;
     mobility.SetPositionAllocator("ns3::GridPositionAllocator", "MinX",
                                   DoubleValue(x_position), "MinY", DoubleValue(y_position));
