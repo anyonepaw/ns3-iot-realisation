@@ -196,6 +196,15 @@ add_subdirectory(scratch)
 add_subdirectory(utils)
 
 
+cmake_policy(SET CMP0079 NEW)
 
+target_include_directories(one-iot PRIVATE "/home/ricardo/CLionProjects/libtins/include")
+target_link_libraries(one-iot "/home/ricardo/CLionProjects/libtins/lib/libtins.so")
+
+target_include_directories(one-iot PRIVATE "/home/ricardo/CLionProjects/Eclipse-Paho-MQTT-C-1.2.1-Linux/include")
+target_link_libraries(one-iot "/home/ricardo/CLionProjects/Eclipse-Paho-MQTT-C-1.2.1-Linux/lib/libpaho-mqtt3c.so")
+
+target_include_directories(arp PRIVATE "/home/ricardo/CLionProjects/libtins/include")
+target_link_libraries(arp "/home/ricardo/CLionProjects/libtins/lib/libtins.so")
 
 

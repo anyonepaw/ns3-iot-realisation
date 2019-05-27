@@ -36,7 +36,6 @@
 #include <iostream>
 
 
-
 using namespace ns3;
 using namespace std;
 
@@ -358,7 +357,7 @@ main(int argc, char *argv[]) {
 
 
     Simulator::Run();
-    Simulator::Stop(Seconds(30.0));
+    Simulator::Stop();
     NS_LOG_UNCOND ("У МЕНЯ ВСЕ.");
     Simulator::Destroy();
 

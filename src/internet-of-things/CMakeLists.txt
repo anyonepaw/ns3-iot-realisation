@@ -2,11 +2,13 @@
 set(name internet-of-things)
 
 set(source_files
-        model/iot-node-application.cc
+        #model/iot-node-application.cc
+        attacks/sniffer-node.cc
         )
 
 set(header_files
-        model/iot-node-application.h
+        attacks/sniffer-node.h
+       #model/iot-node-application.h
         )
 
 set(libraries_to_link ${libcore} ${libnetwork})
