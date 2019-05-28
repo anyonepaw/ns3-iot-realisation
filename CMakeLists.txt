@@ -164,7 +164,7 @@ set(libs_to_build
         wifi                  #
         wimax                 #
         test                  # beware of naming colisions between macro CHECK in traced-value-callback-typedef-test-suite.cc and torch/script.h (PyTorch)
-#        internet-of-things
+        internet-of-things
         )
 
 #Build contribution libraries
@@ -202,7 +202,7 @@ target_compile_definitions(one-iot PRIVATE ICONS_DIR=\"${CMAKE_CURRENT_SOURCE_DI
 target_compile_definitions(ddos PRIVATE ICONS_DIR=\"${CMAKE_CURRENT_SOURCE_DIR}/icons\")
 target_compile_definitions(one-iot-with-wifi  PRIVATE ICONS_DIR=\"${CMAKE_CURRENT_SOURCE_DIR}/icons\")
 target_compile_definitions(one-iot-with-mqtt  PRIVATE ICONS_DIR=\"${CMAKE_CURRENT_SOURCE_DIR}/icons\")
-
+target_compile_definitions(mitm PRIVATE ICONS_DIR=\"${CMAKE_CURRENT_SOURCE_DIR}/icons\")
 
 #INCLUDE_DIRECTORIES( /lib)
 #LINK_DIRECTORIES( /lib )

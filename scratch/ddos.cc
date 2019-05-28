@@ -180,8 +180,7 @@ main(int argc, char *argv[]) {
 
 
     tcpExchange(client, 9, addressOfClient, iot, 9, 1.0, 15.0, 2.0, 15.0);
-    tcpExchange(iot, 9, addressOfIot, client,
-                9, 2.5, 15.0, 2.5, 15.0);
+    //tcpExchange(iot, 9, addressOfIot, client, 9, 2.5, 15.0, 2.5, 15.0);
 
 /**      STAR        */
 
@@ -191,7 +190,7 @@ main(int argc, char *argv[]) {
     Address hubLocalAddress(InetSocketAddress(Ipv4Address::GetAny(), port));
     PacketSinkHelper packetSinkHelper("ns3::TcpSocketFactory", hubLocalAddress);
     ApplicationContainer hubApp = packetSinkHelper.Install(star.GetHub());
-    hubApp.Start(Seconds(2.0));
+    hubApp.Start(Seconds(1.8));
     hubApp.Stop(Seconds(15.0));
 
 
@@ -222,7 +221,7 @@ main(int argc, char *argv[]) {
 //        spokeBulkApps.Add (bulkHelper.Install (star.GetSpokeNode (i)));
     }
 
-    spokeOnOffApps.Start(Seconds(2.0));
+    spokeOnOffApps.Start(Seconds(1.8));
     spokeOnOffApps.Stop(Seconds(10.0));
 
 //    spokeBulkApps.Start (Seconds (2.0));
@@ -230,7 +229,7 @@ main(int argc, char *argv[]) {
 
     bulkSendApplication.SetMaxBytes(10000);
 
-    bulkSendApplication.SetStartTime(Seconds(2.0));
+    bulkSendApplication.SetStartTime(Seconds(1.8));
     bulkSendApplication.SetStopTime(Seconds(10.0));
 
 

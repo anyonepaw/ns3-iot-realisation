@@ -69,7 +69,7 @@ main(int argc, char *argv[]) {
     vlan2Nodes.Create(2);
 
     NodeContainer vlan3Nodes;
-    vlan3Nodes.Create(1);
+    vlan3Nodes.Create(3);
 
 
     NS_LOG_UNCOND ("Router and internet-things created");
@@ -136,21 +136,21 @@ main(int argc, char *argv[]) {
 
 
 
-
-    for (int j = 0; j < vlan1IoTsInterfaces.GetN(); ++j) {
-        packageSend("Gate1", vlan1IoTsInterfaces.GetAddress(j), 1025, 0, 15);
-        packageReceive("Gate1", vlan1IoTsInterfaces.GetAddress(j), 1025, 4, 23);
-    }
-
-    for (int k = 0; k < vlan2IoTsInterfaces.GetN(); ++k) {
-        packageSend("Gate2", vlan2IoTsInterfaces.GetAddress(k), 1025, 0, 15);
-        packageReceive("Gate2", vlan2IoTsInterfaces.GetAddress(k), 1025, 3, 25);
-    }
-
-    for (int l = 0; l < vlan3IoTsInterfaces.GetN(); ++l) {
-        packageSend("Gate3", vlan2IoTsInterfaces.GetAddress(l), 1025, 0, 15);
-        packageReceive("Gate3", vlan1IoTsInterfaces.GetAddress(l), 1025, 4, 27);
-    }
+//
+//    for (int j = 0; j < vlan1IoTsInterfaces.GetN(); ++j) {
+//        packageSend("Gate1", vlan1IoTsInterfaces.GetAddress(j), 1025, 0, 15);
+//        packageReceive("Gate1", vlan1IoTsInterfaces.GetAddress(j), 1025, 4, 23);
+//    }
+//
+//    for (int k = 0; k < vlan2IoTsInterfaces.GetN(); ++k) {
+//        packageSend("Gate2", vlan2IoTsInterfaces.GetAddress(k), 1025, 0, 15);
+//        packageReceive("Gate2", vlan2IoTsInterfaces.GetAddress(k), 1025, 3, 25);
+//    }
+//
+//    for (int l = 0; l < vlan3IoTsInterfaces.GetN(); ++l) {
+//        packageSend("Gate3", vlan2IoTsInterfaces.GetAddress(l), 1025, 0, 15);
+//        packageReceive("Gate3", vlan1IoTsInterfaces.GetAddress(l), 1025, 4, 27);
+//    }
 
 
     Ipv4GlobalRoutingHelper::PopulateRoutingTables();
@@ -174,7 +174,7 @@ main(int argc, char *argv[]) {
     uint32_t pictureRouter = anim.AddResource(sourceDir + "/router.png");
     uint32_t pictureClient = anim.AddResource(sourceDir + "/client.png");
 
-    anim.EnableIpv4RouteTracking()
+    //anim.EnableIpv4RouteTracking()
 
     anim.UpdateNodeImage(0, pictureGate);
     anim.UpdateNodeImage(1, pictureGate);
@@ -237,8 +237,8 @@ void packageReceive(string nodeNameOfReceiver, Ipv4Address SenderIpv4Address, ui
 }
 
 void installStack(NodeContainer container, string ipv4, string Mask){
-    STACK.Install(container);
-    ADDRESS_IPV4.SetBase(ipv4, Mask);
+//    STACK.Install(container);
+//    ADDRESS_IPV4.SetBase(ipv4, Mask);
 
 }
 

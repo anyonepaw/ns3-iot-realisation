@@ -158,6 +158,8 @@ main(int argc, char *argv[]) {
     NS_LOG_UNCOND (addressOfIot); //10.0.0.2
 
 
+
+
     addNat(gate, firstAddressOfGate, secondAddressOfRouter);
     addNat(router, firstAddressOfRouter, addressOfClient);
 

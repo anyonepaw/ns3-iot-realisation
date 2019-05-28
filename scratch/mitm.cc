@@ -18,70 +18,74 @@
 #include "ns3/applications-module.h"
 #include "ns3/csma-module.h"
 #include "ns3/bridge-helper.h"
-
-
-
+#include "ns3/sniffer-node.h"
 
 
 using namespace ns3;
 using namespace std;
 
-NS_LOG_COMPONENT_DEFINE ("one-iot_with_sniffer");
 
+void addMobility(double x_position, double y_position, NodeContainer container);
 
-void AddMobility(double val1, double val2, NodeContainer container);
+void addNat(Ptr<Node> gateNode, Ipv4Address gateAddress, Ipv4Address routerAddress);
+
 
 int
-main (int argc, char *argv[])
-{
+main(int argc, char *argv[]) {
 
-    //добавляем логирование для клиента и сервера
+    //добавляем логирование для клиента и сервера, чтобы в терминал выводилась рассылка
+    LogComponentEnable("SnifferNode", LOG_LEVEL_INFO);
+    LogComponentEnable("TcpEchoServerApplication", LOG_LEVEL_INFO);
+    LogComponentEnable("TcpEchoClientApplication", LOG_LEVEL_INFO);
 
-    LogComponentEnable ("TcpEchoServerApplication", LOG_LEVEL_INFO);
-    LogComponentEnable ("TcpEchoClientApplication", LOG_LEVEL_INFO);
 
     /** NODES */
 
     //первые 2 узла
 
-    NodeContainer Client_Router;
-    Client_Router.Create(2);
-
     NodeContainer firstNodeContainer;
-    firstNodeContainer.Add (Client_Router.Get(1));
-    firstNodeContainer.Create(1);
-
-    //вторые 2 узла
+    firstNodeContainer.Create(2);
+    Ptr<Node> router = firstNodeContainer.Get(0);
+    Ptr<Node> gate = firstNodeContainer.Get(1);
 
     NodeContainer secondNodeContainer;
-    secondNodeContainer.Add ( firstNodeContainer.Get (1) );
-    secondNodeContainer.Create (1);
+    secondNodeContainer.Add(gate);
+    secondNodeContainer.Create(1);
+    Ptr<Node> iot = secondNodeContainer.Get(1);
+
+    NodeContainer thirdNodeContainer;
+    thirdNodeContainer.Add(router);
+    thirdNodeContainer.Create(1);
+    Ptr<Node> client = thirdNodeContainer.Get(1);
 
     NodeContainer AttackNodeContainer;
-    AttackNodeContainer.Add ( firstNodeContainer.Get (1) );
-    AttackNodeContainer.Create (1);
+    AttackNodeContainer.Add(gate);
+    AttackNodeContainer.Create(1);
+    Ptr<Node> sniffer = AttackNodeContainer.Get(1);
+
 
     NodeContainer AttackNodeContainer1;
-    AttackNodeContainer1.Add ( Client_Router.Get (0) );
-    AttackNodeContainer1.Add (AttackNodeContainer.Get(1));
+    AttackNodeContainer1.Add(client);
+    AttackNodeContainer1.Add(sniffer);
 
 
     //именуем узлы
 
-    Names::Add("Server", Client_Router.Get(0));
-    Names::Add("Router", Client_Router.Get(1));
-    Names::Add("Gate", firstNodeContainer.Get(1));
-    Names::Add("IoT", secondNodeContainer.Get(1));
-    Names::Add("Attack_router", AttackNodeContainer.Get(1));
+    Names::Add("Client", client);
+    Names::Add("Router", router);
+    Names::Add("Gate", gate);
+    Names::Add("IoT", iot);
+    Names::Add("Sniffer", sniffer);
 
     /** MOBILITY */ //задаем координаты узлам
 
     /** NODES*/
-    AddMobility(20.0, - 5.0, Client_Router.Get(0));
-    AddMobility(20.0, 0, Client_Router.Get(1));
-    AddMobility(20.0, 10.0, firstNodeContainer.Get(1));
-    AddMobility(25.0, 15.0, secondNodeContainer.Get(1));
-    AddMobility(15.0, 0, AttackNodeContainer.Get(1));
+    addMobility(0.0, 6.0, client);
+    addMobility(30.0, 10.0, router);
+    addMobility(48.0, 12.0, gate);
+    addMobility(60.0, 15.0, iot);
+    addMobility(30.0, 25.0, sniffer);
+
 
     //строим топологии для двух пар узлов
 
@@ -91,8 +95,8 @@ main (int argc, char *argv[])
     p2p1.SetChannelAttribute("Delay", StringValue("1ms"));
 
     PointToPointHelper p2p2;
-    p2p2.SetDeviceAttribute ("DataRate", StringValue ("5Mbps"));
-    p2p2.SetChannelAttribute ("Delay", StringValue ("2ms"));
+    p2p2.SetDeviceAttribute("DataRate", StringValue("5Mbps"));
+    p2p2.SetChannelAttribute("Delay", StringValue("2ms"));
 
     PointToPointHelper p2p3;
     p2p3.SetDeviceAttribute("DataRate", StringValue("5Mbps"));
@@ -110,113 +114,142 @@ main (int argc, char *argv[])
 
     //подстраиваем топологии к узлам
 
-    NetDeviceContainer devices = p2p1.Install (Client_Router);
-    NetDeviceContainer devices2 = p2p2.Install (firstNodeContainer);
-    NetDeviceContainer devices3 = p2p3.Install (secondNodeContainer);
-    NetDeviceContainer devices4 = p2p4.Install (AttackNodeContainer);
-    NetDeviceContainer devices5 = p2p5.Install (AttackNodeContainer1);
+    NetDeviceContainer devices = p2p1.Install(firstNodeContainer);
+    NetDeviceContainer devices2 = p2p2.Install(secondNodeContainer);
+    NetDeviceContainer devices3 = p2p3.Install(thirdNodeContainer);
+    NetDeviceContainer devices4 = p2p4.Install(AttackNodeContainer);
+    NetDeviceContainer devices5 = p2p5.Install(AttackNodeContainer1);
 
     // создаем и устанавливаем все сетевые карты, учавсвтующие в передаче
 
     InternetStackHelper internet;
-    internet.Install (Client_Router);
-    internet.Install (firstNodeContainer.Get (1));
-    internet.Install (secondNodeContainer.Get(1));
-    internet.Install (AttackNodeContainer.Get (1));
+    internet.Install(firstNodeContainer);
+    internet.Install(secondNodeContainer.Get(1));
+    internet.Install(thirdNodeContainer.Get(1));
+    internet.Install(AttackNodeContainer.Get(1));
 
 
 
     // устанавливаем базовый IP адресс и маску для первых и вторых пар узлов
 
     Ipv4AddressHelper address1;
-    address1.SetBase ("192.168.1.0", "255.255.255.0");
+    address1.SetBase("192.168.1.1", "255.255.255.0");
 
     Ipv4AddressHelper address2;
-    address2.SetBase ("192.168.2.0", "255.255.255.0");
+    address2.SetBase("10.0.0.1", "255.255.255.0");
 
     Ipv4AddressHelper address3;
-    address3.SetBase ("192.168.3.0", "255.255.255.0");
+    address3.SetBase("203.82.48.1", "255.255.255.0");
 
     Ipv4AddressHelper address4;
-    address4.SetBase ("203.82.48.0", "255.255.255.0");
+    address4.SetBase("203.82.49.1", "255.255.255.0");
 
     Ipv4AddressHelper address5;
-    address5.SetBase ("203.82.49.0", "255.255.255.0");
+    address5.SetBase("203.82.50.1", "255.255.255.0");
 
     // присваеваем IP адресс нашим устройствам
 
-    Ipv4InterfaceContainer firstInterfaces = address1.Assign (devices);
-    Ipv4InterfaceContainer secondInterfaces = address2.Assign (devices2);
-    Ipv4InterfaceContainer thirdInterfaces = address3.Assign (devices3);
-    Ipv4InterfaceContainer attackInterfaces = address4.Assign (devices4);
-    Ipv4InterfaceContainer attackInterfaces1 = address5.Assign (devices5);
+    Ipv4InterfaceContainer firstInterfaces = address1.Assign(devices);
+    Ipv4InterfaceContainer secondInterfaces = address2.Assign(devices2);
+    Ipv4InterfaceContainer thirdInterfaces = address3.Assign(devices3);
+    Ipv4InterfaceContainer attackInterfaces = address4.Assign(devices4);
+    Ipv4InterfaceContainer attackInterfaces1 = address5.Assign(devices5);
+
+    Ipv4Address firstAddressOfRouter = firstInterfaces.GetAddress(0);
+    Ipv4Address secondAddressOfRouter = thirdInterfaces.GetAddress(0);
+    Ipv4Address firstAddressOfGate = firstInterfaces.GetAddress(1);
+    Ipv4Address secondAddressOfGate = secondInterfaces.GetAddress(0);
+    Ipv4Address addressOfIot = secondInterfaces.GetAddress(1);
+    Ipv4Address addressOfClient = thirdInterfaces.GetAddress(1);
+    Ipv4Address firstAddressOfSniffer = attackInterfaces.GetAddress(0);
+    Ipv4Address secondAddressOfSniffer = attackInterfaces1.GetAddress(0);
+
+
+    NS_LOG_UNCOND ("Client:");
+    NS_LOG_UNCOND (addressOfClient); //192.168.1.1
+
+    NS_LOG_UNCOND ("First Address of Router:");
+    NS_LOG_UNCOND (firstAddressOfRouter); //192.168.1.1
+
+    NS_LOG_UNCOND ("Second Address of Router:");
+    NS_LOG_UNCOND (secondAddressOfRouter); //203.82.48.1
+
+    NS_LOG_UNCOND ("First Address of Gate:");
+    NS_LOG_UNCOND (firstAddressOfGate); //192.168.1.2
+
+    NS_LOG_UNCOND ("Second Address of Gate:");
+    NS_LOG_UNCOND (secondAddressOfGate); //10.0.0.1
+
+    NS_LOG_UNCOND ("IoT:");
+    NS_LOG_UNCOND (addressOfIot); //10.0.0.2
+
+    NS_LOG_UNCOND ("First Address of Sniffer:");
+    NS_LOG_UNCOND (firstAddressOfSniffer); //
+
+    NS_LOG_UNCOND ("Second Address of Sniffer:");
+    NS_LOG_UNCOND (secondAddressOfSniffer); //
 
 
 
-//NAT
-//        private address    NAT      public address
-// n0 <--------------------> n1 <-----------------------> n2
-// 192.168.1.1   192.168.1.2    203.82.48.1  203.82.48.2
-//
-
-    Ipv4NatHelper natHelper;
-    //нулевой элемент в secondNodeContainer узхлах это НАТ узел
-    Ptr<Ipv4Nat> nat = natHelper.Install (secondNodeContainer.Get (0));
-    // Configure which of its Ipv4Interfaces are inside and outside interfaces
-    // The zeroth Ipv4Interface is reserved for the loopback interface
-    // Hence, the interface facing n0 is numbered "1" and the interface
-    // facing n2 is numbered "2" (since it was assigned in the secondNodeContainer step above)
-    nat->SetInside (1);
-    nat->SetOutside (2);
-
-    //Adding the address to be translated to and port pools.
-
-    nat->AddAddressPool (Ipv4Address ("192.168.1.2"), Ipv4Mask ("255.255.255.255"));
-    nat->AddPortPool (49153, 49163);
-
-    // Add a rule here to map outbound connections from n0, port 49153, UDP
-
-    Ipv4DynamicNatRule rule (Ipv4Address ("192.168.1.0"), Ipv4Mask ("255.255.255.0"));
-    nat->AddDynamicRule (rule);
-
-
-    Ptr<OutputStreamWrapper> natStream = Create<OutputStreamWrapper> ("nat.rules", std::ios::out);
-    nat->PrintTable (natStream);
-
+    addNat(gate, firstAddressOfGate, secondAddressOfRouter);
+    addNat(router, firstAddressOfRouter, addressOfClient);
+    addNat(sniffer, firstAddressOfSniffer, addressOfClient);
 
     // Протокол TCP: клиент-серверное сообщение
     NS_LOG_UNCOND ("TCP trace:");
 
 
-    TcpEchoClientHelper tcpClient(attackInterfaces.GetAddress (0), 9);
-    tcpClient.SetAttribute ("MaxPackets", UintegerValue (1));
-    tcpClient.SetAttribute ("Interval", TimeValue (Seconds (1.)));
-    tcpClient.SetAttribute ("PacketSize", UintegerValue (512));
+    TcpEchoClientHelper tcpClient(secondInterfaces.GetAddress(1), 9);
+    tcpClient.SetAttribute("MaxPackets", UintegerValue(1));
+    tcpClient.SetAttribute("Interval", TimeValue(Seconds(1.)));
+    tcpClient.SetAttribute("PacketSize", UintegerValue(512));
 
-    ApplicationContainer client = tcpClient.Install (Client_Router.Get (0));
-    client.Start(Seconds (2.0));
-    client.Stop (Seconds (12.0));
+    ApplicationContainer client2 = tcpClient.Install(client);
+    client2.Start(Seconds(2.0));
+    client2.Stop(Seconds(12.0));
 
+    TcpEchoClientHelper tcpClient1(attackInterfaces.GetAddress(1), 9);
+    tcpClient1.SetAttribute("MaxPackets", UintegerValue(1));
+    tcpClient1.SetAttribute("Interval", TimeValue(Seconds(1.)));
+    tcpClient1.SetAttribute("PacketSize", UintegerValue(512));
 
-    TcpEchoClientHelper tcpClient1(thirdInterfaces.GetAddress (1), 9);
-    tcpClient1.SetAttribute ("MaxPackets", UintegerValue (1));
-    tcpClient1.SetAttribute ("Interval", TimeValue (Seconds (1.)));
-    tcpClient1.SetAttribute ("PacketSize", UintegerValue (512));
+    ApplicationContainer client1 = tcpClient1.Install(client);
+    client1.Start(Seconds(2.0));
+    client1.Stop(Seconds(10.0));
 
-    ApplicationContainer client1 = tcpClient1.Install (Client_Router.Get (0));
-    client1.Start(Seconds (2.0));
-    client1.Stop (Seconds (10.0));
+    TcpEchoClientHelper tcpClient3(attackInterfaces.GetAddress(0), 9);
+    tcpClient3.SetAttribute("MaxPackets", UintegerValue(1));
+    tcpClient3.SetAttribute("Interval", TimeValue(Seconds(1.)));
+    tcpClient3.SetAttribute("PacketSize", UintegerValue(512));
+
+    ApplicationContainer client3 = tcpClient3.Install(sniffer);
+    client3.Start(Seconds(2.0018));
+    client3.Stop(Seconds(10.0));
 
     TcpEchoServerHelper tcpServer(9);
-    ApplicationContainer server = tcpServer.Install (secondNodeContainer.Get (1));
-    server.Start (Seconds (1.0));
-    server.Stop (Seconds (10.0));
+    ApplicationContainer server = tcpServer.Install(iot);
+    server.Start(Seconds(1.0));
+    server.Stop(Seconds(10.0));
+
+    PacketSocket packetSocket;
+    ns3::PacketSocket::CreateSocket(sniffer, TypeId("ns3::SnifferNode"));
+
+    SnifferNode snifferNode;
+    snifferNode.SetListeningP2P(p2p1);
+    snifferNode.SetStartTime(Seconds(1.0));
+    snifferNode.SetStopTime(Seconds(10.0));
 
 
 
-    //AsciiTraceHelper ascii;
-    // p2p2.EnableAsciiAll (ascii.CreateFileStream ("p2p2.tr"));
-    //p2p1.EnableAsciiAll (ascii.CreateFileStream ("p2p1.tr"));
+
+
+
+
+
+
+//    AsciiTraceHelper ascii;
+//    p2p2.EnableAsciiAll (ascii.CreateFileStream ("p2p2.tr"));
+//    p2p1.EnableAsciiAll (ascii.CreateFileStream ("p2p1.tr"));
 
 
     /* PCAP */
@@ -228,22 +261,64 @@ main (int argc, char *argv[])
 
 
     /* ANIMATION */
-    AnimationInterface anim("one-iot.xml");
+    AnimationInterface anim("IoT_Sniffer.xml");
+
+    string sourceDir = ICONS_DIR;
+
+    uint32_t pictureIoT = anim.AddResource(sourceDir + "/iot.png");
+    uint32_t pictureGate = anim.AddResource(sourceDir + "/gate.png");
+    uint32_t pictureRouter = anim.AddResource(sourceDir + "/router.png");
+    uint32_t pictureClient = anim.AddResource(sourceDir + "/client.png");
+    uint32_t pictureSniffer = anim.AddResource(sourceDir + "/attacker.png");
+
+    anim.UpdateNodeImage(0, pictureRouter);
+    anim.UpdateNodeImage(1, pictureGate);
+    anim.UpdateNodeImage(2, pictureIoT);
+    anim.UpdateNodeImage(3, pictureClient);
+    anim.UpdateNodeImage(4, pictureSniffer);
+
+    for (uint32_t i = 0; i <= 4; i++) {
+        anim.UpdateNodeSize(i, 9, 9);
+    }
 
 
     /* Simulation */
-    Ipv4GlobalRoutingHelper::PopulateRoutingTables ();
+    Ipv4GlobalRoutingHelper::PopulateRoutingTables();
 
-    Simulator::Run ();
-    Simulator::Destroy ();
+    Simulator::Run();
+    Simulator::Destroy();
     return 0;
 
 }
 
-void AddMobility(double val1, double val2, NodeContainer container) {
+void addMobility(double x_position, double y_position, NodeContainer container) {
     MobilityHelper mobility;
     mobility.SetPositionAllocator("ns3::GridPositionAllocator", "MinX",
-                                  DoubleValue(val1), "MinY", DoubleValue(val2));
+                                  DoubleValue(x_position), "MinY", DoubleValue(y_position));
     mobility.SetMobilityModel("ns3::ConstantPositionMobilityModel");
     mobility.Install(std::move(container));
+}
+
+void addNat(Ptr<Node> gateNode, Ipv4Address gateAddress, Ipv4Address routerAddress) {
+
+    Ipv4NatHelper natHelper;
+    Ptr<Ipv4Nat> nat = natHelper.Install(gateNode);
+    // Configure which of its Ipv4Interfaces are inside and outside interfaces
+    // The zeroth Ipv4Interface is reserved for the loopback interface
+    // Hence, the interface facing n0 is numbered "1" and the interface
+    // facing n2 is numbered "2" (since it was assigned in the secondNodeContainer step above)
+    nat->SetInside(1);
+    nat->SetOutside(2);
+
+    //Adding the address to be translated to and port pools.
+    nat->AddAddressPool(gateAddress, Ipv4Mask("255.255.255.0"));
+    nat->AddPortPool(49153, 49163);
+
+    //Add a rule here to map outbound connections from n0, port 49153
+    Ipv4DynamicNatRule rule(routerAddress, Ipv4Mask("255.255.255.0"));
+    nat->AddDynamicRule(rule);
+
+
+    Ptr<OutputStreamWrapper> natStream = Create<OutputStreamWrapper>("nat.rules", std::ios::out);
+    nat->PrintTable(natStream);
 }

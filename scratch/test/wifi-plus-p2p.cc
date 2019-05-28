@@ -22,12 +22,12 @@ using namespace std;
 
 /*
  *
- * p2p (client/IoT) --------<-------Wifi AP (Gate)  <<<<<   Wifi STA(source) (Router)
+ * m_p2p (client/IoT) --------<-------Wifi AP (Gate)  <<<<<   Wifi STA(source) (Router)
  *
 */
 
-std::string delay = "0ms";        //delay;p2p link
-std::string datarate = "35Mbps";    //data rate of p2p link
+std::string delay = "0ms";        //delay;m_p2p link
+std::string datarate = "35Mbps";    //data rate of m_p2p link
 Time stoptime = Seconds(5.0);
 
 NS_LOG_COMPONENT_DEFINE ("Router-Gate-IoT");
@@ -61,8 +61,8 @@ int main(int argc, char *argv[]) {
 
     NodeContainer p2pnodes;
 
-    p2pnodes.Add(wifinodes.Get(1));//attach the AP to p2p nodes
-    p2pnodes.Create(1);//create p2p client
+    p2pnodes.Add(wifinodes.Get(1));//attach the AP to m_p2p nodes
+    p2pnodes.Create(1);//create m_p2p client
 
     //именуем узлы
 
@@ -134,7 +134,7 @@ int main(int argc, char *argv[]) {
     Ipv4InterfaceContainer interfaces = address.Assign(devices); //wifi devices addresses
 
     address.SetBase("10.1.2.0", "255.255.255.0");
-    Ipv4InterfaceContainer interfaces1 = address.Assign(devices1);//p2p devices addresses
+    Ipv4InterfaceContainer interfaces1 = address.Assign(devices1);//m_p2p devices addresses
 
     /*********************NAT************************/
 
@@ -215,7 +215,7 @@ int main(int argc, char *argv[]) {
     /******************PCAP*************************/
 //
 //    wifiPhy.EnablePcapAll("wifi");
-//    pointToPoint.EnablePcapAll("p2p");
+//    pointToPoint.EnablePcapAll("m_p2p");
 
 
     /* Simulation */
